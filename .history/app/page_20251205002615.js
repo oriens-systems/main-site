@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Mission from "./components/Mission";
-import Bottleneck from "./components/Bottleneck";
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Mission />
-      <Bottleneck />
     </main>
   );
 }
