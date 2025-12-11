@@ -93,36 +93,7 @@ export default function Mission() {
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden py-20 lg:py-28"
     >
-      {/* Grid background - fixed to viewport for continuity with Hero */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
-          }}
-        />
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
-          }}
-        />
-      </div>
-
-      {/* Gradient accents */}
+      {/* Local gradient accents */}
       <div
         className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#7af0e3]/6 rounded-full blur-[100px]"
         aria-hidden

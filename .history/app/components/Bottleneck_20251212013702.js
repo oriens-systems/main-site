@@ -11,7 +11,6 @@ export default function Bottleneck() {
     offset: ["start end", "end start"],
   });
 
-  const dotsY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const titleY = useTransform(scrollYProgress, [0, 1], ["10%", "-4%"]);
   const cardsY = useTransform(scrollYProgress, [0, 1], ["12%", "-6%"]);
 
@@ -178,28 +177,6 @@ export default function Bottleneck() {
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden py-24 lg:py-32"
     >
-      <motion.div
-        className="absolute inset-0 overflow-hidden"
-        style={{ y: dotsY }}
-      >
-        <motion.div
-          className="absolute w-[130%] h-[130%] -top-[15%] -left-[15%]"
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.5) 1.2px, transparent 1.2px)`,
-            backgroundSize: "68px 68px",
-          }}
-          animate={{
-            x: [0, 70],
-            y: [0, 70],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      </motion.div>
-
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         <motion.div
           className="text-center mb-16 lg:mb-20"

@@ -26,10 +26,7 @@ export default function Header() {
             <a href="#mission" className="hover:text-white transition-colors">
               Mission
             </a>
-            <a
-              href="#bottleneck"
-              className="hover:text-white transition-colors"
-            >
+            <a href="#bottleneck" className="hover:text-white transition-colors">
               Bottleneck
             </a>
             <a href="#contact" className="hover:text-white transition-colors">
@@ -51,3 +48,4 @@ export default function Header() {
     </header>
   );
 }
+

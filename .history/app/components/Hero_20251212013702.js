@@ -36,36 +36,7 @@ export default function Hero() {
       ref={sectionRef}
       className="relative isolate min-h-screen overflow-hidden"
     >
-      {/* Animated grid background - fixed to viewport for continuity */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
-          }}
-        />
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
-          }}
-        />
-      </div>
-
-      {/* Gradient orbs */}
+      {/* Local gradient accents */}
       <div
         className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#7af0e3]/8 rounded-full blur-[120px]"
         aria-hidden

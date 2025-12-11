@@ -22,6 +22,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
@@ -36,34 +37,33 @@ export default function Hero() {
       ref={sectionRef}
       className="relative isolate min-h-screen overflow-hidden"
     >
-      {/* Animated grid background - fixed to viewport for continuity */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
+      {/* Animated grid background */}
+      <motion.div
+        className="absolute inset-0 opacity-50"
+        style={{ y: gridY }}
         aria-hidden
       >
         <div
-          className="fixed inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
               linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
           }}
         />
         <div
-          className="fixed inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
               linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Gradient orbs */}
       <div

@@ -18,51 +18,13 @@ export default function Bottleneck() {
   const cards = [
     {
       icon: (
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M24 4L4 44H44L24 4Z"
-            stroke="#7AF0E3"
-            strokeWidth="1.5"
-            fill="none"
-          />
-          <path
-            d="M24 8L8 40H40L24 8Z"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.5"
-          />
-          <path
-            d="M24 18V28"
-            stroke="#7AF0E3"
-            strokeWidth="2"
-            strokeLinecap="square"
-          />
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4L4 44H44L24 4Z" stroke="#7AF0E3" strokeWidth="1.5" fill="none" />
+          <path d="M24 8L8 40H40L24 8Z" stroke="#7AF0E3" strokeWidth="0.5" fill="none" opacity="0.5" />
+          <path d="M24 18V28" stroke="#7AF0E3" strokeWidth="2" strokeLinecap="square" />
           <rect x="22" y="32" width="4" height="4" fill="#7AF0E3" />
-          <line
-            x1="12"
-            y1="36"
-            x2="36"
-            y2="36"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            opacity="0.3"
-          />
-          <line
-            x1="16"
-            y1="32"
-            x2="32"
-            y2="32"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            opacity="0.3"
-          />
+          <line x1="12" y1="36" x2="36" y2="36" stroke="#7AF0E3" strokeWidth="0.5" opacity="0.3" />
+          <line x1="16" y1="32" x2="32" y2="32" stroke="#7AF0E3" strokeWidth="0.5" opacity="0.3" />
         </svg>
       ),
       title: "The bottleneck",
@@ -71,99 +33,19 @@ export default function Bottleneck() {
     },
     {
       icon: (
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle
-            cx="24"
-            cy="24"
-            r="20"
-            stroke="#7AF0E3"
-            strokeWidth="1.5"
-            fill="none"
-          />
-          <circle
-            cx="24"
-            cy="24"
-            r="14"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.5"
-          />
-          <circle
-            cx="24"
-            cy="24"
-            r="8"
-            stroke="#7AF0E3"
-            strokeWidth="1"
-            fill="none"
-          />
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="#7AF0E3" strokeWidth="1.5" fill="none" />
+          <circle cx="24" cy="24" r="14" stroke="#7AF0E3" strokeWidth="0.5" fill="none" opacity="0.5" />
+          <circle cx="24" cy="24" r="8" stroke="#7AF0E3" strokeWidth="1" fill="none" />
           <circle cx="24" cy="24" r="3" fill="#7AF0E3" />
-          <line
-            x1="24"
-            y1="2"
-            x2="24"
-            y2="12"
-            stroke="#7AF0E3"
-            strokeWidth="1.5"
-          />
-          <line
-            x1="24"
-            y1="36"
-            x2="24"
-            y2="46"
-            stroke="#7AF0E3"
-            strokeWidth="1.5"
-          />
-          <line
-            x1="2"
-            y1="24"
-            x2="12"
-            y2="24"
-            stroke="#7AF0E3"
-            strokeWidth="1.5"
-          />
-          <line
-            x1="36"
-            y1="24"
-            x2="46"
-            y2="24"
-            stroke="#7AF0E3"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M8 8L14 8L14 14"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.6"
-          />
-          <path
-            d="M40 8L34 8L34 14"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.6"
-          />
-          <path
-            d="M8 40L14 40L14 34"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.6"
-          />
-          <path
-            d="M40 40L34 40L34 34"
-            stroke="#7AF0E3"
-            strokeWidth="0.5"
-            fill="none"
-            opacity="0.6"
-          />
+          <line x1="24" y1="2" x2="24" y2="12" stroke="#7AF0E3" strokeWidth="1.5" />
+          <line x1="24" y1="36" x2="24" y2="46" stroke="#7AF0E3" strokeWidth="1.5" />
+          <line x1="2" y1="24" x2="12" y2="24" stroke="#7AF0E3" strokeWidth="1.5" />
+          <line x1="36" y1="24" x2="46" y2="24" stroke="#7AF0E3" strokeWidth="1.5" />
+          <path d="M8 8L14 8L14 14" stroke="#7AF0E3" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M40 8L34 8L34 14" stroke="#7AF0E3" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M8 40L14 40L14 34" stroke="#7AF0E3" strokeWidth="0.5" fill="none" opacity="0.6" />
+          <path d="M40 40L34 40L34 34" stroke="#7AF0E3" strokeWidth="0.5" fill="none" opacity="0.6" />
         </svg>
       ),
       title: "The grid",
@@ -218,8 +100,8 @@ export default function Bottleneck() {
             Bridging the gap between CAD and certified metal.
           </h2>
           <p className="text-white/65 text-base md:text-lg lg:text-xl max-w-3xl mx-auto font-light leading-relaxed">
-            Every job runs on the same grid—toolpaths, machine state, and
-            inspection data stay in sync. Teams ship more often with less noise.
+            Every job runs on the same grid—toolpaths, machine state, and inspection data stay in sync.
+            Teams ship more often with less noise.
           </p>
         </motion.div>
 
@@ -237,10 +119,7 @@ export default function Bottleneck() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.01 }}
             >
-              <div
-                className="absolute inset-0 grid-overlay opacity-40"
-                aria-hidden
-              />
+              <div className="absolute inset-0 grid-overlay opacity-40" aria-hidden />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(122,240,227,0.16)]" />
 
               <div className="relative z-10">
@@ -279,15 +158,12 @@ export default function Bottleneck() {
           viewport={{ once: true }}
         >
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.2em] text-white/60">
-              Next step
-            </p>
+            <p className="text-xs uppercase tracking-[0.2em] text-white/60">Next step</p>
             <h3 className="text-white text-2xl font-semibold">
               Want a tour of the grid?
             </h3>
             <p className="text-white/65 text-sm md:text-base max-w-xl">
-              Walk through live cells, telemetry, and how we ship your parts
-              faster than legacy shops.
+              Walk through live cells, telemetry, and how we ship your parts faster than legacy shops.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">

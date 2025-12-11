@@ -25,20 +25,11 @@ body {
 }
 
 body {
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(122, 240, 227, 0.08),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(159, 122, 234, 0.12),
-      transparent 32%
-    ),
+  background: radial-gradient(circle at 20% 20%, rgba(122, 240, 227, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(159, 122, 234, 0.12), transparent 32%),
     linear-gradient(140deg, var(--background), var(--background-2) 55%, #0c1226);
   color: var(--foreground);
-  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system,
-    sans-serif;
+  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -50,11 +41,7 @@ body {
   background-image: linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(
-    circle at center,
-    rgba(255, 255, 255, 0.4),
-    transparent 70%
-  );
+  mask-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.4), transparent 70%);
   opacity: 0.65;
   pointer-events: none;
 }
@@ -63,19 +50,15 @@ body {
 .panel {
   background: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55),
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px);
 }
 
 .divider {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.22),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
 }
 
 .glow-dot {
@@ -85,11 +68,7 @@ body {
   border-radius: 9999px;
   filter: blur(70px);
   opacity: 0.5;
-  background: radial-gradient(
-    circle,
-    rgba(122, 240, 227, 0.28),
-    transparent 60%
-  );
+  background: radial-gradient(circle, rgba(122, 240, 227, 0.28), transparent 60%);
 }
 
 /* Custom animations */

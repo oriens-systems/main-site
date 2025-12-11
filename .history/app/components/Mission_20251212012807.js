@@ -21,6 +21,7 @@ export default function Mission() {
     offset: ["start end", "end start"],
   });
 
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const visualY = useTransform(scrollYProgress, [0, 1], ["12%", "-6%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["8%", "-4%"]);
 
@@ -43,7 +44,7 @@ export default function Mission() {
         </svg>
       ),
       label: "High Speed",
-
+      value: "5×",
       copy: "CAM decisions generated in seconds, not hours",
     },
     {
@@ -61,7 +62,7 @@ export default function Mission() {
         </svg>
       ),
       label: "Full Automation",
-
+      value: "24/7",
       copy: "Cells, metrology, and feedback loops",
     },
     {
@@ -82,7 +83,7 @@ export default function Mission() {
         </svg>
       ),
       label: "Lower Cost",
-
+      value: "50%",
       copy: "Dense cells mean less overhead",
     },
   ];
@@ -93,34 +94,33 @@ export default function Mission() {
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden py-20 lg:py-28"
     >
-      {/* Grid background - fixed to viewport for continuity with Hero */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
+      {/* Animated grid background */}
+      <motion.div
+        className="absolute inset-0 opacity-40"
+        style={{ y: gridY }}
         aria-hidden
       >
         <div
-          className="fixed inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(122,240,227,0.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(122,240,227,0.04) 1px, transparent 1px)
             `,
-            backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
+            backgroundSize: "50px 50px",
           }}
         />
         <div
-          className="fixed inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(122,240,227,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(122,240,227,0.1) 1px, transparent 1px)
             `,
-            backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
+            backgroundSize: "250px 250px",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Gradient accents */}
       <div
@@ -255,12 +255,12 @@ export default function Mission() {
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.label}
-                  className="group relative p-4 md:p-5 rounded-xl border bg-white/2 overflow-hidden transition-colors duration-300 hover:border-[#7af0e3]/30"
-                  style={{ borderColor: "rgba(255,255,255,0.08)" }}
+                  className="group relative p-4 md:p-5 rounded-xl border border-white/8 bg-white/2 overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.15 * index }}
                   viewport={{ once: true }}
+                  whileHover={{ borderColor: "rgba(122,240,227,0.3)" }}
                 >
                   {/* Hover glow */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-r from-[#7af0e3]/5 to-transparent" />

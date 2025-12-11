@@ -1,18 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-// Dynamic import for Three.js component (no SSR)
-const WireframeSphere = dynamic(() => import("./WireframeSphere"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-16 h-16 border-2 border-[#7af0e3]/30 border-t-[#7af0e3] rounded-full animate-spin" />
-    </div>
-  ),
-});
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -22,6 +12,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
@@ -36,34 +27,33 @@ export default function Hero() {
       ref={sectionRef}
       className="relative isolate min-h-screen overflow-hidden"
     >
-      {/* Animated grid background - fixed to viewport for continuity */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
+      {/* Animated grid background */}
+      <motion.div
+        className="absolute inset-0 opacity-50"
+        style={{ y: gridY }}
         aria-hidden
       >
         <div
-          className="fixed inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
               linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
           }}
         />
         <div
-          className="fixed inset-0"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
               linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Gradient orbs */}
       <div
@@ -159,7 +149,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* 3D Sphere visual */}
+        {/* Hero visual card */}
         <motion.div
           className="mt-16 md:mt-20 relative"
           initial={{ opacity: 0, y: 40 }}
@@ -169,7 +159,7 @@ export default function Hero() {
           <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/8 bg-white/2">
             {/* Inner grid texture */}
             <div
-              className="absolute inset-0 opacity-40 pointer-events-none"
+              className="absolute inset-0 opacity-40"
               style={{
                 backgroundImage: `
                   linear-gradient(rgba(122,240,227,0.05) 1px, transparent 1px),
@@ -182,20 +172,20 @@ export default function Hero() {
 
             {/* Scanline effect */}
             <motion.div
-              className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#7af0e3]/40 to-transparent pointer-events-none z-10"
+              className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#7af0e3]/40 to-transparent"
               animate={{ top: ["0%", "100%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               aria-hidden
             />
 
             {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-[#7af0e3]/30 rounded-tl-2xl pointer-events-none z-10" />
-            <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-[#7af0e3]/30 rounded-tr-2xl pointer-events-none z-10" />
-            <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-[#7af0e3]/30 rounded-bl-2xl pointer-events-none z-10" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-[#7af0e3]/30 rounded-br-2xl pointer-events-none z-10" />
+            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-[#7af0e3]/30 rounded-tl-2xl" />
+            <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-[#7af0e3]/30 rounded-tr-2xl" />
+            <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-[#7af0e3]/30 rounded-bl-2xl" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-[#7af0e3]/30 rounded-br-2xl" />
 
             {/* Status bar */}
-            <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-b border-white/6 z-10">
+            <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-b border-white/6">
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#7af0e3]" />
@@ -212,13 +202,19 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 3D Sphere Canvas */}
-            <div className="relative h-[300px] md:h-[400px] lg:h-[450px]">
-              <WireframeSphere />
+            {/* Image */}
+            <div className="relative aspect-video md:aspect-[2.2/1]">
+              <Image
+                src="/hero.svg"
+                alt="Grid visualization"
+                fill
+                className="object-contain p-6 md:p-10"
+                priority
+              />
             </div>
 
             {/* Bottom bar */}
-            <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-t border-white/6 z-10">
+            <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-t border-white/6">
               <div className="flex items-center gap-6 text-xs text-white/40">
                 <span>
                   <span className="text-white/60">Δt</span> 2.4ms
@@ -228,7 +224,7 @@ export default function Hero() {
                 </span>
               </div>
               <div className="text-xs text-white/40">
-                Drag to rotate · Real-time render
+                Synchronized · Real-time feedback
               </div>
             </div>
           </div>
