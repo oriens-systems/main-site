@@ -8,7 +8,7 @@ const WireframeTorus = dynamic(() => import("./WireframeTorus"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
+      <div className="w-12 h-12 border-2 border-[#7af0e3]/30 border-t-[#7af0e3] rounded-full animate-spin" />
     </div>
   ),
 });
@@ -102,8 +102,8 @@ export default function Mission() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -113,8 +113,8 @@ export default function Mission() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -124,7 +124,7 @@ export default function Mission() {
 
       {/* Gradient accents */}
       <div
-        className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#8b5cf6]/6 rounded-full blur-[100px]"
+        className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#7af0e3]/6 rounded-full blur-[100px]"
         aria-hidden
       />
       <div
@@ -143,8 +143,8 @@ export default function Mission() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-6">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7af0e3] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7af0e3]" />
             </span>
             <span className="text-xs uppercase tracking-[0.2em] text-white/60">
               Our Mission
@@ -152,7 +152,7 @@ export default function Mission() {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] text-white tracking-tight max-w-4xl mx-auto">
             An AI-first grid for
-            <span className="text-[#8b5cf6]"> advanced manufacturing.</span>
+            <span className="text-[#7af0e3]"> advanced manufacturing.</span>
           </h2>
         </motion.div>
 
@@ -173,8 +173,8 @@ export default function Mission() {
                 className="absolute inset-0 opacity-30 pointer-events-none"
                 style={{
                   backgroundImage: `
-                    linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px)
+                    linear-gradient(rgba(122,240,227,0.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(122,240,227,0.06) 1px, transparent 1px)
                   `,
                   backgroundSize: "32px 32px",
                 }}
@@ -183,23 +183,23 @@ export default function Mission() {
 
               {/* Scanline */}
               <motion.div
-                className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#8b5cf6]/50 to-transparent pointer-events-none z-10"
+                className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#7af0e3]/50 to-transparent pointer-events-none z-10"
                 animate={{ top: ["0%", "100%"] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                 aria-hidden
               />
 
               {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[#8b5cf6]/30 rounded-tl-2xl pointer-events-none z-10" />
-              <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-[#8b5cf6]/30 rounded-tr-2xl pointer-events-none z-10" />
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-[#8b5cf6]/30 rounded-bl-2xl pointer-events-none z-10" />
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[#8b5cf6]/30 rounded-br-2xl pointer-events-none z-10" />
+              <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[#7af0e3]/30 rounded-tl-2xl pointer-events-none z-10" />
+              <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-[#7af0e3]/30 rounded-tr-2xl pointer-events-none z-10" />
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-[#7af0e3]/30 rounded-bl-2xl pointer-events-none z-10" />
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[#7af0e3]/30 rounded-br-2xl pointer-events-none z-10" />
 
               {/* Top bar */}
               <div className="relative flex items-center justify-between px-4 md:px-5 py-2.5 border-b border-white/6 z-10">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-[#8b5cf6]" />
+                    <div className="w-2 h-2 rounded-full bg-[#7af0e3]" />
                     <div className="w-2 h-2 rounded-full bg-white/20" />
                     <div className="w-2 h-2 rounded-full bg-white/20" />
                   </div>
@@ -207,7 +207,7 @@ export default function Mission() {
                     CELL_ORCHESTRATOR
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-[#8b5cf6]/60">
+                <span className="text-[11px] font-mono text-[#7af0e3]/60">
                   ● ACTIVE
                 </span>
               </div>
@@ -255,7 +255,7 @@ export default function Mission() {
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.label}
-                  className="group relative p-4 md:p-5 rounded-xl border bg-white/2 overflow-hidden transition-colors duration-300 hover:border-[#8b5cf6]/30"
+                  className="group relative p-4 md:p-5 rounded-xl border bg-white/2 overflow-hidden transition-colors duration-300 hover:border-[#7af0e3]/30"
                   style={{ borderColor: "rgba(255,255,255,0.08)" }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -263,11 +263,11 @@ export default function Mission() {
                   viewport={{ once: true }}
                 >
                   {/* Hover glow */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-r from-[#8b5cf6]/5 to-transparent" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-r from-[#7af0e3]/5 to-transparent" />
 
                   <div className="relative flex items-start gap-4">
                     {/* Icon */}
-                    <div className="shrink-0 w-10 h-10 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center text-[#8b5cf6]">
+                    <div className="shrink-0 w-10 h-10 rounded-lg bg-[#7af0e3]/10 border border-[#7af0e3]/20 flex items-center justify-center text-[#7af0e3]">
                       {feature.icon}
                     </div>
 
@@ -277,7 +277,7 @@ export default function Mission() {
                         <span className="text-sm font-medium text-white">
                           {feature.label}
                         </span>
-                        <span className="text-lg font-semibold text-[#8b5cf6]">
+                        <span className="text-lg font-semibold text-[#7af0e3]">
                           {feature.value}
                         </span>
                       </div>
@@ -286,7 +286,7 @@ export default function Mission() {
                   </div>
 
                   {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#8b5cf6]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#7af0e3]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
               ))}
             </div>

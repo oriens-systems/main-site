@@ -9,7 +9,7 @@ const WireframeSphere = dynamic(() => import("./WireframeSphere"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-16 h-16 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
+      <div className="w-16 h-16 border-2 border-[#7af0e3]/30 border-t-[#7af0e3] rounded-full animate-spin" />
     </div>
   ),
 });
@@ -45,8 +45,8 @@ export default function Hero() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(122,240,227,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(122,240,227,0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -56,8 +56,8 @@ export default function Hero() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(122,240,227,0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(122,240,227,0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -67,7 +67,7 @@ export default function Hero() {
 
       {/* Gradient orbs */}
       <div
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/8 rounded-full blur-[120px]"
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#7af0e3]/8 rounded-full blur-[120px]"
         aria-hidden
       />
       <div
@@ -89,8 +89,8 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7af0e3] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7af0e3]" />
             </span>
             <span className="text-xs uppercase tracking-[0.2em] text-white/60">
               Grid online · North America
@@ -107,7 +107,7 @@ export default function Hero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
               Autonomous factories
               <br />
-              <span className="text-[#8b5cf6]">for precision metal.</span>
+              <span className="text-[#7af0e3]">for precision metal.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               One AI layer coordinates CAM, machining, and inspection—so defense
@@ -124,7 +124,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group relative px-6 py-3.5 rounded-full bg-[#8b5cf6] text-[#050a12] font-semibold text-sm overflow-hidden transition-transform hover:scale-[1.02]"
+              className="group relative px-6 py-3.5 rounded-full bg-[#7af0e3] text-[#050a12] font-semibold text-sm overflow-hidden transition-transform hover:scale-[1.02]"
             >
               <span className="relative z-10">Request access</span>
             </a>
@@ -172,8 +172,8 @@ export default function Hero() {
               className="absolute inset-0 opacity-40 pointer-events-none"
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
+                  linear-gradient(rgba(122,240,227,0.05) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(122,240,227,0.05) 1px, transparent 1px)
                 `,
                 backgroundSize: "40px 40px",
               }}
@@ -182,23 +182,23 @@ export default function Hero() {
 
             {/* Scanline effect */}
             <motion.div
-              className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#8b5cf6]/40 to-transparent pointer-events-none z-10"
+              className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#7af0e3]/40 to-transparent pointer-events-none z-10"
               animate={{ top: ["0%", "100%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               aria-hidden
             />
 
             {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-[#8b5cf6]/30 rounded-tl-2xl pointer-events-none z-10" />
-            <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-[#8b5cf6]/30 rounded-tr-2xl pointer-events-none z-10" />
-            <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-[#8b5cf6]/30 rounded-bl-2xl pointer-events-none z-10" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-[#8b5cf6]/30 rounded-br-2xl pointer-events-none z-10" />
+            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-[#7af0e3]/30 rounded-tl-2xl pointer-events-none z-10" />
+            <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-[#7af0e3]/30 rounded-tr-2xl pointer-events-none z-10" />
+            <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-[#7af0e3]/30 rounded-bl-2xl pointer-events-none z-10" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-[#7af0e3]/30 rounded-br-2xl pointer-events-none z-10" />
 
             {/* Status bar */}
             <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-b border-white/6 z-10">
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#8b5cf6]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#7af0e3]" />
                   <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
                   <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
                 </div>
@@ -208,7 +208,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-4 text-xs text-white/40">
                 <span className="hidden sm:inline">48 cells active</span>
-                <span className="font-mono text-[#8b5cf6]/70">● LIVE</span>
+                <span className="font-mono text-[#7af0e3]/70">● LIVE</span>
               </div>
             </div>
 
