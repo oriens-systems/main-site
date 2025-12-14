@@ -4,8 +4,17 @@ import { useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// Dynamic import for Three.js component (no SSR)
+// Dynamic import for Three.js components (no SSR)
 const WireframeSphere = dynamic(() => import("./WireframeSphere"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-16 h-16 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
+    </div>
+  ),
+});
+
+const WireframeRocketNozzle = dynamic(() => import("./WireframeRocketNozzle"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
@@ -74,6 +83,14 @@ export default function Hero() {
         className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/10 rounded-full blur-[100px]"
         aria-hidden
       />
+
+      {/* Background decorative sphere - left side, half visible */}
+      <div
+        className="absolute -left-[300px] md:-left-[350px] lg:-left-[400px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
+        aria-hidden
+      >
+        <WireframeSphere />
+      </div>
 
       {/* Content */}
       <motion.div
@@ -212,9 +229,9 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* 3D Sphere Canvas */}
+            {/* 3D Rocket Nozzle Canvas */}
             <div className="relative h-[300px] md:h-[400px] lg:h-[450px]">
-              <WireframeSphere />
+              <WireframeRocketNozzle />
             </div>
 
             {/* Bottom bar */}

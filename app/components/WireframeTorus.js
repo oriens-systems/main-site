@@ -22,7 +22,7 @@ function Torus() {
 
 export default function WireframeTorus() {
   return (
-    <div className="w-full h-full">
+    <div className="h-full" style={{ width: "110%" }}>
       <Canvas
         camera={{ position: [0, 0, 6], fov: 45 }}
         gl={{ antialias: false, alpha: true }}

@@ -13,6 +13,15 @@ const WireframeTorus = dynamic(() => import("./WireframeTorus"), {
   ),
 });
 
+const WireframePumpImpeller = dynamic(() => import("./WireframePumpImpeller"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-12 h-12 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
+    </div>
+  ),
+});
+
 export default function Mission() {
   const sectionRef = useRef(null);
 
@@ -132,6 +141,14 @@ export default function Mission() {
         aria-hidden
       />
 
+      {/* Background decorative torus - right side, half visible */}
+      <div
+        className="absolute -right-[300px] md:-right-[350px] lg:-right-[400px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-30 pointer-events-none"
+        aria-hidden
+      >
+        <WireframeTorus />
+      </div>
+
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Section header */}
         <motion.div
@@ -214,7 +231,7 @@ export default function Mission() {
 
               {/* 3D Canvas */}
               <div className="relative h-[340px] md:h-[400px] lg:h-[460px]">
-                <WireframeTorus />
+                <WireframePumpImpeller />
               </div>
 
               {/* Bottom bar */}

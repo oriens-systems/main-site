@@ -54,13 +54,13 @@ function Sphere() {
 
         {/* Outer ring */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[2.8, 0.01, 16, 100]} />
+          <torusGeometry args={[2.3, 0.01, 16, 100]} />
           <meshBasicMaterial color="#8b5cf6" transparent opacity={0.4} />
         </mesh>
 
         {/* Secondary ring */}
         <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
-          <torusGeometry args={[2.5, 0.008, 16, 80]} />
+          <torusGeometry args={[2.3, 0.008, 16, 80]} />
           <meshBasicMaterial color="#9f7aea" transparent opacity={0.25} />
         </mesh>
 
@@ -140,7 +140,7 @@ function Particles() {
 
 export default function WireframeSphere() {
   return (
-    <div className="w-full h-full">
+    <div className="h-full" style={{ width: "110%", marginLeft: "-4%" }}>
       <Canvas
         camera={{ position: [0, 0, 6], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
