@@ -1,0 +1,161 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+export default function Footer() {
+  const navigation = {
+    main: [
+      // { name: "Technology", href: "/technology" },
+      // { name: "Applications", href: "/applications" },
+      // { name: "About", href: "/about" },
+      { name: "Contact", href: "/contact" },
+    ],
+    applications: [
+      // { name: "Aerospace", href: "/applications#aerospace" },
+      // { name: "Defense", href: "/applications#defense" },
+      // { name: "Energy", href: "/applications#energy" },
+      // { name: "Industrial", href: "/applications#industrial" },
+    ],
+  };
+
+  return (
+    <footer className="relative w-full border-t border-white/6 bg-[#05070f]">
+      {/* Grid background */}
+      <div
+        className="absolute inset-0 opacity-30 pointer-events-none"
+        aria-hidden
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+        {/* Main footer content */}
+        <div className="py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 lg:gap-8">
+            {/* Brand section */}
+            <div className="lg:pr-8">
+              {/* Logo */}
+              <Link href="/" className="inline-block mb-6">
+                <span className="text-2xl font-bold text-white tracking-tight">
+                  supr<span className="text-[#8b5cf6]">nova</span>
+                </span>
+              </Link>
+
+              {/* Mission statement */}
+              <p className="text-base text-white/60 leading-relaxed mb-6 max-w-md">
+                Rebuilding American manufacturing capability through AI-driven
+                precision machining. From STEP file to finished part in minutes.
+              </p>
+
+              {/* Core tagline */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-[#8b5cf6]/20 bg-[#8b5cf6]/5">
+                <motion.span
+                  className="w-2 h-2 rounded-full bg-[#8b5cf6]"
+                  animate={{ opacity: [1, 0.4, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <span className="text-sm text-white/70">
+                  Manufacturing sovereignty starts here.
+                </span>
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+                Navigate
+              </h4>
+              <ul className="space-y-3">
+                {navigation.main.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-white/60 hover:text-[#8b5cf6] transition-colors duration-200"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Applications */}
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+                Applications
+              </h4>
+              <ul className="space-y-3">
+                {navigation.applications.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-white/60 hover:text-[#8b5cf6] transition-colors duration-200"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+                Contact
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="mailto:contact@suprnova.ai"
+                    className="text-sm text-[#8b5cf6] hover:text-[#a78bfa] transition-colors duration-200"
+                  >
+                    contact@suprnova.ai
+                  </a>
+                </li>
+                <li>
+                  <span className="text-sm text-white/60">
+                    San Francisco, CA
+                  </span>
+                </li>
+                <li className="pt-2">
+                  <div className="flex items-center gap-2">
+                    <motion.span
+                      className="w-2 h-2 rounded-full bg-green-500"
+                      animate={{ opacity: [1, 0.4, 1] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    />
+                    <span className="text-xs text-white/40">
+                      Systems Online
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="py-6 border-t border-white/6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-white/30">
+              © {new Date().getFullYear()} Suprnova. All rights reserved.
+            </p>
+            <p className="text-xs text-white/30 text-center md:text-right">
+              Building critical infrastructure for American manufacturing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
