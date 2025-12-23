@@ -12,8 +12,8 @@ import {
 const WireframeTransportShuttle = dynamic(
   () => import("./WireframeTransportShuttle"),
   {
-    ssr: false,
-    loading: () => null,
+  ssr: false,
+  loading: () => null,
   }
 );
 
@@ -186,13 +186,13 @@ export default function Differentiation() {
         </motion.div>
 
         {/* Interactive toggle */}
-        <motion.div
+            <motion.div
           className="flex justify-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
+              viewport={{ once: true }}
+            >
           <div className="inline-flex p-1 rounded-full border border-white/10 bg-white/3">
             <button
               onClick={() => setActiveTab("not")}
@@ -210,22 +210,22 @@ export default function Differentiation() {
                 />
               )}
               <span className="relative z-10 flex items-center gap-2">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                   <path
                     d="M18 6L6 18M6 6l12 12"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                </svg>
+                  </svg>
                 We Are NOT
-              </span>
+                    </span>
             </button>
             <button
               onClick={() => setActiveTab("are")}
@@ -243,24 +243,24 @@ export default function Differentiation() {
                 />
               )}
               <span className="relative z-10 flex items-center gap-2">
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                   <path
                     d="M20 6L9 17l-5-5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                </svg>
+                  </svg>
                 We ARE
               </span>
             </button>
-          </div>
+                </div>
         </motion.div>
 
         {/* Interactive comparison cards */}
@@ -324,7 +324,7 @@ export default function Differentiation() {
                 {/* Card number */}
                 <div className="absolute top-4 right-4 text-xs font-mono text-white/30">
                   {`0${index + 1}`}
-                </div>
+              </div>
 
                 <div className="p-6 lg:p-8">
                   {/* Icon */}
@@ -340,18 +340,18 @@ export default function Differentiation() {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg
+                      <svg
                       width="24"
                       height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    >
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
                       {activeTab === "are"
                         ? icons[item.areIcon]
                         : icons[item.notIcon]}
-                    </svg>
+                      </svg>
                   </motion.div>
 
                   {/* Text content with animation */}
@@ -416,10 +416,10 @@ export default function Differentiation() {
             <div className="flex items-center gap-4">
               <div className="w-12 h-px bg-linear-to-r from-transparent to-[#8b5cf6]/50" />
               <p className="text-xl md:text-2xl text-white/70">
-                We don&apos;t{" "}
+              We don&apos;t{" "}
                 <span className="text-white/40 line-through">optimize</span>{" "}
-                manufacturing.
-              </p>
+              manufacturing.
+            </p>
               <div className="w-12 h-px bg-linear-to-l from-transparent to-[#8b5cf6]/50" />
             </div>
             <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white">

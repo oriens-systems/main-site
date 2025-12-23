@@ -15,13 +15,13 @@ function Model() {
     const clone = gltf.scene.clone(true);
 
     // Create wireframe material
-    const wireframeMaterial = new THREE.MeshBasicMaterial({
+        const wireframeMaterial = new THREE.MeshBasicMaterial({
       color: 0x8b5cf6,
-      wireframe: true,
-      transparent: true,
+          wireframe: true,
+          transparent: true,
       opacity: 0.15,
-      side: THREE.DoubleSide,
-    });
+          side: THREE.DoubleSide,
+        });
 
     // Apply wireframe to all meshes
     clone.traverse((node) => {

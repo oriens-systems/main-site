@@ -8,12 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks = [
-    // { name: "Technology", href: "/technology" },
-    // { name: "Applications", href: "/applications" },
-    // { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const navLinks = [{ name: "Contact", href: "/contact" }];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">

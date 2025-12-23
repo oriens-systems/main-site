@@ -5,18 +5,8 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   const navigation = {
-    main: [
-      // { name: "Technology", href: "/technology" },
-      // { name: "Applications", href: "/applications" },
-      // { name: "About", href: "/about" },
-      { name: "Contact", href: "/contact" },
-    ],
-    applications: [
-      // { name: "Aerospace", href: "/applications#aerospace" },
-      // { name: "Defense", href: "/applications#defense" },
-      // { name: "Energy", href: "/applications#energy" },
-      // { name: "Industrial", href: "/applications#industrial" },
-    ],
+    main: [{ name: "Contact", href: "/contact" }],
+    applications: [],
   };
 
   return (
