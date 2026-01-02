@@ -34,12 +34,6 @@ export default function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
-  const metrics = [
-    { value: "5×", label: "Faster CAM" },
-    { value: "42%", label: "Less drift" },
-    { value: "24/7", label: "Uptime" },
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -110,7 +104,7 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
             </span>
             <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              Grid online · North America
+              In development
             </span>
           </motion.div>
 
@@ -122,13 +116,14 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
-              Autonomous factories
+              CAM programming
               <br />
-              <span className="text-[#8b5cf6]">for precision metal.</span>
+              <span className="text-[#8b5cf6]">in hours, not days</span>
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              One AI layer coordinates CAM, machining, and inspection—so defense
-              and aerospace teams ship certified parts on cadence.
+              We're building AI-powered CAM automation for aerospace and defense
+              manufacturing. Reduce programming time from 2+ days to hours while
+              maintaining precision tolerances.
             </p>
           </motion.div>
 
@@ -143,36 +138,14 @@ export default function Hero() {
               href="#contact"
               className="group relative px-6 py-3.5 rounded-full bg-[#8b5cf6] text-[#050a12] font-semibold text-sm overflow-hidden transition-transform hover:scale-[1.02]"
             >
-              <span className="relative z-10">Request access</span>
+              <span className="relative z-10">Join the Pilot Program</span>
             </a>
             <a
               href="#mission"
               className="px-6 py-3.5 rounded-full border border-white/15 text-white/80 font-medium text-sm hover:border-white/30 hover:text-white transition-all"
             >
-              How it works
+              See the problem
             </a>
-          </motion.div>
-
-          {/* Metrics row */}
-          <motion.div
-            className="flex items-center gap-8 md:gap-12 pt-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {metrics.map((m, i) => (
-              <div key={m.label} className="flex items-center gap-3">
-                {i > 0 && <div className="w-px h-8 bg-white/10" />}
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
-                    {m.value}
-                  </div>
-                  <div className="text-xs uppercase tracking-[0.15em] text-white/50 mt-1">
-                    {m.label}
-                  </div>
-                </div>
-              </div>
-            ))}
           </motion.div>
         </div>
 

@@ -4,10 +4,9 @@ import Mission from "./components/Mission";
 import Differentiation from "./components/Differentiation";
 import Bottleneck from "./components/Bottleneck";
 import Footer from "./components/Footer";
-import Stakes from "./components/Stakes";
 import ProofPoints from "./components/ProofPoints";
 import Applications from "./components/Applications";
-
+import CallToAction from "./components/CallToAction";
 
 export default function Home() {
   return (
@@ -15,11 +14,11 @@ export default function Home() {
       <Header />
       <Hero />
       <Mission />
-      <Stakes />
       <Differentiation />
       <Bottleneck />
       <ProofPoints />
       <Applications />
+      <CallToAction />
       <Footer />
     </main>
   );

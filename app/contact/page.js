@@ -2,9 +2,16 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
+// Dynamic import for 3D component
+const WireframeTorus = dynamic(() => import("../components/WireframeIcosahedron"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function ContactPage() {
   const heroRef = useRef(null);
@@ -45,35 +52,60 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="relative bg-[#05070f]">
+    <main className="relative">
+      {/* Animated grid background - fixed to viewport for continuity */}
+      <div
+        className="fixed inset-0 opacity-50 pointer-events-none z-0"
+        aria-hidden
+      >
+        <div
+          className="fixed inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+            backgroundPosition: "0 0",
+          }}
+        />
+        <div
+          className="fixed inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: "300px 300px",
+            backgroundPosition: "0 0",
+          }}
+        />
+      </div>
+
       <Header />
 
       {/* Hero section */}
       <section
         ref={heroRef}
-        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden pt-24"
+        className="relative min-h-[50vh] flex items-center justify-center pt-24"
       >
-        {/* Grid background */}
+        {/* Gradient orbs */}
         <div
-          className="absolute inset-0 opacity-50 pointer-events-none"
-          aria-hidden
-        >
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
-              `,
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
-
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#8b5cf6]/10 rounded-full blur-[100px]"
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/8 rounded-full blur-[120px]"
           aria-hidden
         />
+        <div
+          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/10 rounded-full blur-[100px]"
+          aria-hidden
+        />
+
+        {/* Background decorative torus - right side */}
+        <div
+          className="absolute -right-[300px] md:-right-[350px] lg:-right-[200px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
+          aria-hidden
+        >
+          <WireframeTorus />
+        </div>
 
         <motion.div
           className="relative z-10 max-w-[700px] mx-auto px-6 text-center"
@@ -84,6 +116,13 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6]" />
+              <span className="text-xs uppercase tracking-[0.2em] text-[#8b5cf6]/80">
+                Contact
+              </span>
+            </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
               Start <span className="text-[#8b5cf6]">Manufacturing</span>
             </h1>
@@ -97,9 +136,9 @@ export default function ContactPage() {
 
       {/* Contact section */}
       <section className="relative py-16 lg:py-24">
-        <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16">
-            {/* Left - Info */}
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Left - Info + Wireframe */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -203,42 +242,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Quick links */}
-              {/* <div className="p-6 rounded-xl border border-white/8 bg-white/2">
-                <h3 className="text-sm font-semibold text-white mb-4">
-                  Before you reach out
-                </h3>
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/technology"
-                      className="flex items-center gap-2 text-sm text-white/60 hover:text-[#8b5cf6] transition-colors"
-                    >
-                      <span className="text-[#8b5cf6]">→</span>
-                      Learn how the technology works
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/applications"
-                      className="flex items-center gap-2 text-sm text-white/60 hover:text-[#8b5cf6] transition-colors"
-                    >
-                      <span className="text-[#8b5cf6]">→</span>
-                      See industry applications
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/about"
-                      className="flex items-center gap-2 text-sm text-white/60 hover:text-[#8b5cf6] transition-colors"
-                    >
-                      <span className="text-[#8b5cf6]">→</span>
-                      Understand our mission
-                    </Link>
-                  </li>
-                </ul>
-              </div> */}
             </motion.div>
 
             {/* Right - Form */}
