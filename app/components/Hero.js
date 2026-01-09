@@ -37,7 +37,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative isolate min-h-screen overflow-hidden"
+      className="relative isolate min-h-screen"
     >
       {/* Animated grid background - fixed to viewport for continuity */}
       <div
@@ -116,14 +116,12 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
-              CAM programming
+              CAM programming in hours,
               <br />
-              <span className="text-[#8b5cf6]">in hours, not days</span>
+              <span className="text-[#8b5cf6]">not days.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              We're building AI-powered CAM automation for aerospace and defense
-              manufacturing. Reduce programming time from 2+ days to hours while
-              maintaining precision tolerances.
+              AI-powered automation for aerospace and defense manufacturing.
             </p>
           </motion.div>
 
@@ -135,14 +133,14 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.25 }}
           >
             <a
-              href="#contact"
-              className="group relative px-6 py-3.5 rounded-full bg-[#8b5cf6] text-[#050a12] font-semibold text-sm overflow-hidden transition-transform hover:scale-[1.02]"
+              href="/pilot"
+              className="px-6 py-3.5 rounded-full border border-[#8b5cf6]/40 bg-[#8b5cf6]/10 backdrop-blur-sm text-white font-semibold text-sm hover:bg-[#8b5cf6]/20 hover:border-[#8b5cf6]/60 transition-all"
             >
-              <span className="relative z-10">Join the Pilot Program</span>
+              Join the Pilot Program
             </a>
             <a
               href="#mission"
-              className="px-6 py-3.5 rounded-full border border-white/15 text-white/80 font-medium text-sm hover:border-white/30 hover:text-white transition-all"
+              className="px-6 py-3.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white/90 font-medium text-sm hover:bg-white/10 hover:border-white/20 transition-all"
             >
               See the problem
             </a>
@@ -224,20 +222,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Scroll hint */}
-        <motion.div
-          className="flex flex-col items-center gap-3 mt-12 text-white/40"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <motion.div
-            className="w-px h-8 bg-linear-to-b from-white/30 to-transparent"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <span className="text-xs uppercase tracking-[0.2em]">Scroll</span>
-        </motion.div>
       </motion.div>
     </section>
   );

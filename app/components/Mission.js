@@ -33,69 +33,6 @@ export default function Mission() {
   const visualY = useTransform(scrollYProgress, [0, 1], ["12%", "-6%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["8%", "-4%"]);
 
-  const features = [
-    {
-      icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-      label: "High Speed",
-
-      copy: "CAM decisions generated in seconds, not hours",
-    },
-    {
-      icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <circle cx="12" cy="12" r="3" />
-          <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-        </svg>
-      ),
-      label: "Full Automation",
-
-      copy: "Cells, metrology, and feedback loops",
-    },
-    {
-      icon: (
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-      label: "Lower Cost",
-
-      copy: "Dense cells mean less overhead",
-    },
-  ];
-
   return (
     <section
       id="mission"
@@ -150,29 +87,6 @@ export default function Mission() {
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        {/* Section header */}
-        <motion.div
-          className="text-center mb-16 lg:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
-            </span>
-            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              Our Mission
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] text-white tracking-tight max-w-4xl mx-auto">
-            An AI-first grid for
-            <span className="text-[#8b5cf6]"> advanced manufacturing.</span>
-          </h2>
-        </motion.div>
-
         {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-10 lg:gap-12 items-center">
           {/* 3D Visual */}
@@ -260,53 +174,10 @@ export default function Mission() {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <p className="text-white/65 text-base md:text-lg leading-relaxed">
-              We deploy and operate dense, automated machining cells across
-              North America. Defense and aerospace teams get precision
-              components without the human bottleneck—CAM, machines, and
-              metrology run as one continuously learning system.
+            {/* Slogan */}
+            <p className="text-sm text-white/40 italic tracking-wide">
+              Safeguarding humanity through precision.
             </p>
-
-            {/* Feature cards */}
-            <div className="grid gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.label}
-                  className="group relative p-4 md:p-5 rounded-xl border bg-white/2 overflow-hidden transition-colors duration-300 hover:border-[#8b5cf6]/30"
-                  style={{ borderColor: "rgba(255,255,255,0.08)" }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.15 * index }}
-                  viewport={{ once: true }}
-                >
-                  {/* Hover glow */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-r from-[#8b5cf6]/5 to-transparent" />
-
-                  <div className="relative flex items-start gap-4">
-                    {/* Icon */}
-                    <div className="shrink-0 w-10 h-10 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center text-[#8b5cf6]">
-                      {feature.icon}
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-3 mb-1">
-                        <span className="text-sm font-medium text-white">
-                          {feature.label}
-                        </span>
-                        <span className="text-lg font-semibold text-[#8b5cf6]">
-                          {feature.value}
-                        </span>
-                      </div>
-                      <p className="text-sm text-white/50">{feature.copy}</p>
-                    </div>
-                  </div>
-
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#8b5cf6]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                </motion.div>
-              ))}
-            </div>
 
             {/* CTA */}
             <motion.div
@@ -317,10 +188,10 @@ export default function Mission() {
               viewport={{ once: true }}
             >
               <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 border border-white/10 text-sm text-white/80 font-medium hover:bg-white/8 hover:border-white/20 transition-all"
+                href="/contact"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/40 text-sm text-white font-semibold hover:bg-[#8b5cf6]/20 hover:border-[#8b5cf6]/60 transition-all"
               >
-                <span>Learn more about our cells</span>
+                <span>Get in Touch</span>
                 <svg
                   width="16"
                   height="16"

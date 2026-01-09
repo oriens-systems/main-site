@@ -9,10 +9,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    // { name: "Technology", href: "/technology" },
-    // { name: "Applications", href: "/applications" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "PILOT", href: "/pilot" },
+    { name: "WHO WE ARE", href: "/about" },
+    { name: "JOIN THE MISSION", href: "/join" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   return (
@@ -50,17 +50,6 @@ export default function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] uppercase tracking-[0.18em] text-white/70">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-pulse" />
-              AI native
-            </div>
-            <Link
-              href="/contact"
-              className="hidden sm:block text-xs md:text-sm font-semibold text-[#8b5cf6] border border-[#8b5cf6]/60 rounded-full px-3 md:px-4 py-2 hover:bg-[#8b5cf6]/10 transition-colors"
-            >
-              Get Started
-            </Link>
-
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -114,15 +103,6 @@ export default function Header() {
                     {link.name}
                   </Link>
                 ))}
-                <div className="pt-2 mt-2 border-t border-white/6">
-                  <Link
-                    href="/contact"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-3 rounded-lg text-sm font-semibold text-[#8b5cf6] bg-[#8b5cf6]/10 text-center"
-                  >
-                    Get Started
-                  </Link>
-                </div>
               </div>
             </motion.div>
           )}

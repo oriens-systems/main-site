@@ -255,16 +255,16 @@ export default function CallToAction() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-white/40">
             <span className="flex items-center gap-2">
               <motion.span
-                className="w-2 h-2 rounded-full bg-green-500"
+                className="w-2 h-2 rounded-full bg-yellow-500"
                 animate={{ opacity: [1, 0.4, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               />
-              Systems Online
+              Systems in development
             </span>
             <span className="hidden md:inline text-white/20">|</span>
-            <span>San Francisco, CA</span>
+            <span>Toronto, ON</span>
             <span className="hidden md:inline text-white/20">|</span>
-            <span className="text-[#8b5cf6]/70">contact@suprnova.ai</span>
+            <span className="text-[#8b5cf6]/70">hello@suprnova.co</span>
           </div>
         </motion.div>
       </motion.div>

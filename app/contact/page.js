@@ -7,8 +7,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+import Button from "../components/Button";
+
 // Dynamic import for 3D component
-const WireframeTorus = dynamic(() => import("../components/WireframeIcosahedron"), {
+const WireframeIcosahedron = dynamic(() => import("../components/WireframeIcosahedron"), {
   ssr: false,
   loading: () => null,
 });
@@ -52,10 +54,10 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="relative">
+    <main className="relative min-h-screen bg-[#05070f]">
       {/* Animated grid background - fixed to viewport for continuity */}
       <div
-        className="fixed inset-0 opacity-50 pointer-events-none z-0"
+        className="fixed inset-0 opacity-40 pointer-events-none z-0"
         aria-hidden
       >
         <div
@@ -104,7 +106,7 @@ export default function ContactPage() {
           className="absolute -right-[300px] md:-right-[350px] lg:-right-[200px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
           aria-hidden
         >
-          <WireframeTorus />
+          <WireframeIcosahedron />
         </div>
 
         <motion.div
@@ -184,10 +186,10 @@ export default function ContactPage() {
                       Email
                     </p>
                     <a
-                      href="mailto:contact@suprnova.ai"
+                      href="mailto:hello@suprnova.co"
                       className="text-[#8b5cf6] hover:text-[#a78bfa] transition-colors"
                     >
-                      contact@suprnova.ai
+                      hello@suprnova.co
                     </a>
                   </div>
                 </div>
@@ -220,14 +222,14 @@ export default function ContactPage() {
                     <p className="text-xs text-white/40 uppercase tracking-wider mb-1">
                       Location
                     </p>
-                    <p className="text-white/70">San Francisco, CA</p>
+                    <p className="text-white/70">Toronto, ON</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0">
                     <motion.div
-                      className="w-3 h-3 rounded-full bg-green-500"
+                      className="w-3 h-3 rounded-full bg-yellow-500"
                       animate={{ opacity: [1, 0.4, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     />
@@ -237,7 +239,7 @@ export default function ContactPage() {
                       Status
                     </p>
                     <p className="text-white/70">
-                      Systems Online • Accepting Projects
+                      Systems in development • Accepting Projects
                     </p>
                   </div>
                 </div>
@@ -251,7 +253,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/2">
+              <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/2 backdrop-blur-sm">
                 <h3 className="text-xl font-semibold text-white mb-6">
                   Tell us about your project
                 </h3>
@@ -363,26 +365,28 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full py-4 rounded-xl bg-[#8b5cf6] text-white font-semibold hover:bg-[#7c4fd4] transition-colors flex items-center justify-center gap-2"
-                  >
-                    Submit Request
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
+                    <Button
+                        type="submit"
+                        variant="primary"
+                        size="lg"
+                        className="w-full"
                     >
-                      <path
-                        d="M5 12h14M12 5l7 7-7 7"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                        Submit Request
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path
+                            d="M5 12h14M12 5l7 7-7 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                    </Button>
                 </form>
 
                 <p className="mt-4 text-xs text-white/30 text-center">

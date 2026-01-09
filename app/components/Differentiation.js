@@ -1,79 +1,294 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import DotGrid from "./DotGrid";
+import { useRef, useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+
+// Dynamic imports for 3D components
+const WireframeSatellite = dynamic(() => import("./WireframeSatellite"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
+    </div>
+  ),
+});
+
+const WireframeShield = dynamic(() => import("./WireframeShield"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
+    </div>
+  ),
+});
+
+const WireframeFusionReactor = dynamic(
+  () => import("./WireframeFusionReactor"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
+      </div>
+    ),
+  }
+);
+
+// Interactive Card Component with 3D tilt physics
+function InteractiveCard({ sector, index, hoveredCard, setHoveredCard }) {
+  const cardRef = useRef(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Spring config for smooth physics
+  const springConfig = { damping: 25, stiffness: 300 };
+  const rotateX = useSpring(useMotionValue(0), springConfig);
+  const rotateY = useSpring(useMotionValue(0), springConfig);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Calculate rotation based on mouse position (max 8 degrees)
+    const rotX = ((e.clientY - centerY) / (rect.height / 2)) * -8;
+    const rotY = ((e.clientX - centerX) / (rect.width / 2)) * 8;
+    
+    rotateX.set(rotX);
+    rotateY.set(rotY);
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
+
+  const handleMouseLeave = () => {
+    rotateX.set(0);
+    rotateY.set(0);
+    setHoveredCard(null);
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHoveredCard(index)}
+      onMouseLeave={handleMouseLeave}
+      className="relative group cursor-default perspective-1000"
+      style={{
+        perspective: "1000px",
+      }}
+    >
+      {/* Card Body with 3D transform */}
+      <motion.div 
+        className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-2xl overflow-hidden transition-colors duration-500 hover:border-[var(--accent)]/30"
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+      >
+        {/* Spotlight effect following mouse */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"
+          style={{
+            background: `radial-gradient(600px circle at ${mouseX.get()}px ${mouseY.get()}px, rgba(139,92,246,0.1), transparent 40%)`,
+          }}
+        />
+        
+        {/* 3D Container - Clean */}
+        <div className="h-[240px] w-full bg-[#0a0f1c] relative flex items-center justify-center">
+          {/* Subtle inner shadow for depth */}
+          <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none z-10" />
+          <sector.WireframeComponent />
+        </div>
+
+        {/* Content */}
+        <div className="p-8">
+          <div className="flex justify-between items-start mb-6">
+            <motion.div 
+              className={`p-2 rounded-lg transition-colors duration-300 ${
+                hoveredCard === index ? "bg-[var(--accent)]/10 text-[var(--accent)]" : "bg-[var(--foreground)]/5 text-[var(--muted)]"
+              }`}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              {sector.icon}
+            </motion.div>
+            <span className="text-[10px] uppercase tracking-widest text-[var(--foreground)]/20 font-mono">
+              0{index + 1}
+            </span>
+          </div>
+
+          <h3 className="text-xl font-medium text-[var(--foreground)] mb-3">
+            {sector.title}
+          </h3>
+          <p className="text-sm text-[var(--muted)] leading-relaxed">
+            {sector.description}
+          </p>
+        </div>
+
+        {/* Hover Line with spring physics */}
+        <motion.div 
+          className="absolute bottom-0 left-0 h-[2px] bg-[var(--accent)]"
+          initial={{ width: "0%", opacity: 0 }}
+          animate={{ 
+            width: hoveredCard === index ? "100%" : "0%",
+            opacity: hoveredCard === index ? 1 : 0
+          }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function Differentiation() {
   const sectionRef = useRef(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Spring physics for background orbs
+  const springConfig = { damping: 50, stiffness: 100 };
+  const orbX = useSpring(0, springConfig);
+  const orbY = useSpring(0, springConfig);
+  const orb2X = useSpring(0, { damping: 60, stiffness: 80 });
+  const orb2Y = useSpring(0, { damping: 60, stiffness: 80 });
+
+  // Track mouse position for background interactivity
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      
+      // Only track if mouse is within section
+      if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
+        const x = (e.clientX / window.innerWidth - 0.5) * 100;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 100;
+        
+        orbX.set(x * 0.5);
+        orbY.set(y * 0.3);
+        orb2X.set(-x * 0.3);
+        orb2Y.set(-y * 0.4);
+        setMousePosition({ x: e.clientX, y: e.clientY - rect.top });
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [orbX, orbY, orb2X, orb2Y]);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  const contentY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["2%", "-2%"]);
 
-  const features = [
+  const sectors = [
     {
-      title: "Manufacturing infrastructure",
-      icon: "building",
+      id: "aerospace",
+      title: "Aerospace",
       description:
-        "We don't patch existing workflows—we build the factory of the future.",
+        "Precision components for rockets and satellites where microns matter.",
+      icon: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      WireframeComponent: WireframeSatellite,
     },
     {
-      title: "Capacity multiplier",
-      icon: "trending",
+      id: "defense",
+      title: "Defense",
       description:
-        "Not incremental gains, but exponential manufacturing capacity.",
+        "Mission-critical parts with zero margin for error and built-in security.",
+      icon: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <path
+            d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      WireframeComponent: WireframeShield,
     },
     {
-      title: "Reshoring enabler",
-      icon: "globe",
-      description: "Technology that brings production back to North America.",
+      id: "energy",
+      title: "Energy",
+      description:
+        "Complex geometries for fusion systems powering the next generation.",
+      icon: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <path
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      WireframeComponent: WireframeFusionReactor,
     },
   ];
-
-  const icons = {
-    building: (
-      <>
-        <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-        <path
-          d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </>
-    ),
-    trending: (
-      <path
-        d="M23 6l-9.5 9.5-5-5L1 18M17 6h6v6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    ),
-    globe: (
-      <>
-        <circle cx="12" cy="12" r="10" />
-        <path
-          d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </>
-    ),
-  };
 
   return (
     <section
       id="differentiation"
       ref={sectionRef}
-      className="relative w-full overflow-hidden pt-32 lg:pt-40 pb-24 lg:pb-32"
+      className="relative w-full overflow-hidden py-24 lg:py-32"
     >
-      {/* Grid background - same as other sections */}
+      {/* Interactive Background Orbs - Follow mouse with physics */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[var(--accent)]/8 rounded-full blur-[120px] pointer-events-none"
+        style={{
+          x: orbX,
+          y: orbY,
+        }}
+        aria-hidden
+      />
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[var(--accent)]/6 rounded-full blur-[100px] pointer-events-none"
+        style={{
+          x: orb2X,
+          y: orb2Y,
+        }}
+        aria-hidden
+      />
+
+      {/* Background Grids - Matching other sections */}
       <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
+        className="absolute inset-0 opacity-40 pointer-events-none"
         aria-hidden
       >
         <div
@@ -87,180 +302,62 @@ export default function Differentiation() {
             backgroundPosition: "0 0",
           }}
         />
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
-          }}
-        />
-      </div>
-
-      {/* Gradient orbs */}
-      <div
-        className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#8b5cf6]/6 rounded-full blur-[100px]"
-        aria-hidden
-      />
-      <div
-        className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-[#8b5cf6]/8 rounded-full blur-[100px]"
-        aria-hidden
-      />
-
-      {/* DotGrid background */}
-      <div
-        className="absolute inset-0 opacity-25 pointer-events-auto"
-        aria-hidden
-        style={{ width: "100%", height: "100%", position: "absolute" }}
-      >
-        <DotGrid
-          dotSize={2}
-          gap={40}
-          baseColor="#8b5cf6"
-          activeColor="#a78bfa"
-          proximity={120}
-          shockRadius={250}
-          shockStrength={5}
-          resistance={750}
-          returnDuration={1.5}
-        />
       </div>
 
       <motion.div
-        className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16"
+        className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10"
         style={{ y: contentY }}
       >
-        {/* Section header */}
-        <motion.div
-          className="text-center mb-12 lg:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
-            </span>
-            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              Redefining Manufacturing
-            </span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] text-white tracking-tight">
-            What We <span className="text-[#8b5cf6]">Build</span>
-          </h2>
-        </motion.div>
-
-        {/* Feature cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-          {features.map((item, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              viewport={{ once: true }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+        {/* Header */}
+        <div className="mb-20 flex flex-col md:flex-row items-end justify-between gap-6 border-b border-[var(--foreground)]/10 pb-8">
+            <div>
+                <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-6"
+                >
+                    <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
+                    </span>
+                    <span className="text-xs uppercase tracking-[0.2em] text-white/60">
+                        Core Sectors
+                    </span>
+                </motion.div>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight"
+                >
+                    Engineering <br className="hidden md:block" /> the <span className="text-[var(--accent)]">Impossible</span>
+                </motion.h2>
+            </div>
+            <motion.p 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed"
             >
-              <div
-                className="relative h-full rounded-2xl border overflow-hidden transition-all duration-500 border-[#8b5cf6]/20 bg-[#8b5cf6]/5"
-                style={{
-                  borderColor:
-                    hoveredCard === index ? "rgba(139,92,246,0.4)" : undefined,
-                }}
-              >
-                {/* Corner accents */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 rounded-tl-xl transition-colors duration-300 border-[#8b5cf6]/30" />
-                <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 rounded-tr-xl transition-colors duration-300 border-[#8b5cf6]/30" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 rounded-bl-xl transition-colors duration-300 border-[#8b5cf6]/30" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 rounded-br-xl transition-colors duration-300 border-[#8b5cf6]/30" />
-
-                {/* Card number */}
-                <div className="absolute top-4 right-4 text-xs font-mono text-white/30">
-                  {`0${index + 1}`}
-                </div>
-
-                <div className="p-6 lg:p-8">
-                  {/* Icon */}
-                  <motion.div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 text-[#8b5cf6]"
-                    animate={{
-                      scale: hoveredCard === index ? 1.05 : 1,
-                      rotate: hoveredCard === index ? 5 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    >
-                      {icons[item.icon]}
-                    </svg>
-                  </motion.div>
-
-                  {/* Text content */}
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-white/50 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  {/* Bottom accent line */}
-                  <motion.div
-                    className="mt-6 h-0.5 rounded-full bg-[#8b5cf6]"
-                    initial={{ width: "20%" }}
-                    animate={{ width: hoveredCard === index ? "100%" : "20%" }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </div>
-
-                {/* Hover glow effect */}
-                <motion.div
-                  className="absolute inset-0 pointer-events-none bg-linear-to-br from-[#8b5cf6]/10 via-transparent to-transparent"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredCard === index ? 1 : 0 }}
-                />
-              </div>
-            </motion.div>
-          ))}
+                We specialize in manufacturing components for industries where precision is the only variable that matters.
+            </motion.p>
         </div>
 
-        {/* Bottom statement */}
-        <motion.div
-          className="mt-16 lg:mt-20 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <div className="inline-flex flex-col items-center gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-linear-to-r from-transparent to-[#8b5cf6]/50" />
-              <p className="text-xl md:text-2xl text-white/70">
-                We don&apos;t{" "}
-                <span className="text-white/40 line-through">optimize</span>{" "}
-                manufacturing.
-              </p>
-              <div className="w-12 h-px bg-linear-to-l from-transparent to-[#8b5cf6]/50" />
-            </div>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
-              We <span className="text-[#8b5cf6]">restore</span> it.
-            </p>
-          </div>
-        </motion.div>
+        {/* Cards with Interactive Physics */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {sectors.map((sector, index) => (
+            <InteractiveCard
+              key={sector.id}
+              sector={sector}
+              index={index}
+              hoveredCard={hoveredCard}
+              setHoveredCard={setHoveredCard}
+            />
+          ))}
+        </div>
       </motion.div>
     </section>
   );

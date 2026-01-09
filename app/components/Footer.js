@@ -116,26 +116,26 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="mailto:contact@suprnova.ai"
+                    href="mailto:hello@suprnova.co"
                     className="text-sm text-[#8b5cf6] hover:text-[#a78bfa] transition-colors duration-200"
                   >
-                    contact@suprnova.ai
+                    hello@suprnova.co
                   </a>
                 </li>
                 <li>
                   <span className="text-sm text-white/60">
-                    San Francisco, CA
+                    Toronto, ON
                   </span>
                 </li>
                 <li className="pt-2">
                   <div className="flex items-center gap-2">
                     <motion.span
-                      className="w-2 h-2 rounded-full bg-green-500"
+                      className="w-2 h-2 rounded-full bg-yellow-500"
                       animate={{ opacity: [1, 0.4, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     />
                     <span className="text-xs text-white/40">
-                      Systems Online
+                      Systems in development
                     </span>
                   </div>
                 </li>
@@ -148,10 +148,7 @@ export default function Footer() {
         <div className="py-6 border-t border-white/6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/30">
-              © {new Date().getFullYear()} Suprnova. All rights reserved.
-            </p>
-            <p className="text-xs text-white/30 text-center md:text-right">
-              Building critical infrastructure for American manufacturing.
+              © 2026 Supernova Labs
             </p>
           </div>
         </div>
