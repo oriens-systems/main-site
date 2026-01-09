@@ -35,8 +35,8 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8 text-sm text-white/70 uppercase tracking-[0.16em]">
+          {/* Desktop nav - now on the right */}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/70 uppercase tracking-[0.12em]">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -48,38 +48,35 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Right side */}
-          <div className="flex items-center gap-3">
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
-              aria-label="Toggle menu"
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                {mobileMenuOpen ? (
-                  <path
-                    d="M18 6L6 18M6 6l12 12"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                ) : (
-                  <path
-                    d="M3 12h18M3 6h18M3 18h18"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
+              {mobileMenuOpen ? (
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              ) : (
+                <path
+                  d="M3 12h18M3 6h18M3 18h18"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              )}
+            </svg>
+          </button>
         </nav>
 
         {/* Mobile menu */}
