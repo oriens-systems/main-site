@@ -12,106 +12,6 @@ const WireframeParticleField = dynamic(() => import("../components/WireframePart
   ssr: false,
   loading: () => null,
 });
-// Capacity Gap Graph Component using Recharts
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-
-const graphData = [
-    { year: '2010', demand: 40, capacity: 70 },
-    { year: '2012', demand: 45, capacity: 68 },
-    { year: '2014', demand: 52, capacity: 65 },
-    { year: '2016', demand: 60, capacity: 60 },
-    { year: '2018', demand: 70, capacity: 55 },
-    { year: '2020', demand: 78, capacity: 48 },
-    { year: '2022', demand: 88, capacity: 42 },
-    { year: '2024', demand: 95, capacity: 35 },
-];
-
-function CapacityGraph() {
-    return (
-        <div className="relative h-[350px] w-full max-w-2xl mx-auto mt-12 bg-[#0b1020]/60 rounded-xl border border-white/10 p-6 pt-10 overflow-hidden backdrop-blur-sm">
-            {/* Title */}
-            <div className="absolute top-4 left-6 z-10">
-                <h4 className="text-sm font-bold text-white/80 tracking-wide">THE CAPACITY GAP</h4>
-                <p className="text-[10px] text-white/40 font-mono">Manufacturing demand vs. skilled labor</p>
-            </div>
-
-            {/* Legend */}
-            <div className="absolute top-4 right-6 flex gap-4 text-[10px] font-mono z-10">
-                <div className="flex items-center gap-2">
-                    <div className="w-3 h-[2px] bg-red-500" />
-                    <span className="text-white/50">DEMAND</span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-3 h-[2px] bg-[#8b5cf6]" />
-                    <span className="text-white/50">CAPACITY</span>
-                </div>
-            </div>
-
-            <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={graphData} margin={{ top: 30, right: 10, left: -20, bottom: 0 }}>
-                    <defs>
-                        <linearGradient id="colorDemand" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#ef4444" stopOpacity={0.3}/>
-                            <stop offset="95%" stopColor="#ef4444" stopOpacity={0}/>
-                        </linearGradient>
-                        <linearGradient id="colorCapacity" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3}/>
-                            <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
-                        </linearGradient>
-                    </defs>
-                    <XAxis 
-                        dataKey="year" 
-                        axisLine={false}
-                        tickLine={false}
-                        tick={{ fill: 'rgba(255,255,255,0.3)', fontSize: 10, fontFamily: 'monospace' }}
-                    />
-                    <YAxis 
-                        axisLine={false}
-                        tickLine={false}
-                        tick={{ fill: 'rgba(255,255,255,0.2)', fontSize: 9, fontFamily: 'monospace' }}
-                        domain={[0, 100]}
-                        ticks={[0, 25, 50, 75, 100]}
-                    />
-                    <Tooltip 
-                        contentStyle={{ 
-                            backgroundColor: 'rgba(11, 16, 32, 0.95)', 
-                            border: '1px solid rgba(139, 92, 246, 0.3)',
-                            borderRadius: '8px',
-                            fontSize: '11px',
-                            fontFamily: 'monospace'
-                        }}
-                        labelStyle={{ color: 'rgba(255,255,255,0.8)', marginBottom: '4px' }}
-                        itemStyle={{ padding: '2px 0' }}
-                    />
-                    <Area 
-                        type="monotone" 
-                        dataKey="demand" 
-                        stroke="#ef4444" 
-                        strokeWidth={2}
-                        fillOpacity={1} 
-                        fill="url(#colorDemand)" 
-                        name="Demand"
-                    />
-                    <Area 
-                        type="monotone" 
-                        dataKey="capacity" 
-                        stroke="#8b5cf6" 
-                        strokeWidth={2}
-                        fillOpacity={1} 
-                        fill="url(#colorCapacity)" 
-                        name="Capacity"
-                    />
-                </AreaChart>
-            </ResponsiveContainer>
-
-            {/* Gap annotation */}
-            <div className="absolute bottom-6 right-6 text-right">
-                <p className="text-[10px] font-mono text-red-400/80">▲ GAP WIDENING</p>
-                <p className="text-[9px] font-mono text-white/30">Projected: Critical by 2026</p>
-            </div>
-        </div>
-    );
-}
 
 // Glitch/Classified Text Component
 function ClassifiedText({ text }) {
@@ -181,7 +81,7 @@ export default function AboutPage() {
             >
                 <div className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-pulse" />
                 <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#8b5cf6]">
-                    Mission Status: Active
+                    Status: In Development
                 </span>
             </motion.div>
 
@@ -272,10 +172,8 @@ export default function AboutPage() {
               The <span className="text-[#8b5cf6]">Capacity Gap</span>
             </h2>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
-              North America has lost its manufacturing capacity. Skilled CAM programmers are retiring faster than they're replaced.
+              North America has lost its manufacturing capacity. Skilled CAM programmers are retiring faster than they're replaced. We're building the tools to close that gap.
             </p>
-            
-            <CapacityGraph />
             
             <p className="mt-12 text-sm font-mono text-[#8b5cf6]">
                 &gt; SYSTEM SOLUTION: AUTONOMOUS CAM GENERATION

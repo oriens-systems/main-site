@@ -71,7 +71,7 @@ export default function PilotPage() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500" />
               </span>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
-                Pilot Program Authorization
+                Status: In Progress
               </span>
             </motion.div>
 
@@ -82,9 +82,9 @@ export default function PilotPage() {
                 transition={{ delay: 0.1 }}
                 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]"
             >
-                Precision is <br className="hidden md:block" />
+                Pilot{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#d8b4fe]">
-                    Survival.
+                    Program
                 </span>
             </motion.h1>
 
@@ -95,8 +95,7 @@ export default function PilotPage() {
                 transition={{ delay: 0.2 }}
                 className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto leading-relaxed"
             >
-                Partnership with Ontario Centre of Innovation.<br/>
-                We are currently accepting applications for our pilot program.
+                We're partnering with the Ontario Centre of Innovation to validate our CAM automation. Details coming soon.
             </motion.p>
 
             {/* CTA Button */}
@@ -107,11 +106,11 @@ export default function PilotPage() {
                 className="flex justify-center"
             >
                 <Button 
-                    href="mailto:hello@suprnova.co?subject=Pilot Program Application"
+                    href="mailto:hello@suprnova.co?subject=Pilot Program - Notify Me"
                     variant="primary"
                     size="lg"
                 >
-                    Apply for Pilot
+                    Notify me
                 </Button>
             </motion.div>
         </div>
@@ -132,5 +131,3 @@ export default function PilotPage() {
     </main>
   );
 }
-
-

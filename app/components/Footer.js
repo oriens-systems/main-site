@@ -53,8 +53,7 @@ export default function Footer() {
 
               {/* Mission statement */}
               <p className="text-base text-white/60 leading-relaxed mb-6 max-w-md">
-                Rebuilding American manufacturing capability through AI-driven
-                precision machining. From STEP file to finished part in minutes.
+                Rebuilding North America's manufacturing capability through next-generation automation.
               </p>
 
               {/* Core tagline */}

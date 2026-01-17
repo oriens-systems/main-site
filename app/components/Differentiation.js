@@ -266,7 +266,7 @@ export default function Differentiation() {
     <section
       id="differentiation"
       ref={sectionRef}
-      className="relative w-full overflow-hidden py-24 lg:py-32"
+      className="relative w-full overflow-hidden pt-8 pb-24 lg:pt-12 lg:pb-32"
     >
       {/* Interactive Background Orbs - Follow mouse with physics */}
       <motion.div
@@ -308,6 +308,42 @@ export default function Differentiation() {
         className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10"
         style={{ y: contentY }}
       >
+        {/* Our Mission Section */}
+        <div className="mb-40 lg:mb-56 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-8"
+          >
+            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
+              Our Mission
+            </span>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 italic mb-10 max-w-3xl mx-auto"
+          >
+            "Safeguarding humanity through precision."
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[var(--accent)] text-white font-medium text-sm uppercase tracking-widest hover:bg-[var(--accent)]/90 transition-colors duration-300"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        </div>
+
         {/* Header */}
         <div className="mb-20 flex flex-col md:flex-row items-end justify-between gap-6 border-b border-[var(--foreground)]/10 pb-8">
             <div>

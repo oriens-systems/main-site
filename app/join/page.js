@@ -154,7 +154,7 @@ export default function JoinPage() {
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500" />
                     </span>
                     <span className="text-[10px] font-bold tracking-[0.3em] text-white/70">
-                        STATUS: CLASSIFIED
+                        STATUS: IN DEVELOPMENT
                     </span>
                 </div>
             </div>
@@ -179,7 +179,7 @@ export default function JoinPage() {
             >
                 <div className="relative bg-[#0a0a0c]/80 backdrop-blur-2xl rounded-3xl p-10 md:p-14 border border-white/5 shadow-2xl">
                     <p className="text-lg md:text-xl text-center text-white/60 font-light leading-relaxed mb-10">
-                        "We're not hiring yet, but we're always interested in connecting with individuals who are obsessed with <span className="text-white font-medium">manufacturing</span>, <span className="text-white font-medium">AI</span>, and <span className="text-white font-medium">hard tech</span>."
+                        "We're not hiring yet, but we're always interested in connecting with people who care about <span className="text-white font-medium">manufacturing</span>, <span className="text-white font-medium">AI</span>, and <span className="text-white font-medium">building critical infrastructure</span>."
                     </p>
                     
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
