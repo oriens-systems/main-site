@@ -6,16 +6,17 @@ import { motion } from "framer-motion";
 export default function Footer() {
   const navigation = {
     main: [
-      // { name: "Technology", href: "/technology" },
-      // { name: "Applications", href: "/applications" },
+      { name: "Home", href: "/" },
       { name: "About", href: "/about" },
+      { name: "Pilot Program", href: "/pilot" },
+      { name: "Join Us", href: "/join" },
       { name: "Contact", href: "/contact" },
     ],
     applications: [
-      // { name: "Aerospace", href: "/applications#aerospace" },
-      // { name: "Defense", href: "/applications#defense" },
-      // { name: "Energy", href: "/applications#energy" },
-      // { name: "Industrial", href: "/applications#industrial" },
+      { name: "Aerospace", href: "/applications#aerospace" },
+      { name: "Defense", href: "/applications#defense" },
+      { name: "Energy", href: "/applications#energy" },
+      
     ],
   };
 
@@ -53,7 +54,8 @@ export default function Footer() {
 
               {/* Mission statement */}
               <p className="text-base text-white/60 leading-relaxed mb-6 max-w-md">
-                Rebuilding North America's manufacturing capability through next-generation automation.
+                Rebuilding North America's manufacturing capability through
+                next-generation automation.
               </p>
 
               {/* Core tagline */}
@@ -64,7 +66,7 @@ export default function Footer() {
                   transition={{ duration: 2, repeat: Infinity }}
                 />
                 <span className="text-sm text-white/70">
-                  Manufacturing sovereignty starts here.
+                  Reshoring industry starts here.
                 </span>
               </div>
             </div>
@@ -122,9 +124,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <span className="text-sm text-white/60">
-                    Toronto, ON
-                  </span>
+                  <span className="text-sm text-white/60">Toronto, ON</span>
                 </li>
                 <li className="pt-2">
                   <div className="flex items-center gap-2">
@@ -146,9 +146,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-6 border-t border-white/6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30">
-              © 2026 Supernova Labs
-            </p>
+            <p className="text-xs text-white/30">© 2026 Supernova Labs</p>
           </div>
         </div>
       </div>

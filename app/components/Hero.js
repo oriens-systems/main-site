@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Button from "./Button";
 
 // Dynamic import for Three.js components (no SSR)
 const WireframeSphere = dynamic(() => import("./WireframeSphere"), {
@@ -132,18 +133,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <a
-              href="/pilot"
-              className="px-6 py-3.5 rounded-full border border-[#8b5cf6]/40 bg-[#8b5cf6]/10 backdrop-blur-sm text-white font-semibold text-sm hover:bg-[#8b5cf6]/20 hover:border-[#8b5cf6]/60 transition-all"
-            >
+            <Button href="/pilot" variant="primary" size="md">
               Join the Pilot Program
-            </a>
-            <a
-              href="#mission"
-              className="px-6 py-3.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-white/90 font-medium text-sm hover:bg-white/10 hover:border-white/20 transition-all"
-            >
+            </Button>
+            <Button href="#mission" variant="secondary" size="md">
               See the problem
-            </a>
+            </Button>
           </motion.div>
         </div>
 
@@ -195,7 +190,6 @@ export default function Hero() {
                 </span>
               </div>
               <div className="flex items-center gap-4 text-xs text-white/40">
-                <span className="hidden sm:inline">48 cells active</span>
                 <span className="font-mono text-[#8b5cf6]/70">● LIVE</span>
               </div>
             </div>
@@ -206,15 +200,7 @@ export default function Hero() {
             </div>
 
             {/* Bottom bar */}
-            <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-t border-white/6 z-10">
-              <div className="flex items-center gap-6 text-xs text-white/40">
-                <span>
-                  <span className="text-white/60">Δt</span> 2.4ms
-                </span>
-                <span>
-                  <span className="text-white/60">σ</span> 0.003mm
-                </span>
-              </div>
+            <div className="relative flex items-center justify-end px-5 md:px-6 py-3 border-t border-white/6 z-10">
               <div className="text-xs text-white/40">
                 Drag to rotate · Real-time render
               </div>

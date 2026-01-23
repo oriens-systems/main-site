@@ -2,7 +2,14 @@
 
 import { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useMotionValue,
+} from "framer-motion";
+import Button from "./Button";
 
 // Dynamic imports for 3D components
 const WireframeSatellite = dynamic(() => import("./WireframeSatellite"), {
@@ -32,7 +39,7 @@ const WireframeFusionReactor = dynamic(
         <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
       </div>
     ),
-  }
+  },
 );
 
 // Interactive Card Component with 3D tilt physics
@@ -51,11 +58,11 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard }) {
     const rect = cardRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     // Calculate rotation based on mouse position (max 8 degrees)
     const rotX = ((e.clientY - centerY) / (rect.height / 2)) * -8;
     const rotY = ((e.clientX - centerX) / (rect.width / 2)) * 8;
-    
+
     rotateX.set(rotX);
     rotateY.set(rotY);
     mouseX.set(e.clientX - rect.left);
@@ -84,8 +91,8 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard }) {
       }}
     >
       {/* Card Body with 3D transform */}
-      <motion.div 
-        className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-2xl overflow-hidden transition-colors duration-500 hover:border-[var(--accent)]/30"
+      <motion.div
+        className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-xl overflow-hidden transition-colors duration-500 hover:border-[var(--accent)]/30"
         style={{
           rotateX,
           rotateY,
@@ -99,7 +106,7 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard }) {
             background: `radial-gradient(600px circle at ${mouseX.get()}px ${mouseY.get()}px, rgba(139,92,246,0.1), transparent 40%)`,
           }}
         />
-        
+
         {/* 3D Container - Clean */}
         <div className="h-[240px] w-full bg-[#0a0f1c] relative flex items-center justify-center">
           {/* Subtle inner shadow for depth */}
@@ -110,9 +117,11 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard }) {
         {/* Content */}
         <div className="p-8">
           <div className="flex justify-between items-start mb-6">
-            <motion.div 
+            <motion.div
               className={`p-2 rounded-lg transition-colors duration-300 ${
-                hoveredCard === index ? "bg-[var(--accent)]/10 text-[var(--accent)]" : "bg-[var(--foreground)]/5 text-[var(--muted)]"
+                hoveredCard === index
+                  ? "bg-[var(--accent)]/10 text-[var(--accent)]"
+                  : "bg-[var(--foreground)]/5 text-[var(--muted)]"
               }`}
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -133,12 +142,12 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard }) {
         </div>
 
         {/* Hover Line with spring physics */}
-        <motion.div 
+        <motion.div
           className="absolute bottom-0 left-0 h-[2px] bg-[var(--accent)]"
           initial={{ width: "0%", opacity: 0 }}
-          animate={{ 
+          animate={{
             width: hoveredCard === index ? "100%" : "0%",
-            opacity: hoveredCard === index ? 1 : 0
+            opacity: hoveredCard === index ? 1 : 0,
           }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         />
@@ -164,12 +173,12 @@ export default function Differentiation() {
     const handleMouseMove = (e) => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      
+
       // Only track if mouse is within section
       if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
         const x = (e.clientX / window.innerWidth - 0.5) * 100;
         const y = ((e.clientY - rect.top) / rect.height - 0.5) * 100;
-        
+
         orbX.set(x * 0.5);
         orbY.set(y * 0.3);
         orb2X.set(-x * 0.3);
@@ -325,7 +334,7 @@ export default function Differentiation() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 italic mb-10 max-w-3xl mx-auto"
+            className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 italic mb-10 whitespace-nowrap"
           >
             "Safeguarding humanity through precision."
           </motion.p>
@@ -335,51 +344,51 @@ export default function Differentiation() {
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[var(--accent)] text-white font-medium text-sm uppercase tracking-widest hover:bg-[var(--accent)]/90 transition-colors duration-300"
-            >
+            <Button href="/contact" variant="primary" size="lg">
               Get in Touch
-            </a>
+            </Button>
           </motion.div>
         </div>
 
         {/* Header */}
         <div className="mb-20 flex flex-col md:flex-row items-end justify-between gap-6 border-b border-[var(--foreground)]/10 pb-8">
-            <div>
-                <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-6"
-                >
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
-                    </span>
-                    <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-                        Core Sectors
-                    </span>
-                </motion.div>
-                <motion.h2 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight"
-                >
-                    Engineering <br className="hidden md:block" /> the <span className="text-[var(--accent)]">Impossible</span>
-                </motion.h2>
-            </div>
-            <motion.p 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                viewport={{ once: true }}
-                className="text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed"
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3 mb-6"
             >
-                We specialize in manufacturing components for industries where precision is the only variable that matters.
-            </motion.p>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
+              </span>
+              <span className="text-xs uppercase tracking-[0.2em] text-white/60">
+                Core Sectors
+              </span>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight"
+            >
+              Engineering <br className="hidden md:block" /> the{" "}
+              <span className="text-[var(--accent)]">Impossible</span>
+            </motion.h2>
+          </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed"
+          >
+            We specialize in creating the systems necessary for industries to
+            manufacture components where precision and efficiency are the only
+            variables that matter.
+          </motion.p>
         </div>
 
         {/* Cards with Interactive Physics */}

@@ -15,7 +15,7 @@ function RocketNozzle() {
       if (child.isMesh) {
         // Apply wireframe material
         child.material = new THREE.MeshBasicMaterial({
-          color: "#8b5cf6",
+          color: "#ffffff",
           wireframe: true,
           transparent: true,
           opacity: 0.6,

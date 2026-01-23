@@ -8,6 +8,80 @@ import {
   AnimatePresence,
 } from "framer-motion";
 
+// CSS-based animated industrial background
+function IndustrialBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Rotating gears */}
+      <svg className="absolute top-10 left-10 w-32 h-32 text-white/10 animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+        <circle cx="50" cy="50" r="35" />
+        <circle cx="50" cy="50" r="20" />
+        <circle cx="50" cy="50" r="8" />
+        {[...Array(12)].map((_, i) => (
+          <line key={i} x1="50" y1="15" x2="50" y2="5" transform={`rotate(${i * 30} 50 50)`} />
+        ))}
+      </svg>
+      
+      <svg className="absolute top-32 left-36 w-24 h-24 text-[#8b5cf6]/15 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+        <circle cx="50" cy="50" r="35" />
+        <circle cx="50" cy="50" r="20" />
+        <circle cx="50" cy="50" r="8" />
+        {[...Array(12)].map((_, i) => (
+          <line key={i} x1="50" y1="15" x2="50" y2="5" transform={`rotate(${i * 30} 50 50)`} />
+        ))}
+      </svg>
+      
+      <svg className="absolute bottom-20 right-20 w-40 h-40 text-white/8 animate-spin-slow" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+        <circle cx="50" cy="50" r="40" />
+        <circle cx="50" cy="50" r="25" />
+        <circle cx="50" cy="50" r="10" />
+        {[...Array(16)].map((_, i) => (
+          <line key={i} x1="50" y1="10" x2="50" y2="0" transform={`rotate(${i * 22.5} 50 50)`} />
+        ))}
+      </svg>
+      
+      <svg className="absolute bottom-40 right-52 w-20 h-20 text-[#8b5cf6]/12 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+        <circle cx="50" cy="50" r="35" />
+        <circle cx="50" cy="50" r="20" />
+        <circle cx="50" cy="50" r="8" />
+        {[...Array(8)].map((_, i) => (
+          <line key={i} x1="50" y1="15" x2="50" y2="5" transform={`rotate(${i * 45} 50 50)`} />
+        ))}
+      </svg>
+      
+      {/* Floating particles */}
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 rounded-full bg-[#8b5cf6]/30"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 3 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
+      ))}
+      
+      {/* Grid lines */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: `
+          linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
+        `,
+        backgroundSize: "80px 80px",
+      }} />
+    </div>
+  );
+}
+
 export default function Applications() {
   const sectionRef = useRef(null);
   const [activeApp, setActiveApp] = useState(0);
@@ -122,6 +196,11 @@ export default function Applications() {
       ref={sectionRef}
       className="relative w-full overflow-hidden py-24 lg:py-32"
     >
+      {/* Industrial Background (CSS-based) */}
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
+        <IndustrialBackground />
+      </div>
+
       {/* Grid background */}
       <div
         className="absolute inset-0 opacity-50 pointer-events-none"

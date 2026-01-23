@@ -15,27 +15,6 @@ export default function CallToAction() {
 
   const ctaOptions = [
     {
-      title: "Upload a STEP File",
-      description: "See your part manufactured in minutes",
-      icon: (
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-      primary: true,
-    },
-    {
       title: "Talk to the Team",
       description: "Discuss your manufacturing needs",
       icon: (
@@ -54,7 +33,7 @@ export default function CallToAction() {
           />
         </svg>
       ),
-      primary: false,
+      primary: true,
     },
     {
       title: "See the Technology",
@@ -125,21 +104,19 @@ export default function CallToAction() {
             Start Manufacturing <span className="text-[#8b5cf6]">Today</span>
           </h2>
           <p className="text-lg md:text-xl text-white/50 max-w-lg mx-auto">
-            From design to production in minutes, not months.
+            From design to production-ready in minutes, not days.
           </p>
         </motion.div>
 
-        {/* CTA Grid - Primary centered, secondary on sides */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5 mb-20">
+        {/* CTA Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5 mb-20 max-w-3xl mx-auto">
           {ctaOptions.map((option, index) => (
             <motion.button
               key={option.title}
-              className={`group relative p-6 md:p-8 rounded-2xl border text-left transition-all duration-300 overflow-hidden ${
+              className={`group relative p-6 md:p-8 rounded-xl border text-left transition-all duration-300 overflow-hidden ${
                 option.primary
-                  ? "bg-[#8b5cf6] border-[#8b5cf6] hover:bg-[#7c4fd4] lg:order-2"
+                  ? "bg-[#8b5cf6] border-[#8b5cf6] hover:bg-[#7c4fd4]"
                   : "bg-white/3 border-white/10 hover:border-[#8b5cf6]/50 hover:bg-white/5"
-              } ${index === 0 ? "lg:order-1" : ""} ${
-                index === 2 ? "lg:order-3" : ""
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +210,7 @@ export default function CallToAction() {
             {/* Subtle glow */}
             <div className="absolute inset-0 bg-[#8b5cf6]/10 blur-2xl rounded-full" />
 
-            <div className="relative px-8 py-6 md:px-10 md:py-8 border border-white/10 rounded-2xl bg-white/2 backdrop-blur-sm">
+            <div className="relative px-8 py-6 md:px-10 md:py-8 border border-white/10 rounded-xl bg-white/2 backdrop-blur-sm">
               <p className="text-xl md:text-2xl lg:text-3xl font-medium text-white/80 tracking-tight">
                 When the stakes are cosmic,
               </p>

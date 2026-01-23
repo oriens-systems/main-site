@@ -21,7 +21,7 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 font-bold tracking-wide transition-all rounded-full cursor-pointer";
+    "inline-flex items-center justify-center gap-2 font-bold tracking-wide transition-all rounded-xl cursor-pointer";
 
   const variants = {
     primary:

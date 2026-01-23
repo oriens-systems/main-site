@@ -2,13 +2,13 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Button from "../components/Button";
 
 // Dynamic import for 3D component to avoid SSR issues
-const WireframeParticleField = dynamic(() => import("../components/WireframeParticleField"), {
+const WireframeStarField = dynamic(() => import("../components/WireframeStarField"), {
   ssr: false,
   loading: () => null,
 });
@@ -60,10 +60,10 @@ export default function AboutPage() {
       {/* Section 1: One-Liner Hero */}
       <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden">
         
-        {/* 3D Background - Particle Field */}
+        {/* 3D Background - Star Field */}
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 pointer-events-none opacity-60">
              <div className="absolute inset-0">
-                <WireframeParticleField />
+                <WireframeStarField />
             </div>
         </motion.div>
 
@@ -190,18 +190,12 @@ export default function AboutPage() {
             Help Close the Gap
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <Link
-                href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#8b5cf6] hover:bg-[#7c4fd4] text-white font-bold tracking-wide transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.3)]"
-               >
+               <Button href="/contact" variant="primary" size="lg">
                 INITIATE CONTACT
-               </Link>
-               <Link
-                 href="/"
-                 className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white font-medium transition-colors backdrop-blur-sm"
-               >
+               </Button>
+               <Button href="/" variant="secondary" size="lg">
                  VIEW MISSION
-               </Link>
+               </Button>
           </div>
         </div>
       </section>
