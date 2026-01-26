@@ -16,7 +16,6 @@ export default function Footer() {
       { name: "Aerospace", href: "/applications#aerospace" },
       { name: "Defense", href: "/applications#defense" },
       { name: "Energy", href: "/applications#energy" },
-      
     ],
   };
 
