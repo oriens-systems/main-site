@@ -49,7 +49,7 @@ function RocketNozzle() {
 
 function Particles() {
   const particlesRef = useRef();
-  const count = 25;
+  const count = 15;
 
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -97,20 +97,20 @@ export default function WireframeRocketNozzle() {
     <div className="w-full h-full">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 45 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ 
+          antialias: false, 
+          alpha: true,
+          powerPreference: "low-power",
+          stencil: false,
+          depth: true
+        }}
         style={{ background: "transparent" }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.5} />
         <RocketNozzle />
         <Particles />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          enableRotate={true}
-          autoRotate={false}
-          maxPolarAngle={Math.PI / 1.2}
-          minPolarAngle={Math.PI / 4}
-        />
       </Canvas>
     </div>
   );

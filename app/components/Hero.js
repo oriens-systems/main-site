@@ -202,7 +202,7 @@ export default function Hero() {
             {/* Bottom bar */}
             <div className="relative flex items-center justify-end px-5 md:px-6 py-3 border-t border-white/6 z-10">
               <div className="text-xs text-white/40">
-                Drag to rotate · Real-time render
+                Real-time render
               </div>
             </div>
           </div>

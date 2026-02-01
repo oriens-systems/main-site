@@ -289,16 +289,18 @@ export default function WireframeFusionReactor() {
       <Canvas
         camera={{ position: [4, 2.5, 4], fov: 45 }}
         style={{ background: "transparent" }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ 
+          alpha: true, 
+          antialias: false,
+          powerPreference: "low-power",
+          stencil: false,
+          depth: true
+        }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.5} />
         <FusionReactor />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.3}
-        />
       </Canvas>
     </div>
   );

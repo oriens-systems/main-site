@@ -98,7 +98,7 @@ function Sphere() {
 
 function Particles() {
   const particlesRef = useRef();
-  const count = 100;
+  const count = 50;
 
   const positions = new Float32Array(count * 3);
   for (let i = 0; i < count; i++) {
@@ -143,20 +143,20 @@ export default function WireframeSphere() {
     <div className="h-full" style={{ width: "110%", marginLeft: "-4%" }}>
       <Canvas
         camera={{ position: [0, 0, 6], fov: 45 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ 
+          antialias: false, 
+          alpha: true,
+          powerPreference: "low-power",
+          stencil: false,
+          depth: true
+        }}
         style={{ background: "transparent" }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.5} />
         <Sphere />
         <Particles />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.3}
-          maxPolarAngle={Math.PI / 1.5}
-          minPolarAngle={Math.PI / 3}
-        />
       </Canvas>
     </div>
   );

@@ -178,16 +178,18 @@ export default function WireframeSatellite() {
       <Canvas
         camera={{ position: [3.5, 2, 3.5], fov: 45 }}
         style={{ background: "transparent" }}
-        gl={{ alpha: true, antialias: true }}
+        gl={{ 
+          alpha: true, 
+          antialias: false,
+          powerPreference: "low-power",
+          stencil: false,
+          depth: true
+        }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
       >
         <ambientLight intensity={0.5} />
         <Satellite />
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
       </Canvas>
     </div>
   );

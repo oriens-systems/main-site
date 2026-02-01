@@ -4,7 +4,7 @@ import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-function Stars({ count = 1500 }) {
+function Stars({ count = 600 }) {
   const points = useRef();
   
   const particlesPosition = useMemo(() => {
@@ -96,7 +96,7 @@ function Stars({ count = 1500 }) {
   );
 }
 
-function TwinklingStars({ count = 200 }) {
+function TwinklingStars({ count = 80 }) {
   const points = useRef();
   
   const particlesPosition = useMemo(() => {
@@ -186,11 +186,19 @@ export default function WireframeStarField() {
     <div className="w-full h-full">
       <Canvas
         camera={{ position: [0, 0, 30], fov: 60 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ 
+          antialias: false, 
+          alpha: true,
+          powerPreference: "low-power",
+          stencil: false,
+          depth: true
+        }}
         style={{ background: "transparent" }}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
       >
-        <Stars count={1200} />
-        <TwinklingStars count={150} />
+        <Stars count={500} />
+        <TwinklingStars count={60} />
       </Canvas>
     </div>
   );

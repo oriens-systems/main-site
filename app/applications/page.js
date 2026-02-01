@@ -47,23 +47,15 @@ function IndustrialBackground() {
         ))}
       </svg>
       
-      {/* Floating particles */}
-      {[...Array(15)].map((_, i) => (
-        <motion.div
+      {/* Floating particles - reduced count */}
+      {[...Array(6)].map((_, i) => (
+        <div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-[#8b5cf6]/40"
+          className="absolute w-1 h-1 rounded-full bg-[#8b5cf6]/30 animate-pulse"
           style={{
-            left: `${10 + Math.random() * 80}%`,
-            top: `${10 + Math.random() * 80}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.6, 0.2],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
+            left: `${15 + i * 15}%`,
+            top: `${20 + (i % 3) * 25}%`,
+            animationDelay: `${i * 0.5}s`,
           }}
         />
       ))}
