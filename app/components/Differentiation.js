@@ -183,8 +183,6 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }
 export default function Differentiation() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const orb1Ref = useRef(null);
-  const orb2Ref = useRef(null);
   const missionBadgeRef = useRef(null);
   const missionTextRef = useRef(null);
   const missionButtonRef = useRef(null);
@@ -194,42 +192,6 @@ export default function Differentiation() {
   const cardsContainerRef = useRef(null);
   const cardRefs = useRef([]);
   const [hoveredCard, setHoveredCard] = useState(null);
-
-  // Mouse tracking for orbs
-  useEffect(() => {
-    const section = sectionRef.current;
-    const orb1 = orb1Ref.current;
-    const orb2 = orb2Ref.current;
-
-    if (!section || !orb1 || !orb2) return;
-
-    const handleMouseMove = (e) => {
-      const rect = section.getBoundingClientRect();
-
-      // Only track if mouse is within section
-      if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
-        const x = (e.clientX / window.innerWidth - 0.5) * 100;
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 100;
-
-        gsap.to(orb1, {
-          x: x * 0.5,
-          y: y * 0.3,
-          duration: 1,
-          ease: "power2.out"
-        });
-
-        gsap.to(orb2, {
-          x: -x * 0.3,
-          y: -y * 0.4,
-          duration: 1.2,
-          ease: "power2.out"
-        });
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   // Scroll-triggered animations
   useEffect(() => {
@@ -436,14 +398,12 @@ export default function Differentiation() {
       ref={sectionRef}
       className="relative w-full overflow-hidden pt-8 pb-24 lg:pt-12 lg:pb-32"
     >
-      {/* Interactive Background Orbs - Follow mouse with GSAP */}
+      {/* Static Background Orbs */}
       <div
-        ref={orb1Ref}
         className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[var(--accent)]/8 rounded-full blur-[120px] pointer-events-none"
         aria-hidden
       />
       <div
-        ref={orb2Ref}
         className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[var(--accent)]/6 rounded-full blur-[100px] pointer-events-none"
         aria-hidden
       />
