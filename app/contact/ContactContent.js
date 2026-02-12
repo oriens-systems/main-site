@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "../components/Header";
@@ -17,13 +17,6 @@ const WireframeIcosahedron = dynamic(
 
 export default function ContactContent() {
   const heroRef = useRef(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    sector: "",
-    message: "",
-  });
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -31,26 +24,6 @@ export default function ContactContent() {
   });
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const sectors = [
-    "Aerospace & Space",
-    "Defense",
-    "Fusion Energy",
-    "Advanced Industrial",
-    "Other",
-  ];
 
   return (
     <main className="relative min-h-screen bg-[#05070f]">
@@ -244,144 +217,63 @@ export default function ContactContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/2 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold text-white mb-6">
+              <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/2 backdrop-blur-sm text-center">
+                <div className="w-16 h-16 rounded-2xl bg-[#8b5cf6]/10 flex items-center justify-center text-[#8b5cf6] mx-auto mb-6">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <polyline
+                      points="22,6 12,13 2,6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Tell us about your project
                 </h3>
+                <p className="text-sm text-white/50 mb-8 max-w-sm mx-auto">
+                  Describe your manufacturing requirements—materials,
+                  tolerances, volumes, timeline—and we'll get back to you within
+                  24 hours.
+                </p>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-xs text-white/40 uppercase tracking-wider mb-2"
-                      >
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#8b5cf6]/50 transition-colors"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-xs text-white/40 uppercase tracking-wider mb-2"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#8b5cf6]/50 transition-colors"
-                        placeholder="you@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label
-                        htmlFor="company"
-                        className="block text-xs text-white/40 uppercase tracking-wider mb-2"
-                      >
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#8b5cf6]/50 transition-colors"
-                        placeholder="Company name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="sector"
-                        className="block text-xs text-white/40 uppercase tracking-wider mb-2"
-                      >
-                        Sector
-                      </label>
-                      <select
-                        id="sector"
-                        name="sector"
-                        value={formData.sector}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#8b5cf6]/50 transition-colors appearance-none cursor-pointer"
-                      >
-                        <option value="" className="bg-[#0b1020]">
-                          Select sector
-                        </option>
-                        {sectors.map((sector) => (
-                          <option
-                            key={sector}
-                            value={sector}
-                            className="bg-[#0b1020]"
-                          >
-                            {sector}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-xs text-white/40 uppercase tracking-wider mb-2"
-                    >
-                      Project Details
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#8b5cf6]/50 transition-colors resize-none"
-                      placeholder="Describe your manufacturing requirements—materials, tolerances, volumes, timeline..."
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
+                <Button
+                  href="mailto:hello@suprnova.co"
+                  variant="primary"
+                  size="lg"
+                  className="w-full"
+                >
+                  Email Us
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   >
-                    Submit Request
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path
-                        d="M5 12h14M12 5l7 7-7 7"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </Button>
-                </form>
+                    <path
+                      d="M5 12h14M12 5l7 7-7 7"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Button>
 
-                <p className="mt-4 text-xs text-white/30 text-center">
-                  We respond within 24 hours. No automated replies.
+                <p className="mt-4 text-xs text-white/30">
+                  hello@suprnova.co • We respond within 24 hours
                 </p>
               </div>
             </motion.div>
