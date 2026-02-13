@@ -117,8 +117,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
-              CAM programming in hours,
-              <br />
+              CAM programming in hours, <br />
+              
               <span className="text-[#8b5cf6]">not days.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
@@ -190,7 +190,7 @@ export default function Hero() {
                 </span>
               </div>
               <div className="flex items-center gap-4 text-xs text-white/40">
-                <span className="font-mono text-[#8b5cf6]/70">● LIVE</span>
+      
               </div>
             </div>
 

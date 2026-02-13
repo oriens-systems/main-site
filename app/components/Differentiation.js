@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "./Button";
@@ -11,42 +10,9 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Dynamic imports for 3D components
-const WireframeSatellite = dynamic(() => import("./WireframeSatellite"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
-    </div>
-  ),
-});
-
-const WireframeShield = dynamic(() => import("./WireframeShield"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
-    </div>
-  ),
-});
-
-const WireframeFusionReactor = dynamic(
-  () => import("./WireframeFusionReactor"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="w-8 h-8 border border-[var(--foreground)]/20 border-t-[var(--accent)] rounded-full animate-spin" />
-      </div>
-    ),
-  },
-);
-
-// Interactive Card Component with GSAP animations and 3D tilt
+// Interactive Card Component with GSAP animations
 function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }) {
   const lineRef = useRef(null);
-  const cardInnerRef = useRef(null);
-  const spotlightRef = useRef(null);
 
   // Hover line animation
   useEffect(() => {
@@ -69,85 +35,30 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }
     }
   }, [hoveredCard, index]);
 
-  // 3D tilt effect handlers
-  const handleMouseMove = (e) => {
-    if (!cardInnerRef.current) return;
-    const rect = cardInnerRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    // Calculate rotation based on mouse position (max 8 degrees)
-    const rotX = ((e.clientY - centerY) / (rect.height / 2)) * -8;
-    const rotY = ((e.clientX - centerX) / (rect.width / 2)) * 8;
-
-    gsap.to(cardInnerRef.current, {
-      rotateX: rotX,
-      rotateY: rotY,
-      duration: 0.3,
-      ease: "power2.out",
-      transformPerspective: 1000
-    });
-
-    // Update spotlight position
-    if (spotlightRef.current) {
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      gsap.to(spotlightRef.current, {
-        background: `radial-gradient(600px circle at ${x}px ${y}px, rgba(139,92,246,0.1), transparent 40%)`,
-        opacity: 1,
-        duration: 0.2
-      });
-    }
-  };
-
   const handleMouseLeave = () => {
     setHoveredCard(null);
-    if (cardInnerRef.current) {
-      gsap.to(cardInnerRef.current, {
-        rotateX: 0,
-        rotateY: 0,
-        duration: 0.5,
-        ease: "power2.out"
-      });
-    }
-    if (spotlightRef.current) {
-      gsap.to(spotlightRef.current, {
-        opacity: 0,
-        duration: 0.3
-      });
-    }
   };
 
   return (
     <div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
       onMouseEnter={() => setHoveredCard(index)}
       onMouseLeave={handleMouseLeave}
       className="relative group cursor-default card-item opacity-0 translate-y-5"
-      style={{ perspective: "1000px" }}
     >
-      {/* Card Body with 3D transform */}
-      <div
-        ref={cardInnerRef}
-        className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-xl overflow-hidden transition-colors duration-300 hover:border-[var(--accent)]/30"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* Spotlight effect following mouse */}
-        <div
-          ref={spotlightRef}
-          className="absolute inset-0 opacity-0 pointer-events-none z-20"
-        />
-        {/* 3D Container - Clean */}
-        <div className="h-[240px] w-full bg-[#0a0f1c] relative flex items-center justify-center">
-          {/* Subtle inner shadow for depth */}
-          <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none z-10" />
-          <sector.WireframeComponent />
-        </div>
+      {/* Card Body */}
+      <div className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-xl overflow-hidden transition-colors duration-300 hover:border-[var(--accent)]/30">
+        {/* 3D Container - Only render when component exists */}
+        {sector.WireframeComponent && (
+          <div className="h-[240px] w-full bg-[#0a0f1c] relative flex items-center justify-center">
+            <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none z-10" />
+            <sector.WireframeComponent />
+          </div>
+        )}
 
         {/* Content */}
-        <div className="p-8">
-          <div className="flex justify-between items-start mb-6">
+        <div className="p-5">
+          <div className="flex justify-between items-start mb-3">
             <div
               className={`p-2 rounded-lg transition-colors duration-300 ${
                 hoveredCard === index
@@ -162,7 +73,7 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }
             </span>
           </div>
 
-          <h3 className="text-xl font-medium text-[var(--foreground)] mb-3">
+          <h3 className="text-lg font-medium text-[var(--foreground)] mb-2">
             {sector.title}
           </h3>
           <p className="text-sm text-[var(--muted)] leading-relaxed">
@@ -341,7 +252,7 @@ export default function Differentiation() {
           />
         </svg>
       ),
-      WireframeComponent: WireframeSatellite,
+      WireframeComponent: null,
     },
     {
       id: "defense",
@@ -364,7 +275,7 @@ export default function Differentiation() {
           />
         </svg>
       ),
-      WireframeComponent: WireframeShield,
+      WireframeComponent: null,
     },
     {
       id: "energy",
@@ -388,7 +299,7 @@ export default function Differentiation() {
           />
         </svg>
       ),
-      WireframeComponent: WireframeFusionReactor,
+      WireframeComponent: null,
     },
   ];
 
