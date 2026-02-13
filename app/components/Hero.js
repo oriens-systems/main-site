@@ -15,14 +15,6 @@ const WireframeSphere = dynamic(() => import("./WireframeSphere"), {
   ),
 });
 
-const WireframeRocketNozzle = dynamic(() => import("./WireframeRocketNozzle"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-16 h-16 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
-    </div>
-  ),
-});
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -142,71 +134,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* 3D Sphere visual */}
-        <motion.div
-          className="mt-16 md:mt-20 relative"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/8 bg-white/2">
-            {/* Inner grid texture */}
-            <div
-              className="absolute inset-0 opacity-40 pointer-events-none"
-              style={{
-                backgroundImage: `
-                  linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
-                `,
-                backgroundSize: "40px 40px",
-              }}
-              aria-hidden
-            />
-
-            {/* Scanline effect */}
-            <motion.div
-              className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#8b5cf6]/40 to-transparent pointer-events-none z-10"
-              animate={{ top: ["0%", "100%"] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-              aria-hidden
-            />
-
-            {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-[#8b5cf6]/30 rounded-tl-2xl pointer-events-none z-10" />
-            <div className="absolute top-0 right-0 w-16 h-16 border-r-2 border-t-2 border-[#8b5cf6]/30 rounded-tr-2xl pointer-events-none z-10" />
-            <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-[#8b5cf6]/30 rounded-bl-2xl pointer-events-none z-10" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-[#8b5cf6]/30 rounded-br-2xl pointer-events-none z-10" />
-
-            {/* Status bar */}
-            <div className="relative flex items-center justify-between px-5 md:px-6 py-3 border-b border-white/6 z-10">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#8b5cf6]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
-                </div>
-                <span className="text-xs font-mono text-white/40 hidden sm:inline">
-                  GRID_VIS_001
-                </span>
-              </div>
-              <div className="flex items-center gap-4 text-xs text-white/40">
-      
-              </div>
-            </div>
-
-            {/* 3D Rocket Nozzle Canvas */}
-            <div className="relative h-[300px] md:h-[400px] lg:h-[450px]">
-              <WireframeRocketNozzle />
-            </div>
-
-            {/* Bottom bar */}
-            <div className="relative flex items-center justify-end px-5 md:px-6 py-3 border-t border-white/6 z-10">
-              <div className="text-xs text-white/40">
-                Real-time render
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
       </motion.div>
     </section>
