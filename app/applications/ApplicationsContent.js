@@ -250,11 +250,12 @@ export default function ApplicationsContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6]" />
-              <span className="text-xs uppercase tracking-[0.2em] text-[#8b5cf6]/80">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-white/10" />
+              <span className="text-xs uppercase tracking-[0.2em] text-white/60">
                 Applications
               </span>
+              <div className="flex-1 h-px bg-white/10" />
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight mb-6">

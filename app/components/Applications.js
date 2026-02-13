@@ -236,11 +236,12 @@ export default function Applications() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6]" />
-            <span className="text-xs uppercase tracking-[0.2em] text-[#8b5cf6]/80">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
               Applications
             </span>
+            <div className="flex-1 h-px bg-white/10" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] text-white tracking-tight mb-4">
             Where This <span className="text-[#8b5cf6]">Matters Most</span>

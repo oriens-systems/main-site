@@ -15,24 +15,6 @@ const WireframeStarField = dynamic(
   }
 );
 
-function ClassifiedText({ text }) {
-  return (
-    <div className="relative group cursor-default">
-      <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
-      <span className="font-mono text-xs tracking-[0.2em] text-[#8b5cf6]">
-        CLASSIFIED
-      </span>
-      <div className="h-12 w-48 bg-white/10 mt-2 rounded flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10" />
-        <span className="font-mono text-white/20 tracking-widest blur-[2px] select-none">
-          {text}
-        </span>
-        <div className="absolute top-0 bottom-0 left-0 w-[2px] bg-red-500/50 animate-scan" />
-      </div>
-    </div>
-  );
-}
-
 export default function AboutContent() {
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -85,12 +67,17 @@ export default function AboutContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#8b5cf6]/20 bg-[#8b5cf6]/5 mb-10 backdrop-blur-md"
+            className="flex items-center gap-4 mb-10 w-full"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] animate-pulse" />
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#8b5cf6]">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
+            </span>
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-white/60">
               Status: In Development
             </span>
+            <div className="flex-1 h-px bg-white/10" />
           </motion.div>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15]">
@@ -122,63 +109,6 @@ export default function AboutContent() {
               </span>
             </motion.span>
           </h1>
-        </div>
-      </section>
-
-      <section className="relative py-32 border-t border-white/5 bg-[#05070f]/50 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-16 gap-8">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Our Team</h2>
-              <p className="text-white/40 font-mono text-sm">
-                /// CLEARANCE LEVEL 5 REQUIRED
-              </p>
-            </div>
-            <div className="px-4 py-2 border border-red-500/20 bg-red-500/5 rounded text-red-400 text-xs font-mono uppercase tracking-widest flex items-center gap-2">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-ping" />
-              Access Restricted
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="p-6 rounded-xl border border-white/5 bg-white/2 hover:border-[#8b5cf6]/20 transition-all group"
-              >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#8b5cf6]/20 to-transparent" />
-                    <svg
-                      className="w-8 h-8 text-white/20"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-[10px] text-white/20 font-mono">
-                    ID_00{i}
-                  </span>
-                </div>
-                <ClassifiedText text={`REDACTED_NAME_0${i}`} />
-                <div className="mt-4 pt-4 border-t border-white/5 flex gap-2">
-                  <div className="h-2 w-12 bg-white/10 rounded-full" />
-                  <div className="h-2 w-8 bg-white/10 rounded-full" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

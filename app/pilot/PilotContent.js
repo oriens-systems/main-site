@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Header from "../components/Header";
-import WireframeToolpath from "../components/WireframeToolpath";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 
 export default function PilotContent() {
@@ -46,24 +46,23 @@ export default function PilotContent() {
         aria-hidden
       />
 
-      <div className="absolute inset-0 z-0 opacity-30 mix-blend-screen pointer-events-none">
-        <WireframeToolpath speed={0.2} isActive={true} />
-      </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen pt-20 px-6">
         <div className="max-w-3xl w-full text-center space-y-8 mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm"
+            className="flex items-center gap-4 w-full"
           >
-            <span className="relative flex h-2.5 w-2.5">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-500 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500" />
             </span>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/70">
               Status: In Progress
             </span>
+            <div className="flex-1 h-px bg-white/10" />
           </motion.div>
 
           <motion.h1
@@ -115,6 +114,7 @@ export default function PilotContent() {
           </p>
         </motion.div>
       </div>
+      <Footer />
     </main>
   );
 }

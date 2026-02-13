@@ -87,11 +87,12 @@ export default function Hero() {
         <div className="flex flex-col items-center text-center gap-8">
           {/* Status badge */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/3"
+            className="flex items-center gap-4 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="flex-1 h-px bg-white/10" />
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
@@ -99,6 +100,7 @@ export default function Hero() {
             <span className="text-xs uppercase tracking-[0.2em] text-white/60">
               In development
             </span>
+            <div className="flex-1 h-px bg-white/10" />
           </motion.div>
 
           {/* Headline */}
