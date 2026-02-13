@@ -211,7 +211,7 @@ export default function JoinContent() {
                 size="lg"
                 className="w-full sm:w-auto min-w-[220px] shadow-[0_0_50px_rgba(139,92,246,0.3)]"
               >
-                INITIATE CONTACT
+                CONTACT
               </Button>
             </div>
           </div>
