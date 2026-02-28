@@ -47,7 +47,7 @@ export default function ProofPoints() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["2%", "-2%"]);
 
   const metrics = [
-    { value: "5", suffix: "min", label: "STEP → G-code", sub: "vs weeks" },
+    { value: "hrs", suffix: "", label: "STEP → G-code", sub: "not days" },
     { value: "18", suffix: "mo", label: "Lead time cut", sub: "industry avg" },
     { value: "100", suffix: "%", label: "AI toolpath", sub: "autonomous" },
     { value: "4", suffix: "", label: "Sectors", sub: "critical" },

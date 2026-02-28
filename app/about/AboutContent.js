@@ -63,23 +63,6 @@ export default function AboutContent() {
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-4 mb-10 w-full"
-          >
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8b5cf6] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8b5cf6]" />
-            </span>
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-white/60">
-              Status: In Development
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </motion.div>
-
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15]">
             <motion.span
               initial={{ opacity: 0, y: 20 }}

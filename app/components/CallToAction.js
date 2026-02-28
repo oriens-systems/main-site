@@ -15,7 +15,7 @@ export default function CallToAction() {
 
   const ctaOptions = [
     {
-      title: "Talk to the Team",
+      title: "TALK TO THE TEAM",
       description: "Discuss your manufacturing needs",
       icon: (
         <svg
@@ -36,7 +36,7 @@ export default function CallToAction() {
       primary: true,
     },
     {
-      title: "See the Technology",
+      title: "SEE THE TECHNOLOGY",
       description: "Deep dive into our approach",
       icon: (
         <svg
@@ -101,10 +101,10 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight mb-4">
-            Start Manufacturing <span className="text-[#8b5cf6]">Today</span>
+            Become a <span className="text-[#8b5cf6]">Beta Tester</span>
           </h2>
           <p className="text-lg md:text-xl text-white/50 max-w-lg mx-auto">
-            From design to production-ready in minutes, not days.
+            From design to production-ready in hours.
           </p>
         </motion.div>
 
@@ -230,15 +230,6 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-white/40">
-            <span className="flex items-center gap-2">
-              <motion.span
-                className="w-2 h-2 rounded-full bg-yellow-500"
-                animate={{ opacity: [1, 0.4, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-              Systems in development
-            </span>
-            <span className="hidden md:inline text-white/20">|</span>
             <span>Toronto, ON</span>
             <span className="hidden md:inline text-white/20">|</span>
             <span className="text-[#8b5cf6]/70">hello@suprnova.co</span>

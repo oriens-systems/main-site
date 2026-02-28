@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "./Button";
@@ -71,6 +72,22 @@ export default function Hero() {
         aria-hidden
       />
 
+      {/* Shuttle ASCII background image */}
+      <div
+        className="absolute inset-0 flex items-center justify-end pointer-events-none"
+        aria-hidden
+      >
+        <div className="relative w-[55%] h-full opacity-20">
+          <Image
+            src="/images/shuttle_ascii.png"
+            alt=""
+            fill
+            className="object-contain object-center"
+            priority
+          />
+        </div>
+      </div>
+
       {/* Background decorative sphere - left side, half visible */}
       <div
         className="absolute -left-[300px] md:-left-[350px] lg:-left-[400px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
@@ -81,7 +98,7 @@ export default function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-44 lg:pb-32"
+        className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-8 md:pt-40 md:pb-12 lg:pt-44 lg:pb-16"
         style={{ y: contentY, opacity: contentOpacity }}
       >
         <div className="flex flex-col items-center text-center gap-8">
@@ -128,10 +145,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.25 }}
           >
             <Button href="/pilot" variant="primary" size="md">
-              Join the Pilot Program
+              JOIN THE PILOT PROGRAM
             </Button>
             <Button href="#mission" variant="secondary" size="md">
-              See the problem
+              SEE THE PROBLEM
             </Button>
           </motion.div>
         </div>

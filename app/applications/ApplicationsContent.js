@@ -370,7 +370,7 @@ export default function ApplicationsContent() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#8b5cf6] text-white font-medium hover:bg-[#7c4fd4] transition-colors"
             >
-              Contact Us
+              CONTACT US
               <svg
                 width="16"
                 height="16"

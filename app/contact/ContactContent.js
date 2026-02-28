@@ -205,7 +205,7 @@ export default function ContactContent() {
                       Status
                     </p>
                     <p className="text-white/70">
-                      Systems in development • Accepting Projects
+                      Accepting Projects
                     </p>
                   </div>
                 </div>
@@ -256,7 +256,7 @@ export default function ContactContent() {
                   size="lg"
                   className="w-full"
                 >
-                  Email Us
+                  EMAIL US
                   <svg
                     width="16"
                     height="16"

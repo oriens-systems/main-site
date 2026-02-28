@@ -148,20 +148,7 @@ export default function Mission() {
                 <WireframePumpImpeller />
               </div>
 
-              {/* Bottom bar */}
-              <div className="relative flex items-center justify-between px-4 md:px-5 py-2.5 border-t border-white/6 z-10">
-                <div className="flex items-center gap-4 text-[11px] text-white/40">
-                  <span>
-                    <span className="text-white/55">Cells:</span> 48
-                  </span>
-                  <span>
-                    <span className="text-white/55">Sync:</span> 99.7%
-                  </span>
-                </div>
-                <span className="text-[11px] text-white/40">
-                  Real-time orchestration
-                </span>
-              </div>
+        
             </div>
           </motion.div>
 

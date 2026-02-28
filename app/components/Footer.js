@@ -47,13 +47,13 @@ export default function Footer() {
               {/* Logo */}
               <Link href="/" className="inline-block mb-6">
                 <span className="text-2xl font-bold text-white tracking-tight">
-                  supr<span className="text-[#8b5cf6]">nova</span>
+                  [NAME]<span className="text-[#8b5cf6]">[SYSTEMS]</span>
                 </span>
               </Link>
 
               {/* Mission statement */}
               <p className="text-base text-white/60 leading-relaxed mb-6 max-w-md">
-                Rebuilding North America's manufacturing capability through
+                Rebuilding North America's manufacturing base through
                 next-generation automation.
               </p>
 
@@ -90,7 +90,7 @@ export default function Footer() {
             </div>
 
             {/* Applications */}
-            <div>
+            {/* <div>
               <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
                 Applications
               </h4>
@@ -106,7 +106,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             {/* Contact */}
             <div>
@@ -124,18 +124,6 @@ export default function Footer() {
                 </li>
                 <li>
                   <span className="text-sm text-white/60">Toronto, ON</span>
-                </li>
-                <li className="pt-2">
-                  <div className="flex items-center gap-2">
-                    <motion.span
-                      className="w-2 h-2 rounded-full bg-yellow-500"
-                      animate={{ opacity: [1, 0.4, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    />
-                    <span className="text-xs text-white/40">
-                      Systems in development
-                    </span>
-                  </div>
                 </li>
               </ul>
             </div>

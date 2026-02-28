@@ -82,7 +82,6 @@ function SystemLog() {
 export default function JoinContent() {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
-  const badgeRef = useRef(null);
   const headlineRef = useRef(null);
   const cardRef = useRef(null);
   const footerRef = useRef(null);
@@ -95,13 +94,6 @@ export default function JoinContent() {
         contentRef.current,
         { opacity: 0 },
         { opacity: 1, duration: 1 }
-      );
-
-      tl.fromTo(
-        badgeRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        "-=0.5"
       );
 
       tl.fromTo(
@@ -161,22 +153,6 @@ export default function JoinContent() {
           className="max-w-4xl w-full group opacity-0"
           style={{ transformStyle: "preserve-3d" }}
         >
-          <div
-            ref={badgeRef}
-            className="flex items-center gap-4 mb-12 opacity-0"
-            style={{ transform: "translateZ(40px)" }}
-          >
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500" />
-            </span>
-            <span className="text-[10px] font-bold tracking-[0.3em] text-white/70">
-              STATUS: IN DEVELOPMENT
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
-
           <div
             ref={headlineRef}
             style={{ transform: "translateZ(60px)" }}

@@ -357,11 +357,11 @@ export default function Differentiation() {
             ref={missionTextRef}
             className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 italic mb-10 whitespace-nowrap opacity-0"
           >
-            "Safeguarding humanity through precision."
+            Safeguarding humanity through precision.
           </p>
           <div ref={missionButtonRef} className="opacity-0">
             <Button href="/contact" variant="primary" size="lg">
-              Get in Touch
+              GET IN TOUCH
             </Button>
           </div>
         </div>
