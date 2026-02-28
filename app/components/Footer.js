@@ -21,6 +21,21 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full border-t border-white/6 bg-[#05070f]">
+      {/* Factory ASCII background image */}
+      <div
+        className="absolute w-full pointer-events-none"
+
+        style={{ bottom: "calc(100% - 30px)", zIndex: -1, left: "50px" }}
+        aria-hidden
+      >
+        <img
+          src="/images/FACTORY_ASCII.png"
+          alt=""
+          className="w-full block"
+          style={{ filter: "invert(1)", opacity: 0.5, transform: "scale(1.5)", transformOrigin: "bottom left" }}
+        />
+      </div>
+
       {/* Grid background */}
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
@@ -57,7 +72,7 @@ export default function Footer() {
                 next-generation automation.
               </p>
 
-              {/* Core tagline */}
+              {/* Core tagline
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-[#8b5cf6]/20 bg-[#8b5cf6]/5">
                 <motion.span
                   className="w-2 h-2 rounded-full bg-[#8b5cf6]"
@@ -65,9 +80,9 @@ export default function Footer() {
                   transition={{ duration: 2, repeat: Infinity }}
                 />
                 <span className="text-sm text-white/70">
-                  Reshoring industry starts here.
+                  Reshoring industry ssstarts here.
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/* Navigation */}
@@ -109,12 +124,12 @@ export default function Footer() {
             </div> */}
 
             {/* Contact */}
-            <div>
+            <div suppressHydrationWarning>
               <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
                 Contact
               </h4>
-              <ul className="space-y-3">
-                <li>
+              <ul className="space-y-3" suppressHydrationWarning>
+                <li key="contact-email">
                   <a
                     href="mailto:hello@suprnova.co"
                     className="text-sm text-[#8b5cf6] hover:text-[#a78bfa] transition-colors duration-200"
@@ -122,7 +137,7 @@ export default function Footer() {
                     hello@suprnova.co
                   </a>
                 </li>
-                <li>
+                <li key="contact-location">
                   <span className="text-sm text-white/60">Toronto, ON</span>
                 </li>
               </ul>
@@ -133,7 +148,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-6 border-t border-white/6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30">© 2026 Supernova Labs</p>
+            <p className="text-xs text-white/30">© 2026 [INSERT NAME]</p>
           </div>
         </div>
       </div>

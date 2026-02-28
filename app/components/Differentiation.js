@@ -339,7 +339,7 @@ export default function Differentiation() {
 
       <div
         ref={contentRef}
-        className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10"
+        className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10 -mt-6"
       >
         {/* Our Mission Section */}
         <div className="mb-40 lg:mb-56 text-center">
@@ -383,8 +383,10 @@ export default function Differentiation() {
               ref={headerTitleRef}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight opacity-0"
             >
-              Engineering <br className="hidden md:block" /> the{" "}
-              <span className="text-[var(--accent)]">Impossible</span>
+              Built for industries that don't
+              accept tradeoffs 
+              {/* <br className="hidden md:block" /> the{" "}
+              <span className="text-[var(--accent)]">Impossible</span> */}
             </h2>
           </div>
           <p

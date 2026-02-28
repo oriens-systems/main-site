@@ -115,7 +115,7 @@ export default function CallToAction() {
               key={option.title}
               className={`group relative p-6 md:p-8 rounded-xl border text-left transition-all duration-300 overflow-hidden ${
                 option.primary
-                  ? "bg-[#8b5cf6] border-[#8b5cf6] hover:bg-[#7c4fd4]"
+                  ? "bg-[#6d28d9] border-[#6d28d9] hover:bg-[#5b21b6]"
                   : "bg-white/3 border-white/10 hover:border-[#8b5cf6]/50 hover:bg-white/5"
               }`}
               initial={{ opacity: 0, y: 30 }}
@@ -131,7 +131,7 @@ export default function CallToAction() {
               {/* Animated background for primary */}
               {option.primary && (
                 <motion.div
-                  className="absolute inset-0 bg-linear-to-r from-[#8b5cf6] via-[#a78bfa] to-[#8b5cf6] opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-linear-to-r from-[#6d28d9] via-[#7c3aed] to-[#6d28d9] opacity-0 group-hover:opacity-100"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                   }}

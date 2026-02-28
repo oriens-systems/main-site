@@ -20,7 +20,7 @@ export default function Header() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 pt-6">
         <nav className="panel rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between border border-white/10">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          {/* <Link href="/" className="flex items-center gap-3">
             <div className="w-11 h-11 md:w-12 md:h-12 relative">
               <Image
                 src="/logo.png"
@@ -33,7 +33,7 @@ export default function Header() {
             <span className="text-white text-base md:text-lg font-semibold tracking-[0.18em]">
               SUPR<span className="text-[#8b5cf6]">NOVA</span>
             </span>
-          </Link>
+          </Link> */}
 
           {/* Desktop nav - now on the right */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/70 uppercase tracking-[0.12em]">

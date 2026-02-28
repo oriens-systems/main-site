@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Suprnova corporate website built with **Next.js 16** (App Router), **React 19**, and **Tailwind CSS 4**. Heavy use of 3D visualizations (Three.js/React Three Fiber) and animation (Framer Motion, GSAP, Lenis smooth scrolling). Dark-themed, glassmorphic design with purple accent (`#8b5cf6`).
+Suprnova corporate website built with **Next.js 16** (App Router), **React 19**, and **Tailwind CSS 4**. Heavy use of 3D visualizations (Three.js/React Three Fiber) and animation (Framer Motion, GSAP). Dark-themed, glassmorphic design with purple accent (`#8b5cf6`).
 
 ## Commands
 
@@ -28,7 +28,7 @@ Routes: `/` (home), `/about`, `/applications`, `/contact`, `/join`, `/pilot`
 ### Components (`app/components/`)
 
 ~47 shared components. Key categories:
-- **Layout:** `Header.js`, `Footer.js`, `SmoothScroll.js` (Lenis wrapper)
+- **Layout:** `Header.js`, `Footer.js`
 - **UI:** `Button.js`, `SectionLabel.js`, `SpinnerComponent.js`
 - **3D Visualizations:** `Wireframe*.js` prefix — all dynamically imported with `ssr: false` to avoid server-side Three.js errors
 - **Sections:** `Hero.js`, `Differentiation.js`, `ProofPoints.js`, `Newsletter.js`, etc.
@@ -56,7 +56,6 @@ All Three.js components follow this pattern:
 
 - **Framer Motion:** Scroll-linked transforms (`useScroll`, `useTransform`), viewport detection (`useInView`), staggered variants
 - **GSAP + ScrollTrigger:** Used in `Differentiation.js` and other scroll-driven sections
-- **Lenis:** Smooth scrolling wrapper in `SmoothScroll.js` (1.2s duration)
 
 ### SEO
 

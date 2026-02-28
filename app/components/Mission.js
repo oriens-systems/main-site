@@ -142,13 +142,6 @@ export default function Mission() {
                   ● ACTIVE
                 </span>
               </div>
-
-              {/* 3D Canvas */}
-              <div className="relative h-[340px] md:h-[400px] lg:h-[460px]">
-                <WireframePumpImpeller />
-              </div>
-
-        
             </div>
           </motion.div>
 

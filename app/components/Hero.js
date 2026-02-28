@@ -6,15 +6,7 @@ import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "./Button";
 
-// Dynamic import for Three.js components (no SSR)
-const WireframeSphere = dynamic(() => import("./WireframeSphere"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-16 h-16 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
-    </div>
-  ),
-});
+const ASCIIGlobe = dynamic(() => import("./ASCIIGlobe"), { ssr: false });
 
 
 export default function Hero() {
@@ -90,10 +82,10 @@ export default function Hero() {
 
       {/* Background decorative sphere - left side, half visible */}
       <div
-        className="absolute -left-[300px] md:-left-[350px] lg:-left-[400px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
+        className="absolute -left-[240px] md:-left-[280px] lg:-left-[320px] top-1/2 -translate-y-1/2 w-[480px] md:w-[560px] lg:w-[640px] h-[480px] md:h-[560px] lg:h-[640px] opacity-35 pointer-events-none"
         aria-hidden
       >
-        <WireframeSphere />
+        <ASCIIGlobe />
       </div>
 
       {/* Content */}
@@ -128,12 +120,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
-              CAM programming in hours, <br />
-              
-              <span className="text-[#8b5cf6]">not days.</span>
+              Manufacturing the future
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              AI-powered automation for aerospace and defense manufacturing.
+              We're creating AI-powered manufacturing automation for aerospace and defense manufacturing.
             </p>
           </motion.div>
 
@@ -145,7 +135,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.25 }}
           >
             <Button href="/pilot" variant="primary" size="md">
-              JOIN THE PILOT PROGRAM
+              PILOT PROGRAM
             </Button>
             <Button href="#mission" variant="secondary" size="md">
               SEE THE PROBLEM

@@ -69,6 +69,8 @@ export default function PilotContent() {
           >
             We're partnering with the Ontario Centre of Innovation to validate
             our CAM automation. Details coming soon.
+
+            We are currently in the process of finishing up a toolpath generation model before we open up the beta testing program
           </motion.p>
 
           <motion.div
