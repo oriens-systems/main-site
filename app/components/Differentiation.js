@@ -307,7 +307,7 @@ export default function Differentiation() {
     <section
       id="differentiation"
       ref={sectionRef}
-      className="relative w-full overflow-hidden pt-8 pb-24 lg:pt-12 lg:pb-32"
+      className="relative w-full pt-8 pb-24 lg:pt-12 lg:pb-32"
     >
       {/* Static Background Orbs */}
       <div
@@ -342,7 +342,7 @@ export default function Differentiation() {
         className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10 -mt-6"
       >
         {/* Our Mission Section */}
-        <div className="mb-40 lg:mb-56 text-center">
+        <div className="mb-40 lg:mb-56 text-center" style={{ marginTop: "-300px" }}>
           <div
             ref={missionBadgeRef}
             className="flex items-center gap-4 mb-8 opacity-0"
@@ -355,15 +355,15 @@ export default function Differentiation() {
           </div>
           <p
             ref={missionTextRef}
-            className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 italic mb-10 whitespace-nowrap opacity-0"
+            className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 mb-10 whitespace-nowrap opacity-0"
           >
             Safeguarding humanity through precision.
           </p>
-          <div ref={missionButtonRef} className="opacity-0">
+          {/* <div ref={missionButtonRef} className="opacity-0">
             <Button href="/contact" variant="primary" size="lg">
               GET IN TOUCH
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Header */}
