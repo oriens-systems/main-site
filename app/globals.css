@@ -137,6 +137,19 @@ body {
   animation: scan 2s linear infinite;
 }
 
+@keyframes backer-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-backer-scroll {
+  animation: backer-scroll 30s linear infinite;
+}
+
 /* Selection color */
 ::selection {
   background-color: rgba(139, 92, 246, 0.4);

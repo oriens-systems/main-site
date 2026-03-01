@@ -1,11 +1,40 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+
+// Add your backer logo paths here (e.g. from /public/backers/)
+const BACKER_IMAGES = [
+  { src: "/images/oci_logo.png", alt: "OCI" },
+  { src: "/images/mmri_logo.png", alt: "MMRI" },
+  { src: "/images/western_logo.png", alt: "Western Morissiette Institute" },
+];
+
+function BackerLogo({ src, alt }) {
+  const [errored, setErrored] = useState(false);
+  if (errored) {
+    return (
+      <div
+        className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 flex items-center justify-center rounded bg-white/5 border border-white/10"
+        aria-hidden
+      />
+    );
+  }
+  return (
+    <div className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+      <img
+        src={src}
+        alt={alt}
+        className="object-contain max-h-full w-auto max-w-full"
+        onError={() => setErrored(true)}
+      />
+    </div>
+  );
+}
 
 const WireframeStarField = dynamic(
   () => import("../components/WireframeStarField"),
@@ -92,6 +121,29 @@ export default function AboutContent() {
               </span>
             </motion.span>
           </h1>
+        </div>
+      </section>
+
+      {/* Our Backers - moving carousel */}
+      <section className="relative py-20 border-t border-white/5 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 mb-12 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-4xl font-bold text-white"
+          >
+            Our <span className="text-[#8b5cf6]">Backers</span>
+          </motion.h2>
+        </div>
+        <div className="relative w-full overflow-hidden">
+          <div className="flex gap-24 md:gap-32 items-center py-4 w-max animate-backer-scroll">
+            {/* Duplicated set for seamless loop */}
+            {[...BACKER_IMAGES, ...BACKER_IMAGES, ...BACKER_IMAGES].map((item, i) => (
+              <BackerLogo key={i} src={item.src} alt={item.alt} />
+            ))}
+          </div>
         </div>
       </section>
 
