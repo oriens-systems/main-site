@@ -175,9 +175,9 @@ export default function JoinContent() {
             style={{ transform: "translateZ(20px)" }}
           >
             <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-10">
-              "We're not hiring yet, but we're always interested in connecting
+              We're not hiring yet, but we're always interested in connecting
               with people who care about manufacturing, AI, and building
-              critical infrastructure."
+              critical infrastructure.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

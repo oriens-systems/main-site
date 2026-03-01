@@ -119,7 +119,7 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <section className="relative py-24 border-t border-white/5 overflow-hidden">
+      {/* <section className="relative py-24 border-t border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#8b5cf6]/10 via-[#05070f] to-[#05070f]" />
         <div className="max-w-xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl font-bold text-white mb-6">
@@ -127,14 +127,14 @@ export default function AboutContent() {
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button href="/contact" variant="primary" size="lg">
-              INITIATE CONTACT
+              CONTACT
             </Button>
             <Button href="/" variant="secondary" size="lg">
               VIEW MISSION
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </main>
