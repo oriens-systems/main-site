@@ -74,7 +74,7 @@ export default function ContactContent() {
           className="absolute -right-[300px] md:-right-[350px] lg:-right-[200px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
           aria-hidden
         >
-          <WireframeIcosahedron />
+          {/* <WireframeIcosahedron /> */}
         </div>
 
         <motion.div
@@ -86,21 +86,21 @@ export default function ContactContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center gap-4 mb-8">
+            {/* <div className="flex items-center gap-4 mb-8">
               <div className="flex-1 h-px bg-white/10" />
               <span className="text-xs uppercase tracking-[0.2em] text-white/60">
                 Contact
               </span>
               <div className="flex-1 h-px bg-white/10" />
-            </div>
+            </div> */}
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-              Start <span className="text-[#8b5cf6]">Manufacturing</span>
+              Contact
             </h1>
 
-            <p className="text-lg md:text-xl text-white/50 max-w-xl mx-auto">
+            {/* <p className="text-lg md:text-xl text-white/50 max-w-xl mx-auto">
               Ready to manufacture mission-critical components? Let's talk.
-            </p>
+            </p> */}
           </motion.div>
         </motion.div>
       </section>
@@ -114,7 +114,7 @@ export default function ContactContent() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="mb-10">
+              {/* <div className="mb-10">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   Direct Line
                 </h2>
@@ -122,7 +122,7 @@ export default function ContactContent() {
                   No sales team. No qualification calls. Tell us what you need
                   to manufacture and we'll tell you how we can help.
                 </p>
-              </div>
+              </div> */}
 
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
@@ -205,7 +205,7 @@ export default function ContactContent() {
                       Status
                     </p>
                     <p className="text-white/70">
-                      Accepting Projects
+                       In Development
                     </p>
                   </div>
                 </div>
@@ -282,7 +282,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      <section className="relative py-16 border-t border-white/6">
+      {/* <section className="relative py-16 border-t border-white/6">
         <div className="max-w-[700px] mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -298,7 +298,7 @@ export default function ContactContent() {
             </p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </main>

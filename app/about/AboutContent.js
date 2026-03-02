@@ -11,21 +11,24 @@ import Button from "../components/Button";
 const BACKER_IMAGES = [
   { src: "/images/oci_logo.png", alt: "OCI" },
   { src: "/images/mmri_logo.png", alt: "MMRI" },
-  { src: "/images/western_logo.png", alt: "Western Morissiette Institute" },
+  { src: "/images/western_logo.png", alt: "Western Morissiette Institute", large: true },
 ];
 
-function BackerLogo({ src, alt }) {
+function BackerLogo({ src, alt, large }) {
   const [errored, setErrored] = useState(false);
+  const sizeClass = large
+    ? "w-48 h-24 md:w-56 md:h-28"
+    : "w-32 h-16 md:w-40 md:h-20";
   if (errored) {
     return (
       <div
-        className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 flex items-center justify-center rounded bg-white/5 border border-white/10"
+        className={`flex-shrink-0 ${sizeClass} flex items-center justify-center rounded bg-white/5 border border-white/10`}
         aria-hidden
       />
     );
   }
   return (
-    <div className="flex-shrink-0 w-32 h-16 md:w-40 md:h-20 flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+    <div className={`flex-shrink-0 ${sizeClass} flex items-center justify-center grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}>
       <img
         src={src}
         alt={alt}
@@ -141,7 +144,7 @@ export default function AboutContent() {
           <div className="flex gap-24 md:gap-32 items-center py-4 w-max animate-backer-scroll">
             {/* Duplicated set for seamless loop */}
             {[...BACKER_IMAGES, ...BACKER_IMAGES, ...BACKER_IMAGES].map((item, i) => (
-              <BackerLogo key={i} src={item.src} alt={item.alt} />
+              <BackerLogo key={i} src={item.src} alt={item.alt} large={item.large} />
             ))}
           </div>
         </div>

@@ -32,7 +32,7 @@ export default function Footer() {
           src="/images/FACTORY_ASCII.png"
           alt=""
           className="w-full block"
-          style={{ filter: "invert(1)", opacity: 0.5, transform: "scale(1.5)", transformOrigin: "bottom left" }}
+          style={{ filter: "invert(1)", opacity: 0.2, transform: "scale(1.5)", transformOrigin: "bottom left" }}
         />
       </div>
 

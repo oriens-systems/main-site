@@ -56,7 +56,7 @@ export default function ASCIIGlobe() {
 
         ctx.font = `${charH}px monospace`;
         ctx.textBaseline = "top";
-        ctx.fillStyle = "#8b5cf6";
+        ctx.fillStyle = "#ffffff";
 
         const cosA = Math.cos(angle);
         const sinA = Math.sin(angle);

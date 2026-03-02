@@ -14,27 +14,27 @@ export default function CallToAction() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
 
   const ctaOptions = [
-    {
-      title: "TALK TO THE TEAM",
-      description: "Discuss your manufacturing needs",
-      icon: (
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
-      primary: true,
-    },
+    // {
+    //   title: "TALK TO THE TEAM",
+    //   description: "Discuss your manufacturing needs",
+    //   icon: (
+    //     <svg
+    //       width="28"
+    //       height="28"
+    //       viewBox="0 0 24 24"
+    //       fill="none"
+    //       stroke="currentColor"
+    //       strokeWidth="1.5"
+    //     >
+    //       <path
+    //         d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+    //         strokeLinecap="round"
+    //         strokeLinejoin="round"
+    //       />
+    //     </svg>
+    //   ),
+    //   primary: true,
+    // },
     {
       title: "SEE THE TECHNOLOGY",
       description: "Deep dive into our approach",
@@ -57,6 +57,7 @@ export default function CallToAction() {
       ),
       primary: false,
     },
+    
   ];
 
   return (
@@ -101,15 +102,18 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight mb-4">
-            Become a <span className="text-[#8b5cf6]">Beta Tester</span>
+            Become a <span className="text-[#8b5cf6]">beta tester</span> for our CAM automation technology.
           </h2>
           <p className="text-lg md:text-xl text-white/50 max-w-lg mx-auto">
-            From design to production-ready in hours.
+            From design to production-ready in hours. 
+            <br/>
+            <br/>
+            Join our pilot program to get early access to the tech we're going to implement into factories.
           </p>
         </motion.div>
 
         {/* CTA Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5 mb-20 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 lg:gap-5 mb-20 max-w-3xl mx-auto">
           {ctaOptions.map((option, index) => (
             <motion.button
               key={option.title}
@@ -199,7 +203,7 @@ export default function CallToAction() {
         </div>
 
         {/* Closing line - Impactful */}
-        <motion.div
+        {/* <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -207,7 +211,7 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <div className="relative inline-block">
-            {/* Subtle glow */}
+            
             <div className="absolute inset-0 bg-[#8b5cf6]/10 blur-2xl rounded-full" />
 
             <div className="relative px-8 py-6 md:px-10 md:py-8 border border-white/10 rounded-xl bg-white/2 backdrop-blur-sm">
@@ -219,10 +223,10 @@ export default function CallToAction() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Footer info */}
-        <motion.div
+        {/* <motion.div
           className="mt-16 pt-8 border-t border-white/6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -234,7 +238,7 @@ export default function CallToAction() {
             <span className="hidden md:inline text-white/20">|</span>
             <span className="text-[#8b5cf6]/70">hello@suprnova.co</span>
           </div>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </section>
   );
