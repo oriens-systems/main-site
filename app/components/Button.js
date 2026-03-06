@@ -25,11 +25,11 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-[#8b5cf6] hover:bg-[#7c4fd4] text-white shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:scale-105 border border-transparent",
+      "bg-[var(--accent)] hover:bg-[var(--accent-button-hover)] text-white shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] hover:scale-105 border border-transparent",
     secondary:
       "bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 backdrop-blur-sm shadow-[0_0_10px_rgba(255,255,255,0.05)]",
     outline:
-      "bg-transparent hover:bg-[#8b5cf6]/10 text-[#8b5cf6] border border-[#8b5cf6]/30 hover:border-[#8b5cf6]/50",
+      "bg-transparent hover:bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 hover:border-[var(--accent)]/50",
   };
 
   const sizes = {

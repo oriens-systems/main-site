@@ -34,8 +34,8 @@ export default function Hero() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -45,8 +45,8 @@ export default function Hero() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -56,11 +56,11 @@ export default function Hero() {
 
       {/* Gradient orbs */}
       <div
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/8 rounded-full blur-[120px]"
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--accent)]/8 rounded-full blur-[120px]"
         aria-hidden
       />
       <div
-        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/10 rounded-full blur-[100px]"
+        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent-light)]/10 rounded-full blur-[100px]"
         aria-hidden
       />
 

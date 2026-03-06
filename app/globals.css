@@ -1,12 +1,30 @@
 @import "tailwindcss";
 
 :root {
+  /* Core palette */
   --background: #05070f;
   --background-2: #0b1020;
+  --background-3: #0c1226;
+  --background-4: #0a0f1c;
+  --background-dark: #030305;
   --foreground: #e7edf9;
+  --foreground-alt: #e2e8f0;
   --muted: #9fb3c9;
   --accent: #8b5cf6;
+  --accent-rgb: 139, 92, 246;
+  --accent-light: #9f7aea;
+  --accent-hover: #a78bfa;
   --accent-dark: #5900a7;
+  --accent-dark-rgb: 89, 0, 167;
+  --accent-variant: #6d28d9;
+  --accent-variant-hover: #5b21b6;
+  --accent-variant-mid: #7c3aed;
+  --accent-button-hover: #7c4fd4;
+  /* Semantic colors (e.g. Stakes chart) */
+  --chart-danger: #ef4444;
+  --chart-warning: #f59e0b;
+  --chart-info: #06b6d4;
+  /* Utilities */
   --grid: rgba(255, 255, 255, 0.06);
   --panel: rgba(255, 255, 255, 0.02);
 }
@@ -26,11 +44,11 @@ body {
 body {
   background: radial-gradient(
       circle at 20% 20%,
-      rgba(89, 0, 167, 0.12),
+      rgba(var(--accent-dark-rgb), 0.12),
       transparent 30%
     ),
-    radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.1), transparent 32%),
-    linear-gradient(140deg, var(--background), var(--background-2) 55%, #0c1226);
+    radial-gradient(circle at 80% 10%, rgba(var(--accent-rgb), 0.1), transparent 32%),
+    linear-gradient(140deg, var(--background), var(--background-2) 55%, var(--background-3));
   color: var(--foreground);
   font-family: var(--font-exo-2), "Exo 2", system-ui, -apple-system,
     sans-serif;
@@ -80,7 +98,7 @@ body {
   border-radius: 9999px;
   filter: blur(70px);
   opacity: 0.5;
-  background: radial-gradient(circle, rgba(89, 0, 167, 0.35), transparent 60%);
+  background: radial-gradient(circle, rgba(var(--accent-dark-rgb), 0.35), transparent 60%);
 }
 
 /* Custom animations */
@@ -152,6 +170,6 @@ body {
 
 /* Selection color */
 ::selection {
-  background-color: rgba(139, 92, 246, 0.4);
+  background-color: rgba(var(--accent-rgb), 0.4);
   color: white;
 }

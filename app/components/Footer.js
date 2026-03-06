@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
 
 export default function Footer() {
   const navigation = {
@@ -20,7 +22,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full border-t border-white/6 bg-[#05070f]">
+    <footer className="relative w-full border-t border-white/6 bg-[var(--background)]">
       {/* Factory ASCII background image */}
       <div
         className="absolute w-full pointer-events-none"
@@ -45,8 +47,8 @@ export default function Footer() {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -61,9 +63,15 @@ export default function Footer() {
             <div className="lg:pr-8">
               {/* Logo */}
               <Link href="/" className="inline-block mb-6">
-                <span className="text-2xl font-bold text-white tracking-tight">
-                  [NAME]<span className="text-[#8b5cf6]">[SYSTEMS]</span>
-                </span>
+              <div className="w-40 h-11 md:w-40 md:h-16 relative">
+                <Image
+                  src="/logos/logo.svg"
+                  alt="Oriens"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
               </Link>
 
               {/* Mission statement */}
@@ -73,9 +81,9 @@ export default function Footer() {
               </p>
 
               {/* Core tagline
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-[#8b5cf6]/20 bg-[#8b5cf6]/5">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg border border-[var(--accent)]/20 bg-[var(--accent)]/5">
                 <motion.span
-                  className="w-2 h-2 rounded-full bg-[#8b5cf6]"
+                  className="w-2 h-2 rounded-full bg-[var(--accent)]"
                   animate={{ opacity: [1, 0.4, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
@@ -95,7 +103,7 @@ export default function Footer() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/60 hover:text-[#8b5cf6] transition-colors duration-200"
+                      className="text-sm text-white/60 hover:text-[var(--accent)] transition-colors duration-200"
                     >
                       {item.name}
                     </Link>
@@ -114,7 +122,7 @@ export default function Footer() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/60 hover:text-[#8b5cf6] transition-colors duration-200"
+                      className="text-sm text-white/60 hover:text-[var(--accent)] transition-colors duration-200"
                     >
                       {item.name}
                     </Link>
@@ -132,9 +140,9 @@ export default function Footer() {
                 <li key="contact-email">
                   <a
                     href="mailto:hello@suprnova.co"
-                    className="text-sm text-[#8b5cf6] hover:text-[#a78bfa] transition-colors duration-200"
+                    className="text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors duration-200"
                   >
-                    hello@suprnova.co
+                    hello@oriens.systems
                   </a>
                 </li>
                 <li key="contact-location">
@@ -148,7 +156,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-6 border-t border-white/6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30">© 2026 [INSERT NAME]</p>
+            <p className="text-xs text-white/30">© 2026 ORIENS SYSTEMS</p>
           </div>
         </div>
       </div>
