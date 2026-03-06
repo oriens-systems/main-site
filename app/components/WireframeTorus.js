@@ -10,7 +10,7 @@ function Torus() {
       <mesh>
         <torusGeometry args={[2, 0.5, 16, 32]} />
         <meshBasicMaterial
-          color="#8b5cf6"
+          color={colors.accent}
           wireframe
           transparent
           opacity={0.5}

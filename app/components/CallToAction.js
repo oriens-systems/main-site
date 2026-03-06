@@ -75,8 +75,8 @@ export default function CallToAction() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -85,7 +85,7 @@ export default function CallToAction() {
 
       {/* Central gradient */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#8b5cf6]/10 rounded-full blur-[120px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[var(--accent)]/10 rounded-full blur-[120px]"
         aria-hidden
       />
 
@@ -102,7 +102,7 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight mb-4">
-            Become a <span className="text-[#8b5cf6]">beta tester</span> for our CAM automation technology.
+            Become a <span className="text-[var(--accent)]">beta tester</span> for our CAM automation technology.
           </h2>
           <p className="text-lg md:text-xl text-white/50 max-w-lg mx-auto">
             From design to production-ready in hours. 
@@ -119,8 +119,8 @@ export default function CallToAction() {
               key={option.title}
               className={`group relative p-6 md:p-8 rounded-xl border text-left transition-all duration-300 overflow-hidden ${
                 option.primary
-                  ? "bg-[#6d28d9] border-[#6d28d9] hover:bg-[#5b21b6]"
-                  : "bg-white/3 border-white/10 hover:border-[#8b5cf6]/50 hover:bg-white/5"
+                  ? "bg-[var(--accent-variant)] border-[var(--accent-variant)] hover:bg-[var(--accent-variant-hover)]"
+                  : "bg-white/3 border-white/10 hover:border-[var(--accent)]/50 hover:bg-white/5"
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export default function CallToAction() {
               {/* Animated background for primary */}
               {option.primary && (
                 <motion.div
-                  className="absolute inset-0 bg-linear-to-r from-[#6d28d9] via-[#7c3aed] to-[#6d28d9] opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-linear-to-r from-[var(--accent-variant)] via-[var(--accent-variant-mid)] to-[var(--accent-variant)] opacity-0 group-hover:opacity-100"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                   }}
@@ -151,7 +151,7 @@ export default function CallToAction() {
                   className={`mb-5 w-14 h-14 rounded-xl flex items-center justify-center transition-colors duration-300 ${
                     option.primary
                       ? "bg-white/20 text-white"
-                      : "bg-[#8b5cf6]/10 text-[#8b5cf6] group-hover:bg-[#8b5cf6]/20"
+                      : "bg-[var(--accent)]/10 text-[var(--accent)] group-hover:bg-[var(--accent)]/20"
                   }`}
                 >
                   {option.icon}
@@ -179,7 +179,7 @@ export default function CallToAction() {
                 className={`absolute bottom-6 right-6 md:bottom-8 md:right-8 transition-all duration-300 ${
                   option.primary
                     ? "text-white/60 group-hover:text-white"
-                    : "text-white/20 group-hover:text-[#8b5cf6]"
+                    : "text-white/20 group-hover:text-[var(--accent)]"
                 }`}
                 whileHover={{ x: 5 }}
               >
@@ -212,14 +212,14 @@ export default function CallToAction() {
         >
           <div className="relative inline-block">
             
-            <div className="absolute inset-0 bg-[#8b5cf6]/10 blur-2xl rounded-full" />
+            <div className="absolute inset-0 bg-[var(--accent)]/10 blur-2xl rounded-full" />
 
             <div className="relative px-8 py-6 md:px-10 md:py-8 border border-white/10 rounded-xl bg-white/2 backdrop-blur-sm">
               <p className="text-xl md:text-2xl lg:text-3xl font-medium text-white/80 tracking-tight">
                 When the stakes are cosmic,
               </p>
               <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight mt-1">
-                precision is <span className="text-[#8b5cf6]">survival.</span>
+                precision is <span className="text-[var(--accent)]">survival.</span>
               </p>
             </div>
           </div>
@@ -236,7 +236,7 @@ export default function CallToAction() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-white/40">
             <span>Toronto, ON</span>
             <span className="hidden md:inline text-white/20">|</span>
-            <span className="text-[#8b5cf6]/70">hello@suprnova.co</span>
+            <span className="text-[var(--accent)]/70">hello@suprnova.co</span>
           </div>
         </motion.div> */}
       </motion.div>

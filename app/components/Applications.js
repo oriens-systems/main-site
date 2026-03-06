@@ -22,7 +22,7 @@ function IndustrialBackground() {
         ))}
       </svg>
       
-      <svg className="absolute top-32 left-36 w-24 h-24 text-[#8b5cf6]/15 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+      <svg className="absolute top-32 left-36 w-24 h-24 text-[var(--accent)]/15 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
         <circle cx="50" cy="50" r="35" />
         <circle cx="50" cy="50" r="20" />
         <circle cx="50" cy="50" r="8" />
@@ -40,7 +40,7 @@ function IndustrialBackground() {
         ))}
       </svg>
       
-      <svg className="absolute bottom-40 right-52 w-20 h-20 text-[#8b5cf6]/12 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+      <svg className="absolute bottom-40 right-52 w-20 h-20 text-[var(--accent)]/12 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
         <circle cx="50" cy="50" r="35" />
         <circle cx="50" cy="50" r="20" />
         <circle cx="50" cy="50" r="8" />
@@ -53,7 +53,7 @@ function IndustrialBackground() {
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-[#8b5cf6]/30"
+          className="absolute w-1 h-1 rounded-full bg-[var(--accent)]/30"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -73,8 +73,8 @@ function IndustrialBackground() {
       {/* Grid lines */}
       <div className="absolute inset-0" style={{
         backgroundImage: `
-          linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
+          linear-gradient(rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px)
         `,
         backgroundSize: "80px 80px",
       }} />
@@ -210,8 +210,8 @@ export default function Applications() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
           }}
@@ -220,7 +220,7 @@ export default function Applications() {
 
       {/* Gradient accents */}
       <div
-        className="absolute bottom-1/3 -left-32 w-[500px] h-[500px] bg-[#8b5cf6]/6 rounded-full blur-[100px]"
+        className="absolute bottom-1/3 -left-32 w-[500px] h-[500px] bg-[var(--accent)]/6 rounded-full blur-[100px]"
         aria-hidden
       />
 
@@ -244,7 +244,7 @@ export default function Applications() {
             <div className="flex-1 h-px bg-white/10" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] text-white tracking-tight mb-4">
-            Where This <span className="text-[#8b5cf6]">Matters Most</span>
+            Where This <span className="text-[var(--accent)]">Matters Most</span>
           </h2>
         </motion.div>
 
@@ -258,7 +258,7 @@ export default function Applications() {
                 onClick={() => setActiveApp(index)}
                 className={`w-full text-left p-4 md:p-5 rounded-xl border transition-all duration-300 ${
                   activeApp === index
-                    ? "bg-[#8b5cf6]/10 border-[#8b5cf6]/40"
+                    ? "bg-[var(--accent)]/10 border-[var(--accent)]/40"
                     : "bg-white/2 border-white/8 hover:border-white/15"
                 }`}
                 initial={{ opacity: 0, x: -20 }}
@@ -270,7 +270,7 @@ export default function Applications() {
                   <div
                     className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-colors duration-300 ${
                       activeApp === index
-                        ? "bg-[#8b5cf6]/20 text-[#8b5cf6]"
+                        ? "bg-[var(--accent)]/20 text-[var(--accent)]"
                         : "bg-white/5 text-white/40"
                     }`}
                   >
@@ -288,7 +288,7 @@ export default function Applications() {
                       <span
                         className={`font-mono text-xs px-2 py-1 rounded transition-colors duration-300 ${
                           activeApp === index
-                            ? "bg-[#8b5cf6]/20 text-[#8b5cf6]"
+                            ? "bg-[var(--accent)]/20 text-[var(--accent)]"
                             : "bg-white/5 text-white/30"
                         }`}
                       >
@@ -313,12 +313,12 @@ export default function Applications() {
               {/* Header bar */}
               <div className="flex items-center justify-between px-5 py-3 border-b border-white/6">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#8b5cf6]" />
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent)]" />
                   <span className="text-xs font-mono text-white/40">
                     SECTOR_DETAILS
                   </span>
                 </div>
-                <span className="text-xs font-mono text-[#8b5cf6]">
+                <span className="text-xs font-mono text-[var(--accent)]">
                   {applications[activeApp].id}
                 </span>
               </div>
@@ -334,7 +334,7 @@ export default function Applications() {
                     transition={{ duration: 0.3 }}
                   >
                     {/* Icon */}
-                    <div className="w-16 h-16 rounded-2xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center text-[#8b5cf6] mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)] mb-6">
                       {applications[activeApp].icon}
                     </div>
 
@@ -373,8 +373,8 @@ export default function Applications() {
                 className="absolute inset-0 opacity-20 pointer-events-none"
                 style={{
                   backgroundImage: `
-                    linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
+                    linear-gradient(rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px)
                   `,
                   backgroundSize: "40px 40px",
                 }}
@@ -393,7 +393,7 @@ export default function Applications() {
         >
           <p className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
             If it can't fail, it{" "}
-            <span className="text-[#8b5cf6]">can't wait.</span>
+            <span className="text-[var(--accent)]">can't wait.</span>
           </p>
         </motion.div>
       </motion.div>

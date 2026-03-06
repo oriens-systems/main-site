@@ -26,7 +26,7 @@ export default function ContactContent() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <main className="relative min-h-screen bg-[#05070f]">
+    <main className="relative min-h-screen bg-[var(--background)]">
       <div
         className="fixed inset-0 opacity-40 pointer-events-none z-0"
         aria-hidden
@@ -35,8 +35,8 @@ export default function ContactContent() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -46,8 +46,8 @@ export default function ContactContent() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -62,11 +62,11 @@ export default function ContactContent() {
         className="relative min-h-[50vh] flex items-center justify-center pt-24"
       >
         <div
-          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/8 rounded-full blur-[120px]"
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--accent)]/8 rounded-full blur-[120px]"
           aria-hidden
         />
         <div
-          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/10 rounded-full blur-[100px]"
+          className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent-light)]/10 rounded-full blur-[100px]"
           aria-hidden
         />
 
@@ -126,7 +126,7 @@ export default function ContactContent() {
 
               <div className="space-y-6 mb-10">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#8b5cf6]/10 flex items-center justify-center text-[#8b5cf6] shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] shrink-0">
                     <svg
                       width="20"
                       height="20"
@@ -153,7 +153,7 @@ export default function ContactContent() {
                     </p>
                     <a
                       href="mailto:hello@suprnova.co"
-                      className="text-[#8b5cf6] hover:text-[#a78bfa] transition-colors"
+                      className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
                     >
                       hello@suprnova.co
                     </a>
@@ -161,7 +161,7 @@ export default function ContactContent() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#8b5cf6]/10 flex items-center justify-center text-[#8b5cf6] shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] shrink-0">
                     <svg
                       width="20"
                       height="20"
@@ -219,7 +219,7 @@ export default function ContactContent() {
               viewport={{ once: true }}
             >
               <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/2 backdrop-blur-sm text-center">
-                <div className="w-16 h-16 rounded-2xl bg-[#8b5cf6]/10 flex items-center justify-center text-[#8b5cf6] mx-auto mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)] mx-auto mb-6">
                   <svg
                     width="28"
                     height="28"
@@ -294,7 +294,7 @@ export default function ContactContent() {
               When the stakes are cosmic,
             </p>
             <p className="text-xl md:text-2xl lg:text-3xl font-bold text-white mt-2">
-              precision is <span className="text-[#8b5cf6]">survival.</span>
+              precision is <span className="text-[var(--accent)]">survival.</span>
             </p>
           </motion.div>
         </div>

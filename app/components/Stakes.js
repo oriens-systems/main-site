@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
+import { colors } from "@/lib/colors";
 import dynamic from "next/dynamic";
 import {
   motion,
@@ -80,7 +81,7 @@ export default function Stakes() {
           />
         </svg>
       ),
-      color: "#ef4444",
+      color: colors.chartDanger,
     },
     {
       id: "02",
@@ -106,7 +107,7 @@ export default function Stakes() {
           />
         </svg>
       ),
-      color: "#f59e0b",
+      color: colors.chartWarning,
     },
     {
       id: "03",
@@ -132,7 +133,7 @@ export default function Stakes() {
           />
         </svg>
       ),
-      color: "#8b5cf6",
+      color: colors.accent,
     },
     {
       id: "04",
@@ -159,7 +160,7 @@ export default function Stakes() {
           />
         </svg>
       ),
-      color: "#06b6d4",
+      color: colors.chartInfo,
     },
   ];
 
@@ -178,8 +179,8 @@ export default function Stakes() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -189,8 +190,8 @@ export default function Stakes() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -204,7 +205,7 @@ export default function Stakes() {
         aria-hidden
       />
       <div
-        className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-[#8b5cf6]/8 rounded-full blur-[100px]"
+        className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-[var(--accent)]/8 rounded-full blur-[100px]"
         aria-hidden
       />
 
@@ -229,7 +230,7 @@ export default function Stakes() {
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] text-white tracking-tight">
             What We Lose Without
-            <span className="text-[#8b5cf6]"> Domestic Capacity</span>
+            <span className="text-[var(--accent)]"> Domestic Capacity</span>
           </h2>
         </motion.div>
 
@@ -358,7 +359,7 @@ export default function Stakes() {
             <div className="mt-4 flex items-center justify-center text-xs text-white/40">
               <span className="flex items-center gap-2">
                 <motion.span
-                  className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6]"
+                  className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"
                   animate={{ opacity: [0.3, 1, 0.3] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />
@@ -379,10 +380,10 @@ export default function Stakes() {
               {/* Main container with scanner effect */}
               <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/8 bg-white/2">
                 {/* Corner accents */}
-                <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[#8b5cf6]/40 rounded-tl-2xl z-10" />
-                <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-[#8b5cf6]/40 rounded-tr-2xl z-10" />
-                <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-[#8b5cf6]/40 rounded-bl-2xl z-10" />
-                <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[#8b5cf6]/40 rounded-br-2xl z-10" />
+                <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[var(--accent)]/40 rounded-tl-2xl z-10" />
+                <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-[var(--accent)]/40 rounded-tr-2xl z-10" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-[var(--accent)]/40 rounded-bl-2xl z-10" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[var(--accent)]/40 rounded-br-2xl z-10" />
 
                 {/* Scanner line effect */}
                 <motion.div
@@ -399,8 +400,8 @@ export default function Stakes() {
                   className="absolute inset-0 opacity-30 pointer-events-none"
                   style={{
                     backgroundImage: `
-                      linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px)
+                      linear-gradient(rgba(var(--accent-rgb), 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(var(--accent-rgb), 0.05) 1px, transparent 1px)
                     `,
                     backgroundSize: "30px 30px",
                   }}
@@ -474,7 +475,7 @@ export default function Stakes() {
                     <div className="text-[10px] font-mono text-white/50 uppercase">
                       Status
                     </div>
-                    <div className="text-sm font-semibold text-[#8b5cf6]">
+                    <div className="text-sm font-semibold text-[var(--accent)]">
                       Critical
                     </div>
                   </motion.div>
@@ -531,7 +532,7 @@ export default function Stakes() {
         >
           <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
             The factory floor is the{" "}
-            <span className="text-[#8b5cf6]">frontline.</span>
+            <span className="text-[var(--accent)]">frontline.</span>
           </p>
         </motion.div>
       </motion.div>

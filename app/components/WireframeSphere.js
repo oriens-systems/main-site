@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { colors } from "@/lib/colors";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float } from "@react-three/drei";
 import * as THREE from "three";
@@ -28,7 +29,7 @@ function Sphere() {
         <mesh ref={meshRef}>
           <icosahedronGeometry args={[2, 2]} />
           <meshBasicMaterial
-            color="#8b5cf6"
+            color={colors.accent}
             wireframe
             transparent
             opacity={0.6}
@@ -39,7 +40,7 @@ function Sphere() {
         <mesh ref={wireframeRef} scale={0.7}>
           <icosahedronGeometry args={[2, 1]} />
           <meshBasicMaterial
-            color="#9f7aea"
+            color={colors.accentLight}
             wireframe
             transparent
             opacity={0.3}
@@ -49,19 +50,19 @@ function Sphere() {
         {/* Core glow */}
         <mesh scale={0.15}>
           <sphereGeometry args={[2, 16, 16]} />
-          <meshBasicMaterial color="#8b5cf6" transparent opacity={0.8} />
+          <meshBasicMaterial color={colors.accent} transparent opacity={0.8} />
         </mesh>
 
         {/* Outer ring */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <torusGeometry args={[2.3, 0.01, 16, 100]} />
-          <meshBasicMaterial color="#8b5cf6" transparent opacity={0.4} />
+          <meshBasicMaterial color={colors.accent} transparent opacity={0.4} />
         </mesh>
 
         {/* Secondary ring */}
         <mesh rotation={[Math.PI / 3, Math.PI / 4, 0]}>
           <torusGeometry args={[2.3, 0.008, 16, 80]} />
-          <meshBasicMaterial color="#9f7aea" transparent opacity={0.25} />
+          <meshBasicMaterial color={colors.accentLight} transparent opacity={0.25} />
         </mesh>
 
         {/* Latitude lines */}
@@ -72,7 +73,7 @@ function Sphere() {
                 args={[Math.sqrt(4 - y * y) - 0.01, Math.sqrt(4 - y * y), 64]}
               />
               <meshBasicMaterial
-                color="#8b5cf6"
+                color={colors.accent}
                 transparent
                 opacity={0.15}
                 side={THREE.DoubleSide}
@@ -83,7 +84,7 @@ function Sphere() {
                 args={[Math.sqrt(4 - y * y) - 0.01, Math.sqrt(4 - y * y), 64]}
               />
               <meshBasicMaterial
-                color="#8b5cf6"
+                color={colors.accent}
                 transparent
                 opacity={0.15}
                 side={THREE.DoubleSide}
@@ -128,7 +129,7 @@ function Particles() {
         />
       </bufferGeometry>
       <pointsMaterial
-        color="#8b5cf6"
+        color={colors.accent}
         size={0.03}
         transparent
         opacity={0.6}

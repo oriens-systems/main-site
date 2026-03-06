@@ -58,7 +58,7 @@ export default function AboutContent() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <main className="relative min-h-screen bg-[#05070f] selection:bg-[#8b5cf6]/30">
+    <main className="relative min-h-screen bg-[var(--background)] selection:bg-[var(--accent)]/30">
       <div className="fixed inset-0 opacity-40 pointer-events-none z-0">
         <div
           className="fixed inset-0"
@@ -91,8 +91,8 @@ export default function AboutContent() {
           </div>
         </motion.div>
 
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--accent)]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent-light)]/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15]">
@@ -119,7 +119,7 @@ export default function AboutContent() {
               className="block text-2xl md:text-3xl lg:text-4xl mt-6 font-normal text-white/60 max-w-3xl mx-auto"
             >
               that unlocks the manufacturing capacity necessary for a{" "}
-              <span className="text-[#8b5cf6] font-medium">
+              <span className="text-[var(--accent)] font-medium">
                 spacefaring future.
               </span>
             </motion.span>
@@ -137,7 +137,7 @@ export default function AboutContent() {
             viewport={{ once: true }}
             className="text-2xl md:text-4xl font-bold text-white"
           >
-            Our <span className="text-[#8b5cf6]">Backers</span>
+            Our <span className="text-[var(--accent)]">Backers</span>
           </motion.h2>
         </div>
         <div className="relative w-full overflow-hidden">
@@ -159,7 +159,7 @@ export default function AboutContent() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              The <span className="text-[#8b5cf6]">Capacity Gap</span>
+              The <span className="text-[var(--accent)]">Capacity Gap</span>
             </h2>
             <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
               North America has lost its manufacturing capacity. Skilled CAM
@@ -167,7 +167,7 @@ export default function AboutContent() {
               building the tools to close that gap.
             </p>
 
-            <p className="mt-12 text-sm font-mono text-[#8b5cf6]">
+            <p className="mt-12 text-sm font-mono text-[var(--accent)]">
               &gt; SYSTEM SOLUTION: AUTONOMOUS CAM GENERATION
             </p>
           </motion.div>
@@ -175,7 +175,7 @@ export default function AboutContent() {
       </section>
 
       {/* <section className="relative py-24 border-t border-white/5 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#8b5cf6]/10 via-[#05070f] to-[#05070f]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--accent)]/10 via-[var(--background)] to-[var(--background)]" />
         <div className="max-w-xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl font-bold text-white mb-6">
             Help Close the Gap

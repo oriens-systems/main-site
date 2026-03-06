@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Squares from "./Squares";
+import { colors } from "@/lib/colors";
 
 function AnimatedNumber({ value, suffix = "" }) {
   const [count, setCount] = useState(0);
@@ -65,15 +66,15 @@ export default function ProofPoints() {
           speed={0}
           squareSize={40}
           direction="diagonal"
-          borderColor="#8b5cf6"
-          hoverFillColor="#8b5cf6"
+          borderColor={colors.accent}
+          hoverFillColor={colors.accent}
           lineWidth={0.5}
         />
       </div>
 
       {/* Ambient glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#8b5cf6]/8 rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--accent)]/8 rounded-full blur-[120px] pointer-events-none"
         aria-hidden
       />
 
@@ -90,14 +91,14 @@ export default function ProofPoints() {
           viewport={{ once: true }}
         >
           <div className="inline-flex items-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#8b5cf6]/40" />
-            <span className="text-xs uppercase tracking-[0.25em] text-[#8b5cf6]/70 font-mono">
+            <div className="w-8 h-px bg-[var(--accent)]/40" />
+            <span className="text-xs uppercase tracking-[0.25em] text-[var(--accent)]/70 font-mono">
               Metrics
             </span>
-            <div className="w-8 h-px bg-[#8b5cf6]/40" />
+            <div className="w-8 h-px bg-[var(--accent)]/40" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Grounded in <span className="text-[#8b5cf6]">Reality</span>
+            Grounded in <span className="text-[var(--accent)]">Reality</span>
           </h2>
         </motion.div>
 
@@ -125,20 +126,20 @@ export default function ProofPoints() {
                 style={{
                   borderColor:
                     hoveredIndex === index
-                      ? "rgba(139,92,246,0.4)"
+                      ? "rgba(var(--accent-rgb), 0.4)"
                       : "rgba(255,255,255,0.08)",
                   background:
                     hoveredIndex === index
-                      ? "rgba(139,92,246,0.08)"
+                      ? "rgba(var(--accent-rgb), 0.08)"
                       : "rgba(255,255,255,0.02)",
                 }}
               >
                 {/* Number */}
                 <div className="flex items-baseline justify-center gap-1 mb-2">
-                  <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-colors duration-300 group-hover:text-[#8b5cf6]">
+                  <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-colors duration-300 group-hover:text-[var(--accent)]">
                     <AnimatedNumber value={metric.value} />
                   </span>
-                  <span className="text-lg md:text-xl font-semibold text-[#8b5cf6]/80">
+                  <span className="text-lg md:text-xl font-semibold text-[var(--accent)]/80">
                     {metric.suffix}
                   </span>
                 </div>
@@ -151,7 +152,7 @@ export default function ProofPoints() {
 
                 {/* Bottom accent */}
                 <motion.div
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-[#8b5cf6] rounded-full"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-[var(--accent)] rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: hoveredIndex === index ? "60%" : "0%" }}
                   transition={{ duration: 0.3 }}
@@ -169,10 +170,10 @@ export default function ProofPoints() {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex flex-col items-center p-6 md:p-8 rounded-xl border border-[#8b5cf6]/20 bg-[#8b5cf6]/5">
+          <div className="inline-flex flex-col items-center p-6 md:p-8 rounded-xl border border-[var(--accent)]/20 bg-[var(--accent)]/5">
             <div className="flex items-center gap-2 mb-3">
               <motion.span
-                className="w-2 h-2 rounded-full bg-[#8b5cf6]"
+                className="w-2 h-2 rounded-full bg-[var(--accent)]"
                 animate={{ opacity: [1, 0.4, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
@@ -180,14 +181,14 @@ export default function ProofPoints() {
                 Mission Critical
               </span>
               <motion.span
-                className="w-2 h-2 rounded-full bg-[#8b5cf6]"
+                className="w-2 h-2 rounded-full bg-[var(--accent)]"
                 animate={{ opacity: [1, 0.4, 1] }}
                 transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
               />
             </div>
             <p className="text-lg md:text-xl lg:text-2xl font-medium text-white/80">
               Built for environments where{" "}
-              <span className="text-[#8b5cf6] font-semibold">
+              <span className="text-[var(--accent)] font-semibold">
                 failure is not an option.
               </span>
             </p>

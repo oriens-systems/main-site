@@ -68,7 +68,7 @@ function SystemLog() {
   return (
     <div
       ref={containerRef}
-      className="absolute bottom-6 left-6 font-mono text-[10px] text-[#8b5cf6]/30 leading-relaxed pointer-events-none select-none z-0"
+      className="absolute bottom-6 left-6 font-mono text-[10px] text-[var(--accent)]/30 leading-relaxed pointer-events-none select-none z-0"
     >
       {lines.map((line, i) => (
         <div key={i} className="log-line opacity-0">
@@ -128,7 +128,7 @@ export default function JoinContent() {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-[#030305] selection:bg-[#8b5cf6]/50 overflow-hidden font-sans">
+    <main className="relative min-h-screen bg-[var(--background-dark)] selection:bg-[var(--accent)]/50 overflow-hidden font-sans">
       <Header />
 
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -165,7 +165,7 @@ export default function JoinContent() {
                 text="JOIN THE"
                 className="inline text-white mr-3"
               />
-              <span className="inline text-[#8b5cf6]">MISSION</span>
+              <span className="inline text-[var(--accent)]">MISSION</span>
             </h1>
           </div>
 
@@ -185,7 +185,7 @@ export default function JoinContent() {
                 href="mailto:hello@suprnova.co?subject=Joining the Mission"
                 variant="primary"
                 size="lg"
-                className="w-full sm:w-auto min-w-[220px] shadow-[0_0_50px_rgba(139,92,246,0.3)]"
+                className="w-full sm:w-auto min-w-[220px] shadow-[0_0_50px_rgba(var(--accent-rgb),0.3)]"
               >
                 CONTACT
               </Button>

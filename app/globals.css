@@ -14,6 +14,7 @@
   --accent-rgb: 139, 92, 246;
   --accent-light: #9f7aea;
   --accent-hover: #a78bfa;
+  --accent-pale: #d8b4fe;
   --accent-dark: #5900a7;
   --accent-dark-rgb: 89, 0, 167;
   --accent-variant: #6d28d9;
@@ -22,8 +23,11 @@
   --accent-button-hover: #7c4fd4;
   /* Semantic colors (e.g. Stakes chart) */
   --chart-danger: #ef4444;
+  --chart-danger-rgb: 239, 68, 68;
   --chart-warning: #f59e0b;
+  --chart-warning-rgb: 245, 158, 11;
   --chart-info: #06b6d4;
+  --chart-info-rgb: 6, 182, 212;
   /* Utilities */
   --grid: rgba(255, 255, 255, 0.06);
   --panel: rgba(255, 255, 255, 0.02);

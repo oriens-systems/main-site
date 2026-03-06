@@ -27,30 +27,30 @@ export default function Bottleneck() {
         >
           <path
             d="M24 4L4 44H44L24 4Z"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1.5"
             fill="none"
           />
           <path
             d="M24 8L8 40H40L24 8Z"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             fill="none"
             opacity="0.5"
           />
           <path
             d="M24 18V28"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="2"
             strokeLinecap="square"
           />
-          <rect x="22" y="32" width="4" height="4" fill="#8b5cf6" />
+          <rect x="22" y="32" width="4" height="4" fill="var(--accent)" />
           <line
             x1="12"
             y1="36"
             x2="36"
             y2="36"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             opacity="0.3"
           />
@@ -59,7 +59,7 @@ export default function Bottleneck() {
             y1="32"
             x2="32"
             y2="32"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             opacity="0.3"
           />
@@ -82,7 +82,7 @@ export default function Bottleneck() {
             cx="24"
             cy="24"
             r="20"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1.5"
             fill="none"
           />
@@ -90,7 +90,7 @@ export default function Bottleneck() {
             cx="24"
             cy="24"
             r="14"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             fill="none"
             opacity="0.5"
@@ -99,17 +99,17 @@ export default function Bottleneck() {
             cx="24"
             cy="24"
             r="8"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1"
             fill="none"
           />
-          <circle cx="24" cy="24" r="3" fill="#8b5cf6" />
+          <circle cx="24" cy="24" r="3" fill="var(--accent)" />
           <line
             x1="24"
             y1="2"
             x2="24"
             y2="12"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1.5"
           />
           <line
@@ -117,7 +117,7 @@ export default function Bottleneck() {
             y1="36"
             x2="24"
             y2="46"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1.5"
           />
           <line
@@ -125,7 +125,7 @@ export default function Bottleneck() {
             y1="24"
             x2="12"
             y2="24"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1.5"
           />
           <line
@@ -133,33 +133,33 @@ export default function Bottleneck() {
             y1="24"
             x2="46"
             y2="24"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="1.5"
           />
           <path
             d="M8 8L14 8L14 14"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             fill="none"
             opacity="0.6"
           />
           <path
             d="M40 8L34 8L34 14"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             fill="none"
             opacity="0.6"
           />
           <path
             d="M8 40L14 40L14 34"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             fill="none"
             opacity="0.6"
           />
           <path
             d="M40 40L34 40L34 34"
-            stroke="#8b5cf6"
+            stroke="var(--accent)"
             strokeWidth="0.5"
             fill="none"
             opacity="0.6"
@@ -241,16 +241,16 @@ export default function Bottleneck() {
                 className="absolute inset-0 grid-overlay opacity-40"
                 aria-hidden
               />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(139,92,246,0.16)]" />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_40px_rgba(var(--accent-rgb),0.16)]" />
 
               <div className="relative z-10">
                 <div className="mb-5 relative">
-                  <div className="absolute inset-0 blur-2xl bg-[#8b5cf6]/25 scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 blur-2xl bg-[var(--accent)]/25 scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative">{card.icon}</div>
                 </div>
 
                 <h3 className="text-white text-xl md:text-2xl font-semibold mb-3 tracking-wide">
-                  <span className="text-[#8b5cf6] font-mono text-xs mr-2 opacity-70">
+                  <span className="text-[var(--accent)] font-mono text-xs mr-2 opacity-70">
                     {`0${index + 1}`}_
                   </span>
                   {card.title}
@@ -261,9 +261,9 @@ export default function Bottleneck() {
                 </p>
 
                 <div className="mt-6 flex items-center gap-2">
-                  <div className="w-10 h-[2px] bg-[#8b5cf6]" />
-                  <div className="w-4 h-[2px] bg-[#8b5cf6]/50" />
-                  <div className="w-2 h-[2px] bg-[#8b5cf6]/25" />
+                  <div className="w-10 h-[2px] bg-[var(--accent)]" />
+                  <div className="w-4 h-[2px] bg-[var(--accent)]/50" />
+                  <div className="w-2 h-[2px] bg-[var(--accent)]/25" />
                 </div>
               </div>
             </motion.div>
@@ -293,7 +293,7 @@ export default function Bottleneck() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="mailto:hello@suprnova.ai"
-              className="rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/60 text-[#8b5cf6] px-5 py-3 text-sm font-semibold hover:bg-[#8b5cf6]/20 transition-colors"
+              className="rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/60 text-[var(--accent)] px-5 py-3 text-sm font-semibold hover:bg-[var(--accent)]/20 transition-colors"
             >
               hello@suprnova.ai
             </a>

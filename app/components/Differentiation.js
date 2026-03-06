@@ -50,7 +50,7 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }
       <div className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-xl overflow-hidden transition-colors duration-300 hover:border-[var(--accent)]/30">
         {/* 3D Container - Only render when component exists */}
         {sector.WireframeComponent && (
-          <div className="h-[240px] w-full bg-[#0a0f1c] relative flex items-center justify-center">
+          <div className="h-[240px] w-full bg-[var(--background-4)] relative flex items-center justify-center">
             <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none z-10" />
             <sector.WireframeComponent />
           </div>
@@ -328,8 +328,8 @@ export default function Differentiation() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",

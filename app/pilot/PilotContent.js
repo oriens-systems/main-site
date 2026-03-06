@@ -7,7 +7,7 @@ import Button from "../components/Button";
 
 export default function PilotContent() {
   return (
-    <main className="relative min-h-screen bg-[#05070f] overflow-hidden text-[#e2e8f0]">
+    <main className="relative min-h-screen bg-[var(--background)] overflow-hidden text-[var(--foreground-alt)]">
       <Header />
       <div
         className="absolute inset-0 opacity-40 pointer-events-none"
@@ -17,8 +17,8 @@ export default function PilotContent() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -28,8 +28,8 @@ export default function PilotContent() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -38,11 +38,11 @@ export default function PilotContent() {
       </div>
 
       <div
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#8b5cf6]/8 rounded-full blur-[120px] pointer-events-none"
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--accent)]/8 rounded-full blur-[120px] pointer-events-none"
         aria-hidden
       />
       <div
-        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#9f7aea]/10 rounded-full blur-[100px] pointer-events-none"
+        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent-light)]/10 rounded-full blur-[100px] pointer-events-none"
         aria-hidden
       />
 
@@ -56,7 +56,7 @@ export default function PilotContent() {
             className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1] text-center"
           >
             Pilot{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#d8b4fe]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent)] to-[var(--accent-pale)]">
               Program
             </span>
           </motion.h1>

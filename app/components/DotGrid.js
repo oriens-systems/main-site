@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useEffect, useCallback, useMemo } from "react";
+import { colors } from "@/lib/colors";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 
@@ -29,8 +30,8 @@ function hexToRgb(hex) {
 const DotGrid = ({
   dotSize = 16,
   gap = 32,
-  baseColor = "#5227FF",
-  activeColor = "#5227FF",
+  baseColor = colors.accent,
+  activeColor = colors.accent,
   proximity = 150,
   speedTrigger = 100,
   shockRadius = 250,

@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useRef, useMemo } from "react";
+import { colors } from "@/lib/colors";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Center } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -14,7 +15,7 @@ function Model() {
     const clone = gltf.scene.clone(true);
 
     const wireframeMaterial = new THREE.MeshBasicMaterial({
-      color: 0x8b5cf6,
+      color: new THREE.Color(colors.accent),
       wireframe: true,
       transparent: true,
       opacity: 0.5,
@@ -60,7 +61,7 @@ function Fallback() {
   return (
     <mesh ref={meshRef}>
       <dodecahedronGeometry args={[1.5, 0]} />
-      <meshBasicMaterial color="#8b5cf6" wireframe transparent opacity={0.5} />
+      <meshBasicMaterial color={colors.accent} wireframe transparent opacity={0.5} />
     </mesh>
   );
 }

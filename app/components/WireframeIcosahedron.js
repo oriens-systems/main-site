@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
-function Icosahedron({ wireframeColor = "#8b5cf6" }) {
+function Icosahedron({ wireframeColor = colors.accent }) {
   const groupRef = useRef();
 
   // Create icosahedron edges

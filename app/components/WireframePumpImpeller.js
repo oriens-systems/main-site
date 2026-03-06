@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useMemo } from "react";
+import { colors } from "@/lib/colors";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
@@ -14,7 +15,7 @@ function PumpImpeller() {
     scene.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshBasicMaterial({
-          color: "#8b5cf6",
+          color: colors.accent,
           wireframe: true,
           transparent: true,
           opacity: 0.5,
@@ -81,7 +82,7 @@ function Particles() {
         />
       </bufferGeometry>
       <pointsMaterial
-        color="#8b5cf6"
+        color={colors.accent}
         size={0.04}
         transparent
         opacity={0.45}

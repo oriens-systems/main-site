@@ -18,7 +18,7 @@ function IndustrialBackground() {
         ))}
       </svg>
       
-      <svg className="absolute top-40 left-[20%] w-20 h-20 text-[#8b5cf6]/15 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+      <svg className="absolute top-40 left-[20%] w-20 h-20 text-[var(--accent)]/15 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
         <circle cx="50" cy="50" r="35" />
         <circle cx="50" cy="50" r="20" />
         <circle cx="50" cy="50" r="8" />
@@ -36,7 +36,7 @@ function IndustrialBackground() {
         ))}
       </svg>
       
-      <svg className="absolute top-32 right-[30%] w-16 h-16 text-[#8b5cf6]/12 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+      <svg className="absolute top-32 right-[30%] w-16 h-16 text-[var(--accent)]/12 animate-spin-reverse" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
         <circle cx="50" cy="50" r="35" />
         <circle cx="50" cy="50" r="20" />
         <circle cx="50" cy="50" r="8" />
@@ -48,7 +48,7 @@ function IndustrialBackground() {
       {[...Array(6)].map((_, i) => (
         <div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-[#8b5cf6]/30 animate-pulse"
+          className="absolute w-1 h-1 rounded-full bg-[var(--accent)]/30 animate-pulse"
           style={{
             left: `${15 + i * 15}%`,
             top: `${20 + (i % 3) * 25}%`,
@@ -209,7 +209,7 @@ export default function ApplicationsContent() {
   ];
 
   return (
-    <main className="relative bg-[#05070f]">
+    <main className="relative bg-[var(--background)]">
       <Header />
 
       <section
@@ -237,7 +237,7 @@ export default function ApplicationsContent() {
         </div>
 
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#8b5cf6]/10 rounded-full blur-[120px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--accent)]/10 rounded-full blur-[120px]"
           aria-hidden
         />
 
@@ -259,7 +259,7 @@ export default function ApplicationsContent() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight mb-6">
-              Where This <span className="text-[#8b5cf6]">Matters</span>
+              Where This <span className="text-[var(--accent)]">Matters</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto">
@@ -288,11 +288,11 @@ export default function ApplicationsContent() {
             >
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center text-[#8b5cf6]">
+                  <div className="w-16 h-16 rounded-2xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 flex items-center justify-center text-[var(--accent)]">
                     {app.icon}
                   </div>
                   <div>
-                    <span className="text-xs uppercase tracking-[0.2em] text-[#8b5cf6]/70">
+                    <span className="text-xs uppercase tracking-[0.2em] text-[var(--accent)]/70">
                       Sector 0{index + 1}
                     </span>
                     <h2 className="text-2xl md:text-3xl font-bold text-white">
@@ -301,7 +301,7 @@ export default function ApplicationsContent() {
                   </div>
                 </div>
 
-                <p className="text-lg text-[#8b5cf6]/80 mb-4 italic">
+                <p className="text-lg text-[var(--accent)]/80 mb-4 italic">
                   {app.tagline}
                 </p>
 
@@ -315,7 +315,7 @@ export default function ApplicationsContent() {
                       key={i}
                       className="p-4 rounded-xl bg-white/3 border border-white/6 text-center"
                     >
-                      <div className="text-xl md:text-2xl font-bold text-[#8b5cf6]">
+                      <div className="text-xl md:text-2xl font-bold text-[var(--accent)]">
                         {stat.value}
                       </div>
                       <div className="text-xs text-white/40 uppercase tracking-wider">
@@ -368,7 +368,7 @@ export default function ApplicationsContent() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#8b5cf6] text-white font-medium hover:bg-[#7c4fd4] transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent)] text-white font-medium hover:bg-[var(--accent-button-hover)] transition-colors"
             >
               CONTACT US
               <svg

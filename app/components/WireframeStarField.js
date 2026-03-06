@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useMemo } from "react";
+import { colors } from "@/lib/colors";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -58,7 +59,7 @@ function Stars({ count = 600 }) {
         blending={THREE.AdditiveBlending}
         uniforms={{
           uTime: { value: 0 },
-          uColor: { value: new THREE.Color("#8b5cf6") },
+          uColor: { value: new THREE.Color(colors.accent) },
         }}
         vertexShader={`
           attribute float size;

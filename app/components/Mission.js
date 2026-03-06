@@ -8,7 +8,7 @@ const WireframeTorus = dynamic(() => import("./WireframeTorus"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
+      <div className="w-12 h-12 border-2 border-[var(--accent)]/30 border-t-[var(--accent)] rounded-full animate-spin" />
     </div>
   ),
 });
@@ -17,7 +17,7 @@ const WireframePumpImpeller = dynamic(() => import("./WireframePumpImpeller"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-2 border-[#8b5cf6]/30 border-t-[#8b5cf6] rounded-full animate-spin" />
+      <div className="w-12 h-12 border-2 border-[var(--accent)]/30 border-t-[var(--accent)] rounded-full animate-spin" />
     </div>
   ),
 });
@@ -48,8 +48,8 @@ export default function Mission() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
             `,
             backgroundSize: "60px 60px",
             backgroundPosition: "0 0",
@@ -59,8 +59,8 @@ export default function Mission() {
           className="fixed inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px)
+              linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px)
             `,
             backgroundSize: "300px 300px",
             backgroundPosition: "0 0",
@@ -70,11 +70,11 @@ export default function Mission() {
 
       {/* Gradient accents */}
       <div
-        className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[#8b5cf6]/6 rounded-full blur-[100px]"
+        className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-[var(--accent)]/6 rounded-full blur-[100px]"
         aria-hidden
       />
       <div
-        className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-[#9f7aea]/8 rounded-full blur-[80px]"
+        className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-[var(--accent-light)]/8 rounded-full blur-[80px]"
         aria-hidden
       />
 
@@ -104,8 +104,8 @@ export default function Mission() {
                 className="absolute inset-0 opacity-30 pointer-events-none"
                 style={{
                   backgroundImage: `
-                    linear-gradient(rgba(139,92,246,0.06) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(139,92,246,0.06) 1px, transparent 1px)
+                    linear-gradient(rgba(var(--accent-rgb), 0.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(var(--accent-rgb), 0.06) 1px, transparent 1px)
                   `,
                   backgroundSize: "32px 32px",
                 }}
@@ -114,23 +114,23 @@ export default function Mission() {
 
               {/* Scanline */}
               <motion.div
-                className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[#8b5cf6]/50 to-transparent pointer-events-none z-10"
+                className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-[var(--accent)]/50 to-transparent pointer-events-none z-10"
                 animate={{ top: ["0%", "100%"] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                 aria-hidden
               />
 
               {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[#8b5cf6]/30 rounded-tl-2xl pointer-events-none z-10" />
-              <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-[#8b5cf6]/30 rounded-tr-2xl pointer-events-none z-10" />
-              <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-[#8b5cf6]/30 rounded-bl-2xl pointer-events-none z-10" />
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[#8b5cf6]/30 rounded-br-2xl pointer-events-none z-10" />
+              <div className="absolute top-0 left-0 w-12 h-12 border-l-2 border-t-2 border-[var(--accent)]/30 rounded-tl-2xl pointer-events-none z-10" />
+              <div className="absolute top-0 right-0 w-12 h-12 border-r-2 border-t-2 border-[var(--accent)]/30 rounded-tr-2xl pointer-events-none z-10" />
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-l-2 border-b-2 border-[var(--accent)]/30 rounded-bl-2xl pointer-events-none z-10" />
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-r-2 border-b-2 border-[var(--accent)]/30 rounded-br-2xl pointer-events-none z-10" />
 
               {/* Top bar */}
               <div className="relative flex items-center justify-between px-4 md:px-5 py-2.5 border-b border-white/6 z-10">
                 <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-[#8b5cf6]" />
+                    <div className="w-2 h-2 rounded-full bg-[var(--accent)]" />
                     <div className="w-2 h-2 rounded-full bg-white/20" />
                     <div className="w-2 h-2 rounded-full bg-white/20" />
                   </div>
@@ -138,7 +138,7 @@ export default function Mission() {
                     CELL_ORCHESTRATOR
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-[#8b5cf6]/60">
+                <span className="text-[11px] font-mono text-[var(--accent)]/60">
                   ● ACTIVE
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function Mission() {
             >
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/40 text-sm text-white font-semibold hover:bg-[#8b5cf6]/20 hover:border-[#8b5cf6]/60 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/40 text-sm text-white font-semibold hover:bg-[var(--accent)]/20 hover:border-[var(--accent)]/60 transition-all"
               >
                 <span>Get in Touch</span>
                 <svg
