@@ -7,6 +7,6 @@ export default function robots() {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://suprnova.co/sitemap.xml",
+    sitemap: "https://orienssystems.com/sitemap.xml",
   };
 }

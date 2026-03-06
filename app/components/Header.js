@@ -13,7 +13,7 @@ export default function Header() {
     { name: "PILOT", href: "/pilot" },
     { name: "WHO WE ARE", href: "/about" },
     { name: "JOIN THE MISSION", href: "/join" },
-    { name: "CONTACT", href: "/contact" },
+    // { name: "CONTACT", href: "/contact" },
   ];
 
   return (

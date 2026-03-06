@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "https://suprnova.co";
+  const baseUrl = "https://orienssystems.com";
 
   const routes = [
     {

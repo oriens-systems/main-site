@@ -45,3 +45,5 @@ next-env.d.ts
 cursor_modern_techy_grid_website_redesi.md
 *.md
 !CLAUDE.md
+!DEPLOY.md
+!README.md

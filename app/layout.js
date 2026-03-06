@@ -9,13 +9,13 @@ const exo2 = Exo_2({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://suprnova.co"),
+  metadataBase: new URL("https://orienssystems.com"),
   title: {
-    default: "Suprnova — Reindustrializing North America",
-    template: "%s | Suprnova",
+    default: "Oriens Systems — Reindustrializing North America",
+    template: "%s | Oriens Systems",
   },
   description:
-    "Suprnova is building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
+    "Oriens Systems is accelerating advanced manufacturing across aerospace, defense, and fusion energy. Closing the capacity gap with AI-powered CAM automation.",
   keywords: [
     "advanced manufacturing",
     "autonomous CAM",
@@ -29,9 +29,9 @@ export const metadata = {
     "CAM automation",
     "Suprnova",
   ],
-  authors: [{ name: "Suprnova", url: "https://suprnova.co" }],
-  creator: "Suprnova",
-  publisher: "Suprnova",
+  authors: [{ name: "Oriens Systems", url: "https://orienssystems.com" }],
+  creator: "Oriens Systems",
+  publisher: "Oriens Systems",
   formatDetection: {
     email: false,
     address: false,
@@ -40,9 +40,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://suprnova.co",
-    siteName: "Suprnova",
-    title: "Suprnova — Reindustrializing North America",
+    url: "https://orienssystems.com",
+    siteName: "Oriens Systems",
+    title: "Oriens Systems — Reindustrializing North America",
     description:
       "Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
     images: [
