@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Oriens Systems — Reindustrializing North America",
+  title: "Oriens Systems: Reindustrializing North America",
   description:
-    "Accelerating advanced manufacturing across aerospace, defense, and fusion energy. Closing the capacity gap with AI-powered CAM automation.",
+    "Accelerating advanced manufacturing across aerospace, defense, and fusion energy. Closing the capacity gap with lights-out manufacturing.",
   alternates: {
     canonical: "https://orienssystems.com",
   },
