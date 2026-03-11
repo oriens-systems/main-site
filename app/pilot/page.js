@@ -1,20 +1,26 @@
 import PilotContent from "./PilotContent";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "Pilot Program",
   description:
-    "Suprnova's pilot program in partnership with the Ontario Centre of Innovation to validate autonomous CAM automation for advanced manufacturing.",
+    "Oriens Systems' pilot program in partnership with the Ontario Centre of Innovation to validate autonomous CAM automation and AI in manufacturing for advanced manufacturing.",
   openGraph: {
-    title: "Pilot Program — Suprnova",
+    title: "Pilot Program — Oriens Systems",
     description:
-      "Validating autonomous CAM automation in partnership with the Ontario Centre of Innovation.",
-    url: "https://suprnova.co/pilot",
+      "Validating autonomous CAM automation and AI in manufacturing in partnership with the Ontario Centre of Innovation.",
+    url: "https://orienssystems.com/pilot",
   },
   alternates: {
-    canonical: "https://suprnova.co/pilot",
+    canonical: "https://orienssystems.com/pilot",
   },
 };
 
 export default function PilotPage() {
-  return <PilotContent />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Pilot Program", path: "/pilot" }]} />
+      <PilotContent />
+    </>
+  );
 }

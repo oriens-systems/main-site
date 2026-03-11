@@ -32,7 +32,7 @@ export default function Footer() {
       >
         <img
           src="/images/FACTORY_ASCII.png"
-          alt=""
+          alt="Autonomous factory and advanced manufacturing"
           className="w-full block"
           style={{ filter: "invert(1)", opacity: 0.2, transform: "scale(1.5)", transformOrigin: "bottom left" }}
         />

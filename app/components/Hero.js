@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="relative w-[55%] h-full opacity-20">
           <Image
             src="/images/shuttle_ascii.png"
-            alt=""
+            alt="Aerospace and advanced manufacturing — autonomous factories and AI in manufacturing"
             fill
             className="object-contain object-center"
             priority
@@ -123,7 +123,7 @@ export default function Hero() {
               Manufacturing the future
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              We're creating AI-powered manufacturing automation for aerospace and defense manufacturing.
+              We're building AI in manufacturing and autonomous factories — AI-powered manufacturing automation for aerospace and defense.
             </p>
           </motion.div>
 

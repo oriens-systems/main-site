@@ -1,20 +1,26 @@
 import JoinContent from "./JoinContent";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "Join the Mission",
   description:
-    "Join Suprnova's mission to reindustrialize North America. We're looking for people passionate about manufacturing, AI, and building critical infrastructure.",
+    "Join Oriens Systems' mission to reindustrialize North America. We're looking for people passionate about manufacturing, AI in manufacturing, and building autonomous factories and critical infrastructure.",
   openGraph: {
-    title: "Join the Mission — Suprnova",
+    title: "Join the Mission — Oriens Systems",
     description:
-      "Connect with Suprnova. We're building the future of autonomous manufacturing.",
-    url: "https://suprnova.co/join",
+      "Connect with Oriens Systems. We're building the future of autonomous manufacturing and autonomous factories.",
+    url: "https://orienssystems.com/join",
   },
   alternates: {
-    canonical: "https://suprnova.co/join",
+    canonical: "https://orienssystems.com/join",
   },
 };
 
 export default function JoinPage() {
-  return <JoinContent />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Join the Mission", path: "/join" }]} />
+      <JoinContent />
+    </>
+  );
 }

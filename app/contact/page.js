@@ -1,20 +1,26 @@
 import ContactContent from "./ContactContent";
+import BreadcrumbJsonLd from "../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "Contact",
   description:
-    "Contact Suprnova to discuss your advanced manufacturing requirements. Precision CNC machining for aerospace, defense, and fusion energy components. Based in Toronto, ON.",
+    "Contact Oriens Systems to discuss your advanced manufacturing and autonomous factory requirements. Precision CNC machining for aerospace, defense, and fusion energy components. Based in Toronto, ON.",
   openGraph: {
-    title: "Contact Suprnova",
+    title: "Contact Oriens Systems",
     description:
-      "Ready to manufacture mission-critical components? Get in touch with Suprnova.",
-    url: "https://suprnova.co/contact",
+      "Ready to manufacture mission-critical components? Get in touch with Oriens Systems.",
+    url: "https://orienssystems.com/contact",
   },
   alternates: {
-    canonical: "https://suprnova.co/contact",
+    canonical: "https://orienssystems.com/contact",
   },
 };
 
 export default function ContactPage() {
-  return <ContactContent />;
+  return (
+    <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]} />
+      <ContactContent />
+    </>
+  );
 }

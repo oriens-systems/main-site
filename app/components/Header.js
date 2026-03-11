@@ -25,7 +25,7 @@ export default function Header() {
             <div className="w-40 h-11 md:w-40 md:h-12 relative">
               <Image
                 src="/logos/extended_logo.svg"
-                alt="Suprnova Logo"
+                alt="Oriens Systems Logo"
                 fill
                 className="object-contain"
                 priority

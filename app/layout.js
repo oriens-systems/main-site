@@ -15,9 +15,16 @@ export const metadata = {
     template: "%s | Oriens Systems",
   },
   description:
-    "Oriens Systems is accelerating advanced manufacturing across aerospace, defense, and fusion energy. Closing the capacity gap with AI-powered CAM automation.",
+    "Oriens Systems is accelerating advanced manufacturing and autonomous factories with AI in manufacturing. Closing the capacity gap with AI-powered CAM automation and factory automation.",
   keywords: [
     "advanced manufacturing",
+    "AI in manufacturing",
+    "AI manufacturing",
+    "autonomous manufacturing",
+    "autonomous factories",
+    "smart factories",
+    "lights-out manufacturing",
+    "factory automation",
     "autonomous CAM",
     "CNC machining",
     "aerospace manufacturing",
@@ -25,7 +32,6 @@ export const metadata = {
     "fusion energy components",
     "reindustrialization",
     "North America manufacturing",
-    "factory automation",
     "CAM automation",
     "Oriens",
     "Oriens Systems",
@@ -47,21 +53,21 @@ export const metadata = {
     siteName: "Oriens Systems",
     title: "Oriens Systems — Reindustrializing North America",
     description:
-      "Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
+      "AI in manufacturing and autonomous factories. Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Suprnova — Reindustrializing North America",
+        alt: "Oriens Systems — Reindustrializing North America",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Suprnova — Reindustrializing North America",
+    title: "Oriens Systems — Reindustrializing North America",
     description:
-      "Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing.",
+      "AI in manufacturing and autonomous factories. Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -80,7 +86,7 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   alternates: {
-    canonical: "https://suprnova.co",
+    canonical: "https://orienssystems.com",
   },
 };
 
@@ -88,18 +94,18 @@ export default function RootLayout({ children }) {
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Suprnova",
-    url: "https://suprnova.co",
-    logo: "https://suprnova.co/logo.png",
+    name: "Oriens Systems",
+    url: "https://orienssystems.com",
+    logo: "https://orienssystems.com/logo.png",
     description:
-      "Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
+      "Oriens Systems delivers AI in manufacturing and factory automation for autonomous factories. Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Toronto",
       addressRegion: "ON",
       addressCountry: "CA",
     },
-    email: "hello@suprnova.co",
+    email: "hello@orienssystems.com",
     sameAs: [],
     foundingDate: "2024",
     industry: "Advanced Manufacturing",
@@ -108,13 +114,13 @@ export default function RootLayout({ children }) {
   const webSiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Suprnova",
-    url: "https://suprnova.co",
+    name: "Oriens Systems",
+    url: "https://orienssystems.com",
     description:
-      "Suprnova is building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing.",
+      "Oriens Systems is building AI-powered autonomous manufacturing and autonomous factories to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
     publisher: {
       "@type": "Organization",
-      name: "Suprnova",
+      name: "Oriens Systems",
     },
   };
 

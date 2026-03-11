@@ -393,9 +393,7 @@ export default function Differentiation() {
             ref={headerDescRef}
             className="text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed opacity-0"
           >
-            We specialize in creating the systems necessary for industries to
-            manufacture components where precision and efficiency are the only
-            variables that matter.
+            We specialize in autonomous manufacturing and AI in manufacturing — creating the systems necessary for industries and autonomous factories to manufacture components where precision and efficiency are the only variables that matter.
           </p>
         </div>
 
