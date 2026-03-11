@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "AI-Powered Autonomous Manufacturing | Oriens Systems",
+  title: "Autonomous Manufacturing | Oriens Systems",
   description:
     "Oriens Systems: AI in manufacturing and autonomous factories. Accelerating advanced manufacturing across aerospace, defense, and fusion energy. Closing the capacity gap with lights-out manufacturing and factory automation.",
   alternates: {
