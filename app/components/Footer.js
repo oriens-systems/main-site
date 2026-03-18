@@ -12,7 +12,7 @@ export default function Footer() {
       { name: "About", href: "/about" },
       { name: "Pilot Program", href: "/pilot" },
       { name: "Join Us", href: "/join" },
-      { name: "Contact", href: "/contact" },
+      // { name: "Contact", href: "/contact" },
     ],
     applications: [
       { name: "Aerospace", href: "/applications#aerospace" },
@@ -76,8 +76,7 @@ export default function Footer() {
 
               {/* Mission statement */}
               <p className="text-base text-white/60 leading-relaxed mb-6 max-w-md">
-                Rebuilding North America's manufacturing base through
-                next-generation automation.
+              Inaltare genus humanum, stella oriens.
               </p>
 
               {/* Core tagline

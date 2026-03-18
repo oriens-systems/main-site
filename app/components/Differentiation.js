@@ -342,7 +342,7 @@ export default function Differentiation() {
         className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10 -mt-6"
       >
         {/* Our Mission Section */}
-        <div className="mb-16 lg:mb-24 text-center" style={{ marginTop: "-300px" }}>
+        <div className="mt-20 mb-16 lg:mt-[-300px] lg:mb-24 text-center">
           <div
             ref={missionBadgeRef}
             className="flex items-center gap-4 mb-12 lg:mb-16 opacity-0"
@@ -355,7 +355,7 @@ export default function Differentiation() {
           </div>
           <p
             ref={missionTextRef}
-            className="text-2xl md:text-3xl lg:text-4xl font-light text-white/80 mb-12 lg:mb-16 whitespace-nowrap opacity-0"
+            className="mx-auto max-w-xs sm:max-w-md text-2xl md:text-3xl lg:text-4xl font-light text-white/80 mb-12 lg:mb-16 whitespace-normal opacity-0"
           >
             Safeguarding humanity through precision.
           </p>
