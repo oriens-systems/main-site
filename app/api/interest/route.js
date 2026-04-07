@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 
+export const runtime = "nodejs";
+
 const DATA_FILE = path.join(process.cwd(), "data", "interest.json");
 
 /**
@@ -175,6 +177,11 @@ export async function POST(request) {
     });
   } catch (error) {
     console.error("Error processing interest registration:", error);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    const detail =
+      error instanceof Error ? error.message : "unknown_server_error";
+    return NextResponse.json(
+      { error: "Internal server error", detail },
+      { status: 500 }
+    );
   }
 }
