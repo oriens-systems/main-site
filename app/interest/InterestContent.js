@@ -69,12 +69,25 @@ export default function InterestContent() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit form");
+        let message = "Failed to submit form";
+        try {
+          const payload = await response.json();
+          if (payload?.detail) {
+            message = `${payload.error || message} (${payload.detail})`;
+          } else if (payload?.error) {
+            message = payload.error;
+          }
+        } catch {
+          // Ignore JSON parse failures and use default message.
+        }
+        throw new Error(message);
       }
 
       setIsSubmitted(true);
     } catch (err) {
-      setError("Something went wrong. Please try again or email us directly at hello@oriens.systems");
+      setError(
+        `${err?.message || "Something went wrong."} Please try again or email us directly at hello@oriens.systems`
+      );
     } finally {
       setIsSubmitting(false);
     }

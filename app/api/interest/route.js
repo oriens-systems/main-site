@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
-import nodemailer from "nodemailer";
 
 const DATA_FILE = path.join(process.cwd(), "data", "interest.json");
 
@@ -43,12 +42,12 @@ function buildEmailHtml(data) {
 
 async function sendWithResend(data) {
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return false;
+  if (!apiKey) return { ok: false, reason: "missing_resend_api_key" };
 
   const from = process.env.RESEND_FROM;
   if (!from) {
     console.error("RESEND_API_KEY set but RESEND_FROM is missing (use a verified sender, e.g. Oriens <hello@yourdomain.com>)");
-    return false;
+    return { ok: false, reason: "missing_resend_from" };
   }
 
   const labels = typeLabels();
@@ -70,17 +69,18 @@ async function sendWithResend(data) {
   if (!res.ok) {
     const errText = await res.text().catch(() => "");
     console.error("Resend error:", res.status, errText);
-    return false;
+    return { ok: false, reason: `resend_http_${res.status}` };
   }
-  return true;
+  return { ok: true };
 }
 
 async function sendWithSmtp(data) {
   const host = process.env.SMTP_HOST;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
-  if (!host || !user || !pass) return false;
+  if (!host || !user || !pass) return { ok: false, reason: "missing_smtp_config" };
 
+  const nodemailer = await import("nodemailer");
   const transporter = nodemailer.createTransport({
     host,
     port: parseInt(process.env.SMTP_PORT || "587", 10),
@@ -96,7 +96,7 @@ async function sendWithSmtp(data) {
     html: buildEmailHtml(data),
     replyTo: data.email,
   });
-  return true;
+  return { ok: true };
 }
 
 async function appendToLocalFile(submission) {
@@ -142,17 +142,28 @@ export async function POST(request) {
     }
 
     let emailed = false;
+    let emailFailureReason = "email_not_attempted";
     try {
-      emailed = (await sendWithResend(data)) || (await sendWithSmtp(data));
+      const resendResult = await sendWithResend(data);
+      if (resendResult.ok) {
+        emailed = true;
+      } else {
+        const smtpResult = await sendWithSmtp(data);
+        emailed = smtpResult.ok;
+        emailFailureReason = smtpResult.ok
+          ? resendResult.reason
+          : `${resendResult.reason}|${smtpResult.reason}`;
+      }
     } catch (err) {
       console.error("Failed to send interest notification email:", err);
+      emailFailureReason = "email_exception";
     }
 
     if (!savedToFile && !emailed) {
       return NextResponse.json(
         {
-          error:
-            "Server is not configured to receive submissions. Set RESEND_API_KEY and RESEND_FROM (recommended on Netlify), or SMTP_* variables. Netlify often blocks raw SMTP on serverless; prefer Resend’s HTTP API.",
+          error: "Submission failed server-side. Check form handler config in Netlify environment variables.",
+          detail: emailFailureReason,
         },
         { status: 503 }
       );
