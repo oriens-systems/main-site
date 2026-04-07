@@ -5,92 +5,157 @@ import nodemailer from "nodemailer";
 
 const DATA_FILE = path.join(process.cwd(), "data", "interest.json");
 
-// Email configuration
-// Configure these environment variables in your .env.local file:
-// SMTP_HOST=smtp.gmail.com (or your SMTP host)
-// SMTP_PORT=587
-// SMTP_USER=your-email@gmail.com
-// SMTP_PASS=your-app-password
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || "587"),
-  secure: process.env.SMTP_PORT === "465",
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+/**
+ * Serverless hosts use a read-only FS for the project (except /tmp).
+ * - Vercel sets VERCEL.
+ * - Netlify injects SITE_ID (and URL) into deployed functions; `netlify dev` sets NETLIFY_DEV=true — keep file writes for local dev.
+ */
+function canWriteInterestFile() {
+  if (process.env.VERCEL) return false;
+  const isNetlifyRemote =
+    process.env.NETLIFY_DEV !== "true" &&
+    typeof process.env.SITE_ID === "string" &&
+    process.env.SITE_ID.length > 0;
+  if (isNetlifyRemote) return false;
+  return true;
+}
 
-export async function POST(request) {
-  try {
-    const data = await request.json();
+function typeLabels() {
+  return {
+    student: "Student Design Team",
+    professor: "Professor / Researcher",
+    shop: "Machine Shop",
+  };
+}
 
-    // Validate required fields
-    if (!data.firstName || !data.lastName || !data.email || !data.institution || !data.type) {
-      return NextResponse.json(
-        { error: "Missing required fields" },
-        { status: 400 }
-      );
-    }
-
-    // Create submission object with timestamp
-    const submission = {
-      ...data,
-      timestamp: new Date().toISOString(),
-    };
-
-    // Ensure data directory exists
-    const dataDir = path.dirname(DATA_FILE);
-    try {
-      await fs.access(dataDir);
-    } catch {
-      await fs.mkdir(dataDir, { recursive: true });
-    }
-
-    // Read existing data or create new array
-    let submissions = [];
-    try {
-      const fileContent = await fs.readFile(DATA_FILE, "utf8");
-      submissions = JSON.parse(fileContent);
-    } catch (error) {
-      // File doesn't exist yet, start with empty array
-      submissions = [];
-    }
-
-    // Append new submission
-    submissions.push(submission);
-
-    // Write back to file
-    await fs.writeFile(DATA_FILE, JSON.stringify(submissions, null, 2));
-
-    // Send email notification
-    try {
-      const typeLabels = {
-        student: "Student Design Team",
-        professor: "Professor / Researcher",
-        shop: "Machine Shop",
-      };
-
-      const emailHtml = `
+function buildEmailHtml(data) {
+  const labels = typeLabels();
+  return `
         <h2>New Interest Registration</h2>
-        <p><strong>Type:</strong> ${typeLabels[data.type] || data.type}</p>
+        <p><strong>Type:</strong> ${labels[data.type] || data.type}</p>
         <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
         <p><strong>Email:</strong> ${data.email}</p>
         <p><strong>Institution:</strong> ${data.institution}</p>
         ${data.problem ? `<p><strong>Problem/Need:</strong><br>${data.problem}</p>` : ""}
         <p><strong>Timestamp:</strong> ${new Date().toLocaleString()}</p>
       `;
+}
 
-      await transporter.sendMail({
-        from: process.env.SMTP_USER,
-        to: "hello@oriens.systems",
-        subject: `New Interest Registration: ${typeLabels[data.type] || data.type}`,
-        html: emailHtml,
-        replyTo: data.email,
-      });
-    } catch (emailError) {
-      console.error("Failed to send email notification:", emailError);
-      // Don't fail the request if email fails, data is already saved
+async function sendWithResend(data) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return false;
+
+  const from = process.env.RESEND_FROM;
+  if (!from) {
+    console.error("RESEND_API_KEY set but RESEND_FROM is missing (use a verified sender, e.g. Oriens <hello@yourdomain.com>)");
+    return false;
+  }
+
+  const labels = typeLabels();
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from,
+      to: [process.env.INTEREST_NOTIFY_EMAIL || "hello@oriens.systems"],
+      subject: `New Interest Registration: ${labels[data.type] || data.type}`,
+      html: buildEmailHtml(data),
+      reply_to: data.email,
+    }),
+  });
+
+  if (!res.ok) {
+    const errText = await res.text().catch(() => "");
+    console.error("Resend error:", res.status, errText);
+    return false;
+  }
+  return true;
+}
+
+async function sendWithSmtp(data) {
+  const host = process.env.SMTP_HOST;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  if (!host || !user || !pass) return false;
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    secure: process.env.SMTP_PORT === "465",
+    auth: { user, pass },
+  });
+
+  const labels = typeLabels();
+  await transporter.sendMail({
+    from: process.env.SMTP_USER,
+    to: process.env.INTEREST_NOTIFY_EMAIL || "hello@oriens.systems",
+    subject: `New Interest Registration: ${labels[data.type] || data.type}`,
+    html: buildEmailHtml(data),
+    replyTo: data.email,
+  });
+  return true;
+}
+
+async function appendToLocalFile(submission) {
+  const dataDir = path.dirname(DATA_FILE);
+  try {
+    await fs.access(dataDir);
+  } catch {
+    await fs.mkdir(dataDir, { recursive: true });
+  }
+
+  let submissions = [];
+  try {
+    const fileContent = await fs.readFile(DATA_FILE, "utf8");
+    submissions = JSON.parse(fileContent);
+  } catch {
+    submissions = [];
+  }
+  submissions.push(submission);
+  await fs.writeFile(DATA_FILE, JSON.stringify(submissions, null, 2));
+}
+
+export async function POST(request) {
+  try {
+    const data = await request.json();
+
+    if (!data.firstName || !data.lastName || !data.email || !data.institution || !data.type) {
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
+
+    const submission = {
+      ...data,
+      timestamp: new Date().toISOString(),
+    };
+
+    let savedToFile = false;
+    if (canWriteInterestFile()) {
+      try {
+        await appendToLocalFile(submission);
+        savedToFile = true;
+      } catch (err) {
+        console.error("Failed to write interest.json:", err);
+      }
+    }
+
+    let emailed = false;
+    try {
+      emailed = (await sendWithResend(data)) || (await sendWithSmtp(data));
+    } catch (err) {
+      console.error("Failed to send interest notification email:", err);
+    }
+
+    if (!savedToFile && !emailed) {
+      return NextResponse.json(
+        {
+          error:
+            "Server is not configured to receive submissions. Set RESEND_API_KEY and RESEND_FROM (recommended on Netlify), or SMTP_* variables. Netlify often blocks raw SMTP on serverless; prefer Resend’s HTTP API.",
+        },
+        { status: 503 }
+      );
     }
 
     return NextResponse.json({
@@ -99,9 +164,6 @@ export async function POST(request) {
     });
   } catch (error) {
     console.error("Error processing interest registration:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
