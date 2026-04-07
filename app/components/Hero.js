@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Button from "./Button";
 
 const ASCIIGlobe = dynamic(() => import("./ASCIIGlobe"), { ssr: false });
@@ -11,14 +11,6 @@ const ASCIIGlobe = dynamic(() => import("./ASCIIGlobe"), { ssr: false });
 
 export default function Hero() {
   const sectionRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.7]);
 
   return (
     <section
@@ -91,7 +83,6 @@ export default function Hero() {
       {/* Content */}
       <motion.div
         className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-8 md:pt-40 md:pb-12 lg:pt-44 lg:pb-16"
-        style={{ y: contentY, opacity: contentOpacity }}
       >
         <div className="flex flex-col items-center text-center gap-8">
           {/* Status badge */}
@@ -123,7 +114,9 @@ export default function Hero() {
               Manufacturing the future
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              We're building AI in manufacturing and autonomous factories — AI-powered manufacturing automation for aerospace and defense.
+              Solutions for manufacturing and autonomous factories
+              <br />
+              AI-powered manufacturing automation for aerospace and defense.
             </p>
           </motion.div>
 

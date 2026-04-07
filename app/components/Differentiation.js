@@ -11,7 +11,7 @@ if (typeof window !== "undefined") {
 }
 
 // Interactive Card Component with GSAP animations
-function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }) {
+function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef, isMobile }) {
   const lineRef = useRef(null);
 
   // Hover line animation
@@ -44,7 +44,7 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef }
       ref={cardRef}
       onMouseEnter={() => setHoveredCard(index)}
       onMouseLeave={handleMouseLeave}
-      className="relative group cursor-default card-item opacity-0 translate-y-5"
+      className={`relative group cursor-default card-item ${isMobile ? "" : "opacity-0 translate-y-5"}`}
     >
       {/* Card Body */}
       <div className="relative h-full bg-[var(--background-2)] border border-[var(--foreground)]/5 rounded-xl overflow-hidden transition-colors duration-300 hover:border-[var(--accent)]/30">
@@ -103,9 +103,24 @@ export default function Differentiation() {
   const cardsContainerRef = useRef(null);
   const cardRefs = useRef([]);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => mediaQuery.removeEventListener("change", updateIsMobile);
+  }, []);
 
   // Scroll-triggered animations
   useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
       // Content parallax on scroll
       gsap.to(contentRef.current, {
@@ -228,7 +243,7 @@ export default function Differentiation() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   const sectors = [
     {
@@ -345,7 +360,7 @@ export default function Differentiation() {
         <div className="mt-20 mb-16 lg:mt-[-300px] lg:mb-24 text-center">
           <div
             ref={missionBadgeRef}
-            className="flex items-center gap-4 mb-12 lg:mb-16 opacity-0"
+            className={`flex items-center gap-4 mb-12 lg:mb-16 ${isMobile ? "" : "opacity-0"}`}
           >
             <div className="flex-1 h-px bg-white/10" />
             <span className="text-xs uppercase tracking-[0.2em] text-white/60">
@@ -355,7 +370,7 @@ export default function Differentiation() {
           </div>
           <p
             ref={missionTextRef}
-            className="mx-auto max-w-xs sm:max-w-md text-2xl md:text-3xl lg:text-4xl font-light text-white/80 mb-12 lg:mb-16 whitespace-normal opacity-0"
+            className={`mx-auto max-w-xs sm:max-w-md text-2xl md:text-3xl lg:text-4xl font-light text-white/80 mb-12 lg:mb-16 whitespace-normal ${isMobile ? "" : "opacity-0"}`}
           >
             Safeguarding humanity through precision.
           </p>
@@ -369,7 +384,7 @@ export default function Differentiation() {
         {/* Header */}
         <div
           ref={headerBadgeRef}
-          className="flex items-center gap-4 mb-8 opacity-0"
+          className={`flex items-center gap-4 mb-8 ${isMobile ? "" : "opacity-0"}`}
         >
           <div className="flex-1 h-px bg-white/10" />
           <span className="text-xs uppercase tracking-[0.2em] text-white/60">
@@ -381,7 +396,7 @@ export default function Differentiation() {
           <div>
             <h2
               ref={headerTitleRef}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight opacity-0"
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight ${isMobile ? "" : "opacity-0"}`}
             >
               Built for industries that don't
               accept tradeoffs 
@@ -391,7 +406,7 @@ export default function Differentiation() {
           </div>
           <p
             ref={headerDescRef}
-            className="text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed opacity-0"
+            className={`text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed ${isMobile ? "" : "opacity-0"}`}
           >
             We specialize in autonomous manufacturing and AI in manufacturing — creating the systems necessary for industries and autonomous factories to manufacture components where precision and efficiency are the only variables that matter.
           </p>
@@ -407,6 +422,7 @@ export default function Differentiation() {
               hoveredCard={hoveredCard}
               setHoveredCard={setHoveredCard}
               cardRef={(el) => (cardRefs.current[index] = el)}
+              isMobile={isMobile}
             />
           ))}
         </div>
