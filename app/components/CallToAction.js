@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function CallToAction() {
@@ -14,30 +15,10 @@ export default function CallToAction() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
 
   const ctaOptions = [
-    // {
-    //   title: "TALK TO THE TEAM",
-    //   description: "Discuss your manufacturing needs",
-    //   icon: (
-    //     <svg
-    //       width="28"
-    //       height="28"
-    //       viewBox="0 0 24 24"
-    //       fill="none"
-    //       stroke="currentColor"
-    //       strokeWidth="1.5"
-    //     >
-    //       <path
-    //         d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-    //         strokeLinecap="round"
-    //         strokeLinejoin="round"
-    //       />
-    //     </svg>
-    //   ),
-    //   primary: true,
-    // },
     {
-      title: "SEE THE TECHNOLOGY",
-      description: "Deep dive into our approach",
+      title: "REGISTER INTEREST",
+      description: "Join our pilot program",
+      href: "/interest",
       icon: (
         <svg
           width="28"
@@ -47,17 +28,15 @@ export default function CallToAction() {
           stroke="currentColor"
           strokeWidth="1.5"
         >
-          <circle cx="12" cy="12" r="10" />
-          <polygon
-            points="10 8 16 12 10 16 10 8"
+          <path
+            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg>
       ),
-      primary: false,
+      primary: true,
     },
-    
   ];
 
   return (
@@ -102,36 +81,33 @@ export default function CallToAction() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight mb-4">
-            Become a <span className="text-[var(--accent)]">beta tester</span> for our CAM automation technology.
+            The world's most efficient machine shop.
           </h2>
           <p className="text-lg md:text-xl text-white/50 max-w-lg mx-auto">
-            From design to production-ready in hours. 
-            <br/>
-            <br/>
-            Join our pilot program to get early access to the tech we're going to implement into factories.
+            We're cutting bottlenecks and delays by 80%. Backed by Western University and McMaster's MMRI. Raising $5M for Phase 1.
           </p>
         </motion.div>
 
         {/* CTA Grid */}
         <div className="flex flex-wrap justify-center gap-4 lg:gap-5 mb-20 max-w-3xl mx-auto">
           {ctaOptions.map((option, index) => (
-            <motion.button
-              key={option.title}
-              className={`group relative p-6 md:p-8 rounded-xl border text-left transition-all duration-300 overflow-hidden ${
-                option.primary
-                  ? "bg-[var(--accent-variant)] border-[var(--accent-variant)] hover:bg-[var(--accent-variant-hover)]"
-                  : "bg-white/3 border-white/10 hover:border-[var(--accent)]/50 hover:bg-white/5"
-              }`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: option.primary ? 0 : 0.1 * (index + 1),
-              }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
+            <Link key={option.title} href={option.href || "#"}>
+              <motion.div
+                className={`group relative p-6 md:p-8 rounded-xl border text-left transition-all duration-300 overflow-hidden cursor-pointer ${
+                  option.primary
+                    ? "bg-[var(--accent-variant)] border-[var(--accent-variant)] hover:bg-[var(--accent-variant-hover)]"
+                    : "bg-white/3 border-white/10 hover:border-[var(--accent)]/50 hover:bg-white/5"
+                }`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: option.primary ? 0 : 0.1 * (index + 1),
+                }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
               {/* Animated background for primary */}
               {option.primary && (
                 <motion.div
@@ -198,7 +174,8 @@ export default function CallToAction() {
                   />
                 </svg>
               </motion.div>
-            </motion.button>
+              </motion.div>
+            </Link>
           ))}
         </div>
 

@@ -114,9 +114,9 @@ export default function Hero() {
               Manufacturing the future
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              Solutions for manufacturing and autonomous factories
+              The world's most efficient machine shop.
               <br />
-              AI-powered manufacturing automation for aerospace and defense.
+              Cutting bottlenecks and delays by 80%.
             </p>
           </motion.div>
 
@@ -127,8 +127,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
           >
-            <Button href="/pilot" variant="primary" size="md">
-              PILOT PROGRAM
+            <Button href="/interest" variant="primary" size="md">
+              REGISTER INTEREST
             </Button>
             <Button href="#mission" variant="secondary" size="md">
               SEE THE PROBLEM

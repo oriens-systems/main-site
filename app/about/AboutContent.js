@@ -127,6 +127,85 @@ export default function AboutContent() {
         </div>
       </section>
 
+      {/* The Problem - Capacity Gap */}
+      <section className="relative py-32 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              The <span className="text-[var(--accent)]">Capacity Gap</span>
+            </h2>
+            <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
+              North America has lost its manufacturing capacity. Skilled machinists and CAM programmers are retiring faster than they're being replaced. Lead times at job shops are 4-8 weeks. Quoting is done by phone. There is no digital thread, no automation, no scalability. One shop closes every 34 hours.
+            </p>
+
+            <p className="mt-12 text-sm font-mono text-[var(--accent)]">
+              &gt; SYSTEM SOLUTION: THE WORLD'S MOST EFFICIENT MACHINE SHOP.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* The Solution */}
+      <section className="relative py-32 border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-16">
+              How We're <span className="text-[var(--accent)]">Solving It</span>
+            </h2>
+          </motion.div>
+
+          {/* Four stat blocks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-5xl mx-auto">
+            {[
+              "80% reduction in bottlenecks and delays",
+              "Autonomous process planning from STEP file to finished part",
+              "Lights-out production — no human intervention in the production path",
+              "Backed by Western University and McMaster's MMRI"
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative p-6 md:p-8 rounded-xl border border-white/10 bg-white/3 hover:border-[var(--accent)]/50 hover:bg-white/5 transition-all duration-300"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-[var(--accent)]" />
+                  <p className="text-base md:text-lg text-white/80 leading-relaxed">
+                    {stat}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Body text */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <p className="text-lg text-white/60 leading-relaxed">
+              We are building a fully autonomous CNC factory purpose-built for precision manufacturing. Upload a design file. We handle the rest — toolpath generation, machine scheduling, inspection, and delivery. No backlogs. No manual handoffs.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Our Backers - moving carousel */}
       <section className="relative py-20 border-t border-white/5 overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 mb-12 text-center">
@@ -150,26 +229,22 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <section className="relative py-32 border-t border-white/5">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      {/* CTA */}
+      <section className="relative py-24 border-t border-white/5 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[var(--accent)]/10 via-[var(--background)] to-[var(--background)]" />
+        <div className="max-w-xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              The <span className="text-[var(--accent)]">Capacity Gap</span>
-            </h2>
-            <p className="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
-              North America has lost its manufacturing capacity. Skilled CAM
-              programmers are retiring faster than they're replaced. We're
-              building the tools to close that gap.
+            <p className="text-2xl md:text-3xl font-medium text-white mb-8">
+              We're raising $5M for Phase 1.
             </p>
-
-            <p className="mt-12 text-sm font-mono text-[var(--accent)]">
-              &gt; SYSTEM SOLUTION: AUTONOMOUS CAM GENERATION
-            </p>
+            <Button href="/interest" variant="primary" size="lg">
+              REGISTER INTEREST
+            </Button>
           </motion.div>
         </div>
       </section>

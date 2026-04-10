@@ -408,7 +408,7 @@ export default function Differentiation() {
             ref={headerDescRef}
             className={`text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed ${isMobile ? "" : "opacity-0"}`}
           >
-            We specialize in autonomous manufacturing and AI in manufacturing — creating the systems necessary for industries and autonomous factories to manufacture components where precision and efficiency are the only variables that matter.
+            We're building the infrastructure to manufacture precision parts faster than anyone else. Backed by the Chair of Mechanical Engineering at Western University and McMaster's MMRI.
           </p>
         </div>
 
