@@ -146,7 +146,7 @@ export default function InterestContent() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 max-w-xl mx-auto">
-            This isn't a commitment — just a signal that you'd like to follow our progress and be first in line. We'll be in touch.
+            This isn't a commitment, rather it's just a signal that you'd like to follow our progress and be first in line. We'll be in touch.
           </p>
         </motion.div>
       </section>
