@@ -381,6 +381,82 @@ export default function Differentiation() {
           </div> */}
         </div>
 
+        {/* THE PROBLEM Section */}
+        <div id="problem" className="mt-32 mb-32 lg:mt-40 lg:mb-40">
+          <div
+            className={`flex items-center gap-4 mb-12 lg:mb-16 ${isMobile ? "" : "opacity-0"}`}
+          >
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
+              The Problem
+            </span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-16">
+            Precision manufacturing is broken.
+          </h2>
+
+          {/* Problem table */}
+          <div className="w-full overflow-x-auto mb-16">
+            <table className="w-full border-collapse" style={{ borderSpacing: 0 }}>
+              <thead>
+                <tr>
+                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
+                    Job Shops
+                  </th>
+                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
+                    Online Marketplaces
+                  </th>
+                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
+                    Overseas Manufacturing
+                  </th>
+                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
+                    In-House Shops
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
+                    4–8 week lead times. Phone and fax quoting. Aging workforce with no succession plan. One shop closes every 34 hours.
+                  </td>
+                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
+                    Routed to the same overloaded shops. Quality variance, no production control. Marketplace margin stacked on top of shop costs.
+                  </td>
+                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
+                    Weeks of freight. Revision cycles measured in days. IP vulnerability, tariff exposure, fixed capacity.
+                  </td>
+                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
+                    Major CapEx to start. Competing for a shrinking talent pool. Capacity that doesn't scale with demand.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* THE SOLUTION Section */}
+        <div className="mb-32 lg:mb-40">
+          <div
+            className={`flex items-center gap-4 mb-12 lg:mb-16 ${isMobile ? "" : "opacity-0"}`}
+          >
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
+              The Solution
+            </span>
+            <div className="flex-1 h-px bg-white/10" />
+          </div>
+
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8">
+            Decouple production from human intervention.
+          </h2>
+
+          <p className="text-base md:text-lg text-white/60 text-left max-w-3xl mx-auto leading-relaxed">
+            We are building a fully autonomous CNC factory. Upload a design file and an automated process planning system handles toolpath generation, quoting, machine scheduling, and inspection. No backlogs. No manual handoffs. Near full lights-out production.
+          </p>
+        </div>
+
         {/* Header */}
         <div
           ref={headerBadgeRef}

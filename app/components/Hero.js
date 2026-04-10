@@ -85,24 +85,6 @@ export default function Hero() {
         className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-8 md:pt-40 md:pb-12 lg:pt-44 lg:pb-16"
       >
         <div className="flex flex-col items-center text-center gap-8">
-          {/* Status badge */}
-          <motion.div
-            className="flex items-center gap-4 w-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]" />
-            </span>
-            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              In development
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </motion.div>
-
           {/* Headline */}
           <motion.div
             className="space-y-5"
@@ -111,12 +93,12 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
-              Manufacturing the future
+              The world's most efficient machine shop.
             </h1>
             <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-              The world's most efficient machine shop.
+            We're cutting bottlenecks and delays by 80%.
               <br />
-              Cutting bottlenecks and delays by 80%.
+              Backed by Universities and Professors across Canada.
             </p>
           </motion.div>
 
@@ -130,7 +112,7 @@ export default function Hero() {
             <Button href="/interest" variant="primary" size="md">
               REGISTER INTEREST
             </Button>
-            <Button href="#mission" variant="secondary" size="md">
+            <Button href="#problem" variant="secondary" size="md">
               SEE THE PROBLEM
             </Button>
           </motion.div>

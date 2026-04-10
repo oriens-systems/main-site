@@ -17,7 +17,7 @@ export default function CallToAction() {
   const ctaOptions = [
     {
       title: "REGISTER INTEREST",
-      description: "Join our pilot program",
+      description: "",
       href: "/interest",
       icon: (
         <svg
@@ -135,19 +135,21 @@ export default function CallToAction() {
 
                 {/* Text */}
                 <h3
-                  className={`text-xl md:text-2xl font-semibold mb-2 ${
+                  className={`text-xl md:text-2xl font-semibold ${option.description ? "mb-2" : ""} ${
                     option.primary ? "text-white" : "text-white"
                   }`}
                 >
                   {option.title}
                 </h3>
-                <p
-                  className={`text-sm md:text-base ${
-                    option.primary ? "text-white/80" : "text-white/50"
-                  }`}
-                >
-                  {option.description}
-                </p>
+                {option.description && (
+                  <p
+                    className={`text-sm md:text-base ${
+                      option.primary ? "text-white/80" : "text-white/50"
+                    }`}
+                  >
+                    {option.description}
+                  </p>
+                )}
               </div>
 
               {/* Arrow */}

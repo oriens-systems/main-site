@@ -10,8 +10,7 @@ export default function Footer() {
     main: [
       { name: "Home", href: "/" },
       { name: "About", href: "/about" },
-      { name: "Pilot Program", href: "/pilot" },
-      { name: "Join Us", href: "/join" },
+      { name: "Register Interest", href: "/interest" },
       // { name: "Contact", href: "/contact" },
     ],
     applications: [
