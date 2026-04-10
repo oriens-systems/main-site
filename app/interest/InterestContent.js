@@ -146,10 +146,7 @@ export default function InterestContent() {
           </h1>
 
           <p className="text-lg md:text-xl text-white/60 max-w-xl mx-auto">
-            this isnt a commitment, just a signal that you'd like to follow our progress and be first in line.
-            <br/>
-            <br/>
-            we'll be in touch when we have more information to share.
+            This isn't a commitment — just a signal that you'd like to follow our progress and be first in line. We'll be in touch.
           </p>
         </motion.div>
       </section>
@@ -164,22 +161,19 @@ export default function InterestContent() {
             >
               {/* Audience Selector */}
               <div className="mb-12">
-                <h2 className="text-xl font-semibold text-white mb-6 text-center">
-                  I am a...
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3">
                   {audienceTypes.map((type) => (
                     <button
                       key={type.id}
                       type="button"
                       onClick={() => handleTypeSelect(type.id)}
-                      className={`p-6 rounded-xl border-2 transition-all ${
+                      className={`p-4 border border-white/10 transition-all ${
                         selectedType === type.id
-                          ? "border-[var(--accent)] bg-[var(--accent)]/10 shadow-[0_0_20px_rgba(var(--accent-rgb),0.2)]"
-                          : "border-white/10 bg-white/2 hover:border-white/20 hover:bg-white/5"
+                          ? "bg-white/5 text-white"
+                          : "bg-transparent text-white/70 hover:bg-white/[0.02] hover:text-white"
                       }`}
                     >
-                      <div className="text-white font-medium">{type.label}</div>
+                      <div className="text-sm font-medium">{type.label}</div>
                     </button>
                   ))}
                 </div>
@@ -255,7 +249,7 @@ export default function InterestContent() {
 
                 <div>
                   <label htmlFor="problem" className="block text-sm text-white/70 mb-2">
-                    What machining problem are you trying to solve?
+                    What are you working on?
                   </label>
                   <textarea
                     id="problem"
@@ -264,7 +258,7 @@ export default function InterestContent() {
                     value={formData.problem}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/20 transition-all resize-none"
-                    placeholder="Tell us about your machining challenges, capacity needs, or what you're trying to manufacture..."
+                    placeholder="Tell us what you're building or working on."
                   />
                 </div>
 
@@ -274,13 +268,15 @@ export default function InterestContent() {
                   </div>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[var(--accent)] hover:bg-[var(--accent-button-hover)] disabled:bg-[var(--accent)]/50 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.4)] disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Submitting..." : "Register Interest"}
-                </button>
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 font-bold tracking-wide transition-all rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-button-hover)] text-white shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] hover:scale-105 border border-transparent disabled:bg-[var(--accent)]/50 disabled:cursor-not-allowed disabled:hover:scale-100 px-6 py-3 text-sm"
+                  >
+                    {isSubmitting ? "Submitting..." : "REGISTER INTEREST"}
+                  </button>
+                </div>
               </form>
 
               {/* Credibility Line */}
