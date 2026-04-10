@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "Register Your Interest | Oriens Systems",
     description:
-      "Be first in line for autonomous manufacturing solutions from Oriens Systems.",
+      "Be first in line for autonomous manufacturing from Oriens Systems.",
     url: "https://orienssystems.com/interest",
   },
   alternates: {
