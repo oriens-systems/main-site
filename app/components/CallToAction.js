@@ -43,30 +43,8 @@ export default function CallToAction() {
     <section
       id="cta"
       ref={sectionRef}
-      className="relative w-full overflow-hidden py-28 lg:py-40"
+      className="relative w-full overflow-hidden py-28 lg:py-40 bg-[#0a0a0a] border-t border-white/8"
     >
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
-      {/* Central gradient */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[var(--accent)]/10 rounded-full blur-[120px]"
-        aria-hidden
-      />
 
       <motion.div
         className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16"
@@ -80,10 +58,16 @@ export default function CallToAction() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight mb-4">
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] text-white mb-4"
+            style={{ letterSpacing: '0.04em' }}
+          >
             The world's most efficient machine shop.
           </h2>
-          <p className="text-lg md:text-xl text-white/50 max-w-lg mx-auto">
+          <p
+            className="text-base md:text-lg text-white/55 max-w-lg mx-auto"
+            style={{ lineHeight: '1.7' }}
+          >
             We're cutting bottlenecks and delays by 80%. Backed by Western University and McMaster's MMRI. Raising $5M for Phase 1.
           </p>
         </motion.div>
@@ -93,10 +77,10 @@ export default function CallToAction() {
           {ctaOptions.map((option, index) => (
             <Link key={option.title} href={option.href || "#"}>
               <motion.div
-                className={`group relative p-6 md:p-8 rounded-xl border text-left transition-all duration-300 overflow-hidden cursor-pointer ${
+                className={`group relative p-6 md:p-8 border text-left transition-all duration-300 overflow-hidden cursor-pointer ${
                   option.primary
-                    ? "bg-[var(--accent-variant)] border-[var(--accent-variant)] hover:bg-[var(--accent-variant-hover)]"
-                    : "bg-white/3 border-white/10 hover:border-[var(--accent)]/50 hover:bg-white/5"
+                    ? "bg-white hover:bg-white/90 border-transparent text-black"
+                    : "bg-transparent border-white/30 hover:border-white/50 text-white hover:bg-white/5"
                 }`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -108,26 +92,14 @@ export default function CallToAction() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-              {/* Animated background for primary */}
-              {option.primary && (
-                <motion.div
-                  className="absolute inset-0 bg-linear-to-r from-[var(--accent-variant)] via-[var(--accent-variant-mid)] to-[var(--accent-variant)] opacity-0 group-hover:opacity-100"
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  style={{ backgroundSize: "200% 200%" }}
-                />
-              )}
-
               {/* Content */}
               <div className="relative">
                 {/* Icon */}
                 <div
-                  className={`mb-5 w-14 h-14 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+                  className={`mb-5 w-14 h-14 flex items-center justify-center transition-colors duration-300 ${
                     option.primary
-                      ? "bg-white/20 text-white"
-                      : "bg-[var(--accent)]/10 text-[var(--accent)] group-hover:bg-[var(--accent)]/20"
+                      ? "text-black"
+                      : "text-white"
                   }`}
                 >
                   {option.icon}
@@ -135,16 +107,14 @@ export default function CallToAction() {
 
                 {/* Text */}
                 <h3
-                  className={`text-xl md:text-2xl font-semibold ${option.description ? "mb-2" : ""} ${
-                    option.primary ? "text-white" : "text-white"
-                  }`}
+                  className={`text-xl md:text-2xl font-medium ${option.description ? "mb-2" : ""}`}
                 >
                   {option.title}
                 </h3>
                 {option.description && (
                   <p
                     className={`text-sm md:text-base ${
-                      option.primary ? "text-white/80" : "text-white/50"
+                      option.primary ? "text-black/70" : "text-white/50"
                     }`}
                   >
                     {option.description}
@@ -156,8 +126,8 @@ export default function CallToAction() {
               <motion.div
                 className={`absolute bottom-6 right-6 md:bottom-8 md:right-8 transition-all duration-300 ${
                   option.primary
-                    ? "text-white/60 group-hover:text-white"
-                    : "text-white/20 group-hover:text-[var(--accent)]"
+                    ? "text-black/60"
+                    : "text-white/20 group-hover:text-white/60"
                 }`}
                 whileHover={{ x: 5 }}
               >

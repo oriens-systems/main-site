@@ -1,12 +1,6 @@
-import { Exo_2 } from "next/font/google";
+import "@fontsource/host-grotesk/latin.css";
+import "@fontsource/host-grotesk/latin-italic.css";
 import "./globals.css";
-
-const exo2 = Exo_2({
-  variable: "--font-exo-2",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
-});
 
 export const metadata = {
   metadataBase: new URL("https://orienssystems.com"),
@@ -140,7 +134,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={`${exo2.variable} antialiased`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>

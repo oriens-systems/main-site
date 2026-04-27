@@ -21,15 +21,15 @@ export default function Button({
   ...props
 }) {
   const baseStyles =
-    "inline-flex items-center justify-center gap-2 font-bold tracking-wide transition-all rounded-xl cursor-pointer";
+    "inline-flex items-center justify-center gap-2 font-medium tracking-wide transition-all cursor-pointer";
 
   const variants = {
     primary:
-      "bg-[var(--accent)] hover:bg-[var(--accent-button-hover)] text-white shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] hover:scale-105 border border-transparent",
+      "bg-white hover:bg-white/90 text-black border border-transparent",
     secondary:
-      "bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20 backdrop-blur-sm shadow-[0_0_10px_rgba(255,255,255,0.05)]",
+      "bg-transparent hover:bg-white/5 text-white border border-white/30 hover:border-white/50",
     outline:
-      "bg-transparent hover:bg-[var(--accent)]/10 text-[var(--accent)] border border-[var(--accent)]/30 hover:border-[var(--accent)]/50",
+      "bg-transparent hover:bg-white/5 text-white border border-white/20 hover:border-white/40",
   };
 
   const sizes = {

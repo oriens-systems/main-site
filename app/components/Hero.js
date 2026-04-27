@@ -1,13 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Button from "./Button";
-
-const ASCIIGlobe = dynamic(() => import("./ASCIIGlobe"), { ssr: false });
-
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -15,88 +10,31 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative isolate min-h-screen"
+      className="relative isolate min-h-screen flex items-center bg-[#0a0a0a] border-b border-white/8"
     >
-      {/* Animated grid background - fixed to viewport for continuity */}
-      <div
-        className="absolute inset-0 opacity-50 pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
-          }}
-        />
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(var(--accent-rgb), 0.08) 1px, transparent 1px)
-            `,
-            backgroundSize: "300px 300px",
-            backgroundPosition: "0 0",
-          }}
-        />
-      </div>
-
-      {/* Gradient orbs */}
-      <div
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[var(--accent)]/8 rounded-full blur-[120px]"
-        aria-hidden
-      />
-      <div
-        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[var(--accent-light)]/10 rounded-full blur-[100px]"
-        aria-hidden
-      />
-
-      {/* Shuttle ASCII background image */}
-      <div
-        className="absolute inset-0 flex items-center justify-end pointer-events-none"
-        aria-hidden
-      >
-        <div className="relative w-[55%] h-full opacity-20">
-          <Image
-            src="/images/shuttle_ascii.png"
-            alt="Aerospace and advanced manufacturing — autonomous factories and AI in manufacturing"
-            fill
-            className="object-contain object-center"
-            priority
-          />
-        </div>
-      </div>
-
-      {/* Background decorative sphere - left side, half visible */}
-      <div
-        className="absolute -left-[240px] md:-left-[280px] lg:-left-[320px] top-1/2 -translate-y-1/2 w-[480px] md:w-[560px] lg:w-[640px] h-[480px] md:h-[560px] lg:h-[640px] opacity-35 pointer-events-none"
-        aria-hidden
-      >
-        <ASCIIGlobe />
-      </div>
-
       {/* Content */}
       <motion.div
-        className="relative z-10 max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-8 md:pt-40 md:pb-12 lg:pt-44 lg:pb-16"
+        className="relative z-10 w-full px-6 md:px-10 lg:px-16 py-32"
       >
-        <div className="flex flex-col items-center text-center gap-8">
+        <div className="flex flex-col items-center text-center gap-8 max-w-5xl mx-auto">
           {/* Headline */}
           <motion.div
-            className="space-y-5"
+            className="space-y-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-[1.08] text-white tracking-tight">
+            <h1
+              className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.1] text-white"
+              style={{ letterSpacing: '0.04em' }}
+            >
               The world's most efficient machine shop.
             </h1>
-            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-            We're cutting bottlenecks and delays by 80%.
+            <p
+              className="text-base md:text-lg text-white/60 max-w-lg mx-auto"
+              style={{ lineHeight: '1.7' }}
+            >
+              We're cutting bottlenecks and delays by 80%.
               <br />
               Backed by Universities and Professors across Canada.
             </p>
@@ -117,8 +55,6 @@ export default function Hero() {
             </Button>
           </motion.div>
         </div>
-
-
       </motion.div>
     </section>
   );

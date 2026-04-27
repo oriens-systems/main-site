@@ -17,8 +17,8 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16 pt-6">
-        <nav className="panel rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between border border-white/10">
+      <div>
+        <nav className="bg-[#0a0a0a] px-6 md:px-10 lg:px-16 py-3 flex items-center justify-between border-b border-white/10">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <div className="w-40 h-11 md:w-40 md:h-12 relative">
@@ -87,7 +87,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden mt-2 panel rounded-xl border border-white/10 overflow-hidden"
+              className="md:hidden bg-[#0a0a0a] border-b border-white/10 overflow-hidden"
             >
               <div className="p-4 space-y-1">
                 {navLinks.map((link) => (

@@ -3,8 +3,6 @@
 import { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button from "./Button";
-
 // Register GSAP plugins
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -94,12 +92,7 @@ function InteractiveCard({ sector, index, hoveredCard, setHoveredCard, cardRef, 
 export default function Differentiation() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const missionBadgeRef = useRef(null);
-  const missionTextRef = useRef(null);
-  const missionButtonRef = useRef(null);
   const headerBadgeRef = useRef(null);
-  const headerTitleRef = useRef(null);
-  const headerDescRef = useRef(null);
   const cardsContainerRef = useRef(null);
   const cardRefs = useRef([]);
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -134,51 +127,6 @@ export default function Differentiation() {
         }
       });
 
-      // Mission section animations
-      gsap.fromTo(missionBadgeRef.current,
-        { opacity: 0, y: 10 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          scrollTrigger: {
-            trigger: missionBadgeRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-
-      gsap.fromTo(missionTextRef.current,
-        { opacity: 0, y: 10 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: 0.1,
-          scrollTrigger: {
-            trigger: missionTextRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-
-      gsap.fromTo(missionButtonRef.current,
-        { opacity: 0, y: 10 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: 0.2,
-          scrollTrigger: {
-            trigger: missionButtonRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-
       // Header animations
       gsap.fromTo(headerBadgeRef.current,
         { opacity: 0, y: 10 },
@@ -188,35 +136,6 @@ export default function Differentiation() {
           duration: 0.6,
           scrollTrigger: {
             trigger: headerBadgeRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-
-      gsap.fromTo(headerTitleRef.current,
-        { opacity: 0, y: 10 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          delay: 0.1,
-          scrollTrigger: {
-            trigger: headerTitleRef.current,
-            start: "top 85%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-
-      gsap.fromTo(headerDescRef.current,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.6,
-          delay: 0.2,
-          scrollTrigger: {
-            trigger: headerDescRef.current,
             start: "top 85%",
             toggleActions: "play none none none"
           }
@@ -322,141 +241,13 @@ export default function Differentiation() {
     <section
       id="differentiation"
       ref={sectionRef}
-      className="relative w-full pt-8 pb-24 lg:pt-12 lg:pb-32"
+      className="relative w-full pt-8 pb-24 lg:pt-12 lg:pb-32 bg-[#0a0a0a]"
     >
-      {/* Static Background Orbs */}
-      <div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[var(--accent)]/8 rounded-full blur-[120px] pointer-events-none"
-        aria-hidden
-      />
-      <div
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[var(--accent)]/6 rounded-full blur-[100px] pointer-events-none"
-        aria-hidden
-      />
-
-      {/* Background Grids - Matching other sections */}
-      <div
-        className="absolute inset-0 opacity-40 pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="fixed inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-            backgroundPosition: "0 0",
-          }}
-        />
-      </div>
 
       <div
         ref={contentRef}
-        className="relative z-10 max-w-[1240px] mx-auto px-6 md:px-10 -mt-6"
+        className="relative z-10 mx-auto mt-24 max-w-[1240px] px-6 md:mt-32 md:px-10 lg:mt-40"
       >
-        {/* Our Mission Section */}
-        <div className="mt-20 mb-16 lg:mt-[-300px] lg:mb-24 text-center">
-          <div
-            ref={missionBadgeRef}
-            className={`flex items-center gap-4 mb-12 lg:mb-16 ${isMobile ? "" : "opacity-0"}`}
-          >
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              Our Mission
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
-          <p
-            ref={missionTextRef}
-            className={`mx-auto max-w-xs sm:max-w-md text-2xl md:text-3xl lg:text-4xl font-light text-white/80 mb-12 lg:mb-16 whitespace-normal ${isMobile ? "" : "opacity-0"}`}
-          >
-            Safeguarding humanity through precision.
-          </p>
-          {/* <div ref={missionButtonRef} className="opacity-0">
-            <Button href="/contact" variant="primary" size="lg">
-              GET IN TOUCH
-            </Button>
-          </div> */}
-        </div>
-
-        {/* THE PROBLEM Section */}
-        <div id="problem" className="mt-32 mb-32 lg:mt-40 lg:mb-40">
-          <div
-            className={`flex items-center gap-4 mb-12 lg:mb-16 ${isMobile ? "" : "opacity-0"}`}
-          >
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              The Problem
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-16">
-            Precision manufacturing is broken.
-          </h2>
-
-          {/* Problem table */}
-          <div className="w-full overflow-x-auto mb-16">
-            <table className="w-full border-collapse" style={{ borderSpacing: 0 }}>
-              <thead>
-                <tr>
-                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
-                    Job Shops
-                  </th>
-                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
-                    Online Marketplaces
-                  </th>
-                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
-                    Overseas Manufacturing
-                  </th>
-                  <th className="border border-white/10 p-6 text-left text-white font-semibold text-base md:text-lg align-top">
-                    In-House Shops
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
-                    4–8 week lead times. Phone and fax quoting. Aging workforce with no succession plan. One shop closes every 34 hours.
-                  </td>
-                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
-                    Routed to the same overloaded shops. Quality variance, no production control. Marketplace margin stacked on top of shop costs.
-                  </td>
-                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
-                    Weeks of freight. Revision cycles measured in days. IP vulnerability, tariff exposure, fixed capacity.
-                  </td>
-                  <td className="border border-white/10 p-6 text-white/60 text-sm md:text-base leading-relaxed align-top">
-                    Major CapEx to start. Competing for a shrinking talent pool. Capacity that doesn't scale with demand.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* THE SOLUTION Section */}
-        <div className="mb-32 lg:mb-40">
-          <div
-            className={`flex items-center gap-4 mb-12 lg:mb-16 ${isMobile ? "" : "opacity-0"}`}
-          >
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-xs uppercase tracking-[0.2em] text-white/60">
-              The Solution
-            </span>
-            <div className="flex-1 h-px bg-white/10" />
-          </div>
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8">
-            Decouple production from human intervention.
-          </h2>
-
-          <p className="text-base md:text-lg text-white/60 text-left max-w-3xl mx-auto leading-relaxed">
-            We are building a fully autonomous CNC factory. Upload a design file and an automated process planning system handles toolpath generation, quoting, machine scheduling, and inspection. No backlogs. No manual handoffs. Near full lights-out production.
-          </p>
-        </div>
-
         {/* Header */}
         <div
           ref={headerBadgeRef}
@@ -468,38 +259,31 @@ export default function Differentiation() {
           </span>
           <div className="flex-1 h-px bg-white/10" />
         </div>
-        <div className="mb-20 flex flex-col md:flex-row items-end justify-between gap-6 border-b border-[var(--foreground)]/10 pb-8">
-          <div>
-            <h2
-              ref={headerTitleRef}
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white tracking-tight ${isMobile ? "" : "opacity-0"}`}
-            >
-              Built for industries that don't
-              accept tradeoffs 
-              {/* <br className="hidden md:block" /> the{" "}
-              <span className="text-[var(--accent)]">Impossible</span> */}
-            </h2>
-          </div>
-          <p
-            ref={headerDescRef}
-            className={`text-[var(--muted)] max-w-sm text-sm md:text-base leading-relaxed ${isMobile ? "" : "opacity-0"}`}
-          >
-            We're building the infrastructure to manufacture precision parts faster than anyone else. Backed by the Chair of Mechanical Engineering at Western University and McMaster's MMRI.
-          </p>
-        </div>
-
-        {/* Cards with GSAP animations */}
-        <div ref={cardsContainerRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Sectors as horizontal rows */}
+        <div ref={cardsContainerRef} className="space-y-0">
           {sectors.map((sector, index) => (
-            <InteractiveCard
+            <div
               key={sector.id}
-              sector={sector}
-              index={index}
-              hoveredCard={hoveredCard}
-              setHoveredCard={setHoveredCard}
-              cardRef={(el) => (cardRefs.current[index] = el)}
-              isMobile={isMobile}
-            />
+              ref={(el) => (cardRefs.current[index] = el)}
+              className={`flex flex-col md:flex-row gap-6 md:gap-8 py-8 border-b border-white/8 ${isMobile ? "" : "opacity-0 translate-y-5"}`}
+            >
+              <div className="flex items-start gap-4 md:gap-6 flex-1">
+                <span
+                  className="text-[12px] text-white/25 font-mono mt-1"
+                  style={{ minWidth: '24px' }}
+                >
+                  0{index + 1}
+                </span>
+                <div className="flex-1">
+                  <h3 className="text-lg md:text-xl text-white/90 font-normal mb-2">
+                    {sector.title}
+                  </h3>
+                  <p className="text-[14px] text-white/50 leading-relaxed">
+                    {sector.description}
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

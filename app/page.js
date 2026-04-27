@@ -9,6 +9,8 @@ export const metadata = {
 
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import ProblemSection from "./components/ProblemSection";
+import MissionBeigeSection from "./components/MissionBeigeSection";
 import Differentiation from "./components/Differentiation";
 import Footer from "./components/Footer";
 import CallToAction from "./components/CallToAction";
@@ -18,6 +20,8 @@ export default function Home() {
     <main className="relative">
       <Header />
       <Hero />
+      <ProblemSection />
+      <MissionBeigeSection />
       <Differentiation />
       <CallToAction />
       <Footer />

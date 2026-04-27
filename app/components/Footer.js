@@ -21,38 +21,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full border-t border-white/6 bg-[var(--background)]">
-      {/* Factory ASCII background image */}
-      <div
-        className="absolute w-full pointer-events-none"
-
-        style={{ bottom: "calc(100% - 30px)", zIndex: -1, left: "50px" }}
-        aria-hidden
-      >
-        <img
-          src="/images/FACTORY_ASCII.png"
-          alt="Autonomous factory and advanced manufacturing"
-          className="w-full block"
-          style={{ filter: "invert(1)", opacity: 0.2, transform: "scale(1.5)", transformOrigin: "bottom left" }}
-        />
-      </div>
-
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 opacity-30 pointer-events-none"
-        aria-hidden
-      >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(var(--accent-rgb), 0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(var(--accent-rgb), 0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
+    <footer className="relative w-full border-t border-white/8 bg-[#0a0a0a]">
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Main footer content */}
@@ -74,7 +43,7 @@ export default function Footer() {
               </Link>
 
               {/* Mission statement */}
-              <p className="text-base text-white/60 leading-relaxed mb-6 max-w-md">
+              <p className="text-[13px] text-white/40 leading-relaxed mb-6 max-w-md">
               Inaltare genus humanum, stella oriens.
               </p>
 
@@ -93,7 +62,7 @@ export default function Footer() {
 
             {/* Navigation */}
             <div>
-              <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+              <h4 className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-5">
                 Navigate
               </h4>
               <ul className="space-y-3">
@@ -101,7 +70,7 @@ export default function Footer() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/60 hover:text-[var(--accent)] transition-colors duration-200"
+                      className="text-[13px] text-white/40 hover:text-white/80 transition-colors duration-200"
                     >
                       {item.name}
                     </Link>
@@ -112,7 +81,7 @@ export default function Footer() {
 
             {/* Applications */}
             {/* <div>
-              <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+              <h4 className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-5">
                 Applications
               </h4>
               <ul className="space-y-3">
@@ -120,7 +89,7 @@ export default function Footer() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-sm text-white/60 hover:text-[var(--accent)] transition-colors duration-200"
+                      className="text-[13px] text-white/40 hover:text-white/80 transition-colors duration-200"
                     >
                       {item.name}
                     </Link>
@@ -131,20 +100,20 @@ export default function Footer() {
 
             {/* Contact */}
             <div suppressHydrationWarning>
-              <h4 className="text-xs uppercase tracking-[0.2em] text-white/40 mb-5">
+              <h4 className="text-[11px] uppercase tracking-[0.15em] text-white/40 mb-5">
                 Contact
               </h4>
               <ul className="space-y-3" suppressHydrationWarning>
                 <li key="contact-email">
                   <a
-                    href="mailto:hello@suprnova.co"
-                    className="text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors duration-200"
+                    href="mailto:hello@orienssystems.com"
+                    className="text-[13px] text-white/40 hover:text-white/80 transition-colors duration-200"
                   >
-                    hello@oriens.systems
+                    hello@orienssystems.com
                   </a>
                 </li>
                 <li key="contact-location">
-                  <span className="text-sm text-white/60">Toronto, ON</span>
+                  <span className="text-[13px] text-white/40">Toronto, ON</span>
                 </li>
               </ul>
             </div>
@@ -152,9 +121,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-white/6">
+        <div className="py-6 border-t border-white/8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30">© 2026 ORIENS SYSTEMS</p>
+            <p className="text-[11px] text-white/25">© 2026 ORIENS SYSTEMS</p>
           </div>
         </div>
       </div>
