@@ -8,6 +8,7 @@ export const metadata = {
 };
 
 import Header from "./components/Header";
+import BackersBar from "./components/BackersBar";
 import Hero from "./components/Hero";
 import ProblemSection from "./components/ProblemSection";
 import MissionBeigeSection from "./components/MissionBeigeSection";
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <main className="relative">
       <Header />
+      <BackersBar />
       <Hero />
       <ProblemSection />
       <MissionBeigeSection />
