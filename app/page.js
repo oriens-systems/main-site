@@ -20,11 +20,11 @@ export default function Home() {
   return (
     <main className="relative">
       <Header />
-      <BackersBar />
       <Hero />
       <ProblemSection />
       <MissionBeigeSection />
       <Differentiation />
+      <BackersBar />
       <CallToAction />
       <Footer />
     </main>

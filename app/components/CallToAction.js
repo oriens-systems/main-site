@@ -62,13 +62,13 @@ export default function CallToAction() {
             className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.1] text-white mb-4"
             style={{ letterSpacing: '0.04em' }}
           >
-            The world's most efficient machine shop.
+            Ship hardware at software speed.
           </h2>
           <p
             className="text-base md:text-lg text-white/55 max-w-lg mx-auto"
             style={{ lineHeight: '1.7' }}
           >
-            We're cutting bottlenecks and delays by 80%. Backed by Western University and McMaster's MMRI. Raising $5M for Phase 1.
+            We remove quoting, scheduling, and throughput bottlenecks so your team ships faster.
           </p>
         </motion.div>
 
