@@ -1,26 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-const WireframeTorus = dynamic(() => import("./WireframeTorus"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-2 border-white/20 border-t-white/60 rounded-full animate-spin" />
-    </div>
-  ),
-});
-
-const WireframePumpImpeller = dynamic(() => import("./WireframePumpImpeller"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-2 border-white/20 border-t-white/60 rounded-full animate-spin" />
-    </div>
-  ),
-});
 
 export default function Mission() {
   const sectionRef = useRef(null);
