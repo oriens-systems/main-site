@@ -1,19 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
-
-const WireframeIcosahedron = dynamic(
-  () => import("../components/WireframeIcosahedron"),
-  {
-    ssr: false,
-    loading: () => null,
-  }
-);
 
 export default function ContactContent() {
   const heroRef = useRef(null);
@@ -73,9 +64,7 @@ export default function ContactContent() {
         <div
           className="absolute -right-[300px] md:-right-[350px] lg:-right-[200px] top-1/2 -translate-y-1/2 w-[600px] md:w-[700px] lg:w-[800px] h-[600px] md:h-[700px] lg:h-[800px] opacity-35 pointer-events-none"
           aria-hidden
-        >
-          {/* <WireframeIcosahedron /> */}
-        </div>
+        />
 
         <motion.div
           className="relative z-10 max-w-[700px] mx-auto px-6 text-center"
