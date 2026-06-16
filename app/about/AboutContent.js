@@ -239,12 +239,7 @@ export default function AboutContent() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <p
-              className="text-2xl md:text-3xl font-light text-white mb-8"
-              style={{ letterSpacing: '0.04em' }}
-            >
-              We're raising $5M for Phase 1.
-            </p>
+          
             <Button href="/interest" variant="primary" size="lg">
               REGISTER INTEREST
             </Button>
