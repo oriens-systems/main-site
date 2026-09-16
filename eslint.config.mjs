@@ -10,6 +10,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Unrouted pre-launch archive — kept for restore, not linted.
+    "app/_archive/**",
+    "app/components/_archive/**",
   ]),
 ]);
 

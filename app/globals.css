@@ -168,3 +168,25 @@ body {
   background-color: rgba(var(--accent-rgb), 0.4);
   color: white;
 }
+
+/* Pre-launch entrance — CSS-only so the page needs no client JS to become visible */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
+}

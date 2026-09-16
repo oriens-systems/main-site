@@ -9,7 +9,7 @@ export const metadata = {
     template: "%s | Oriens Systems",
   },
   description:
-    "Oriens Systems is accelerating advanced manufacturing and autonomous factories with AI in manufacturing. Closing the capacity gap with AI-powered CAM automation and factory automation.",
+    "Pushing the frontier of autonomous manufacturing. Oriens Systems is building autonomous production systems for aerospace, defense, and energy. Toronto, Canada.",
   keywords: [
     "advanced manufacturing",
     "AI in manufacturing",
@@ -17,7 +17,6 @@ export const metadata = {
     "autonomous manufacturing",
     "autonomous factories",
     "smart factories",
-    "lights-out manufacturing",
     "factory automation",
     "autonomous CAM",
     "CNC machining",
@@ -47,12 +46,12 @@ export const metadata = {
     siteName: "Oriens Systems",
     title: "Oriens Systems — Reindustrializing North America",
     description:
-      "AI in manufacturing and autonomous factories. Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
+      "Pushing the frontier of autonomous manufacturing. Building autonomous production systems for aerospace, defense, and energy. Toronto, Canada.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/og-logo.png",
+        width: 582,
+        height: 300,
         alt: "Oriens Systems — Reindustrializing North America",
       },
     ],
@@ -61,8 +60,8 @@ export const metadata = {
     card: "summary_large_image",
     title: "Oriens Systems — Reindustrializing North America",
     description:
-      "AI in manufacturing and autonomous factories. Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing.",
-    images: ["/og-image.png"],
+      "Pushing the frontier of autonomous manufacturing. Toronto, Canada.",
+    images: ["/og-logo.png"],
   },
   robots: {
     index: true,
@@ -77,7 +76,7 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/logo.png",
   },
   alternates: {
     canonical: "https://orienssystems.com",
@@ -92,7 +91,7 @@ export default function RootLayout({ children }) {
     url: "https://orienssystems.com",
     logo: "https://orienssystems.com/logo.png",
     description:
-      "Oriens Systems delivers AI in manufacturing and factory automation for autonomous factories. Building the next generation of autonomous manufacturing systems to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
+      "Oriens Systems is building autonomous production systems for aerospace, defense, and energy. Toronto, Canada.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Toronto",
@@ -111,7 +110,7 @@ export default function RootLayout({ children }) {
     name: "Oriens Systems",
     url: "https://orienssystems.com",
     description:
-      "Oriens Systems is building AI-powered autonomous manufacturing and autonomous factories to accelerate advanced manufacturing across aerospace, defense, and fusion energy.",
+      "Oriens Systems is building autonomous production systems for aerospace, defense, and energy. Toronto, Canada.",
     publisher: {
       "@type": "Organization",
       name: "Oriens Systems",

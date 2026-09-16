@@ -1,31 +1,19 @@
 export const metadata = {
   title: "Autonomous Manufacturing | Oriens Systems",
   description:
-    "Oriens Systems: AI in manufacturing and autonomous factories. Accelerating advanced manufacturing across aerospace, defense, and fusion energy. Closing the capacity gap with lights-out manufacturing and factory automation.",
+    "Oriens Systems is building autonomous production systems for aerospace, defense, and energy. Toronto, Canada.",
   alternates: {
     canonical: "https://orienssystems.com",
   },
 };
 
-import Header from "./components/Header";
-import BackersBar from "./components/BackersBar";
 import Hero from "./components/Hero";
-import ProblemSection from "./components/ProblemSection";
-import MissionBeigeSection from "./components/MissionBeigeSection";
-import Differentiation from "./components/Differentiation";
 import Footer from "./components/Footer";
-import CallToAction from "./components/CallToAction";
 
 export default function Home() {
   return (
-    <main className="relative">
-      <Header />
+    <main className="relative min-h-screen min-h-dvh flex flex-col">
       <Hero />
-      <ProblemSection />
-      <MissionBeigeSection />
-      <Differentiation />
-      <BackersBar />
-      <CallToAction />
       <Footer />
     </main>
   );
