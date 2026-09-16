@@ -17,20 +17,13 @@ export default function Hero() {
           />
         </div>
 
-        <div className="fade-up space-y-6" style={{ animationDelay: "0.1s" }}>
+        <div className="fade-up" style={{ animationDelay: "0.1s" }}>
           <h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] text-white text-balance"
             style={{ letterSpacing: "0.04em" }}
           >
             pushing the frontier of autonomous manufacturing.
           </h1>
-          <p
-            className="text-base md:text-lg text-white/60 max-w-lg mx-auto"
-            style={{ lineHeight: "1.7" }}
-          >
-            Oriens Systems is building autonomous production systems for
-            aerospace, defense, and energy. Toronto, Canada.
-          </p>
         </div>
       </div>
     </section>
