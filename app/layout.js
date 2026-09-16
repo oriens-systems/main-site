@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
       addressRegion: "ON",
       addressCountry: "CA",
     },
-    email: "hello@orienssystems.com",
+    email: "hello@oriens.systems",
     sameAs: [],
     foundingDate: "2024",
     industry: "Advanced Manufacturing",

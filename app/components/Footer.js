@@ -7,10 +7,10 @@ export default function Footer() {
             © 2026 Oriens Systems
           </p>
           <a
-            href="mailto:hello@orienssystems.com"
+            href="mailto:hello@oriens.systems"
             className="text-[13px] text-white/40 hover:text-white/80 transition-colors duration-200"
           >
-            hello@orienssystems.com
+            hello@oriens.systems
           </a>
           <p className="text-[13px] text-white/40">Toronto, ON</p>
         </div>
