@@ -182,7 +182,7 @@ export default function JoinContent() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
-                href="mailto:hello@suprnova.co?subject=Joining the Mission"
+                href="mailto:hello@oriens.systems?subject=Joining the Mission"
                 variant="primary"
                 size="lg"
                 className="w-full sm:w-auto min-w-[220px] shadow-[0_0_50px_rgba(var(--accent-rgb),0.3)]"

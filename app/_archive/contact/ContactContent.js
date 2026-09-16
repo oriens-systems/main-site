@@ -141,10 +141,10 @@ export default function ContactContent() {
                       Email
                     </p>
                     <a
-                      href="mailto:hello@suprnova.co"
+                      href="mailto:hello@oriens.systems"
                       className="text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
                     >
-                      hello@suprnova.co
+                      hello@oriens.systems
                     </a>
                   </div>
                 </div>
@@ -240,7 +240,7 @@ export default function ContactContent() {
                 </p>
 
                 <Button
-                  href="mailto:hello@suprnova.co"
+                  href="mailto:hello@oriens.systems"
                   variant="primary"
                   size="lg"
                   className="w-full"
@@ -263,7 +263,7 @@ export default function ContactContent() {
                 </Button>
 
                 <p className="mt-4 text-xs text-white/30">
-                  hello@suprnova.co • We respond within 24 hours
+                  hello@oriens.systems • We respond within 24 hours
                 </p>
               </div>
             </motion.div>

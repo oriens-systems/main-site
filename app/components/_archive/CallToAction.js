@@ -185,7 +185,7 @@ export default function CallToAction() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-white/40">
             <span>Toronto, ON</span>
             <span className="hidden md:inline text-white/20">|</span>
-            <span className="text-[var(--accent)]/70">hello@suprnova.co</span>
+            <span className="text-[var(--accent)]/70">hello@oriens.systems</span>
           </div>
         </motion.div> */}
       </motion.div>

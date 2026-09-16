@@ -292,10 +292,10 @@ export default function Bottleneck() {
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="mailto:hello@suprnova.ai"
+              href="mailto:hello@oriens.systems"
               className="rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/60 text-[var(--accent)] px-5 py-3 text-sm font-semibold hover:bg-[var(--accent)]/20 transition-colors"
             >
-              hello@suprnova.ai
+              hello@oriens.systems
             </a>
             <a
               href="#mission"

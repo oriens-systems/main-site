@@ -83,7 +83,7 @@ export default function PilotContent() {
             className="flex justify-center"
           >
             <Button
-              href="mailto:hello@suprnova.co?subject=Pilot Program - Notify Me"
+              href="mailto:hello@oriens.systems?subject=Pilot Program - Notify Me"
               variant="primary"
               size="lg"
             >
